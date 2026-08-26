@@ -1,0 +1,260 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #FF9900;
+  --ifm-color-primary-dark: #FF9900;
+  --ifm-color-primary-darker: #FF9900;
+  --ifm-color-primary-darkest: #FF9900;
+  --ifm-color-primary-light: #FF9900;
+  --ifm-color-primary-lighter: #FF9900;
+  --ifm-color-primary-lightest: #FF9900;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode palette (lighter for readability) */
+[data-theme="dark"] {
+  --ifm-color-primary: #FF9900;
+  --ifm-color-primary-dark: #FF9900;
+  --ifm-color-primary-darker: #FF9900;
+  --ifm-color-primary-darkest: #FF9900;
+  --ifm-color-primary-light: #FF9900;
+  --ifm-color-primary-lighter: #FF9900;
+  --ifm-color-primary-lightest: #FF9900;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Changelog label styles */
+.label {
+  display: inline-block;
+  padding: 0.15em 0.4em;
+  font-size: 80%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  margin-right: 0.5em;
+}
+
+.label-added {
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+}
+
+.label-redesign,
+.label-updated,
+.label-improved {
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+}
+
+.label-compatible {
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+}
+
+.label-fixed {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.label-major,
+.label-initial {
+  color: #212529;
+  background-color: #ffc107;
+}
+
+.hero {
+  background-color: #fef5e6;
+  color: var(--ifm-color-primary-darkest);
+}
+
+.hero__title,
+.hero__subtitle {
+  color: var(--ifm-color-primary-darkest);
+}
+
+.button.button--secondary {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+  border-color: var(--ifm-color-primary);
+}
+
+.button.button--secondary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: #ffffff;
+  border-color: var(--ifm-color-primary-dark);
+}
+
+[data-theme="dark"] .hero {
+  background-color: #28b2760c;
+  color: var(--ifm-color-primary-lighter);
+}
+
+[data-theme="dark"] .hero__title,
+[data-theme="dark"] .hero__subtitle {
+  color: var(--ifm-color-primary-lighter);
+}
+
+.footer {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+.featureSvg {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
+/* Sidebar styling */
+.menu__list-item-collapsible {
+  font-weight: 600;
+}
+
+.menu__list-item-collapsible .menu__link {
+  color: var(--ifm-color-primary);
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: var(--ifm-menu-color-background-hover);
+}
+
+/* Add a little spacing between sidebar categories */
+.menu__list>.menu__list-item {
+  margin-top: 8px;
+}
+
+/* Indent the child items for better hierarchy */
+.menu__list .menu__list {
+  padding-left: 1rem;
+}
+
+/* Critical fix: Ensure sidebar is always visible */
+aside.theme-doc-sidebar-container {
+  display: block !important;
+  will-change: initial !important;
+  margin-left: 0 !important;
+}
+
+/* Make sure sidebar has proper width on all devices */
+@media (min-width: 997px) {
+  .docSidebar {
+    width: 300px !important;
+    min-width: 300px !important;
+  }
+}
+
+/* Active item styling */
+.menu__link--active {
+  font-weight: 600;
+}
+
+/* Highlight the active section */
+.menu__list-item-collapsible--active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .menu__list-item-collapsible--active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Search bar styling */
+.navbar__search {
+  margin-left: 20px;
+}
+
+/* Fix for search icon and text visibility */
+.navbar-search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-navbar-search-input-background-color);
+  color: var(--ifm-color-primary);
+  transition: all 0.2s ease;
+}
+
+.navbar-search-button:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.navbar-search-button .searchBar_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module {
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+}
+
+/* Search modal styling */
+.search-modal {
+  background-color: var(--ifm-background-color);
+  border-radius: 8px;
+}
+
+.search-modal input {
+  border-radius: 20px;
+  padding: 10px 15px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-navbar-search-input-background-color);
+  color: var(--ifm-font-color-base);
+  font-size: 16px;
+}
+
+.search-modal input:focus {
+  border-color: var(--ifm-color-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.3);
+}
+
+/* Search results styling */
+.search-result-match {
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+}
+
+.search-result-document-title {
+  font-size: 1.2em;
+  margin-bottom: 0.5rem;
+}
+
+/* Make search modal backdrop have a proper dark background in dark mode */
+[data-theme="dark"] .navbar-search-popup {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Custom search button styling to make it more visible */
+.navbar__items--right .navbar__item.navbar__search {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-search-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: var(--ifm-background-color);
+  transition: all 0.2s ease;
+}
+
+.navbar-search-button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.doc-banner-wrapper {
+  margin: 24px 0px;
+}

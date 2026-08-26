@@ -1,0 +1,43 @@
+---
+sidebar_position: 1
+---
+
+import DocBanner from '../promotion-banner/DocBanner.jsx';
+
+<div className="doc-banner-wrapper">
+  <DocBanner />
+</div>
+
+# Frequently Asked Questions (FAQ)
+
+This section contains answers to frequently asked questions about eMarket platform system updates and troubleshooting.
+
+## System Updater
+
+### Update Notice
+
+This update includes backend library changes.
+
+### If the panel does not open after updating:
+
+#### If your server supports Composer:
+Run the following command:
+```bash
+composer install --no-dev --optimize-autoloader
+```
+
+#### If your server does NOT support Composer:
+Replace the entire vendor folder with the vendor folder provided in the update package. (Recommended)
+
+#### After replacing the vendor folder:
+Run the following URL in your browser:
+```
+https://yourdomain.com/migration
+```
+
+### How to Update The System
+
+1. Navigate to the **System Updater** section in your admin panel
+2. Review the changelog to see what's included in the update
+3. Click the **Update The System** button to begin the update process
+4. Follow the post-update instructions mentioned above if needed

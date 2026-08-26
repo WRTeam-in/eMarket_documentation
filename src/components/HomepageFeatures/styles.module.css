@@ -1,0 +1,68 @@
+.features {
+  display: flexbox;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 60px;
+  width: 60px;
+  margin: 10px auto;
+  display: inline-block;
+  background-color: #ff9900;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.featureLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.featureLink:hover {
+  transform: translateY(-5px);
+  text-decoration: none;
+}
+
+.featureCard {
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  height: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-color: var(--ifm-color-primary);
+}
+
+.featureCard h3 {
+  color: var(--ifm-color-primary);
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.featureCard p {
+  color: var(--ifm-font-color-base);
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Add responsive sizing */
+@media screen and (max-width: 996px) {
+  .featureSvg {
+    height: 100px;
+    width: 100px;
+  }
+}
