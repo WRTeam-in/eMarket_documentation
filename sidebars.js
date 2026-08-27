@@ -17,6 +17,9 @@
 const sidebars = {
   // Main sidebar for all documentation
   docsSidebar: [
+    // Platform overview — lands at /docs/
+    "intro",
+
     // Admin Panel Documentation
     {
       type: "category",
@@ -74,11 +77,22 @@ const sidebars = {
       items: [
         "flutter-app/intro",
         "flutter-app/installation",
-        "flutter-app/app-configuration",
+        {
+          type: "category",
+          label: "App Configuration",
+          items: [
+            "flutter-app/app-configuration/run-the-app",
+            "flutter-app/app-configuration/app-icon",
+            "flutter-app/app-configuration/app-name-version",
+            "flutter-app/app-configuration/package-name",
+            "flutter-app/app-configuration/app-theme",
+            "flutter-app/app-configuration/fonts-assets",
+            "flutter-app/app-configuration/languages",
+          ],
+        },
         "flutter-app/server-api-config",
         "flutter-app/firebase-integration",
         "flutter-app/map-location-services",
-        "flutter-app/additional-config",
         "flutter-app/in-app-purchase",
         "flutter-app/app-distribution",
         "flutter-app/support",
@@ -92,7 +106,19 @@ const sidebars = {
       items: [
         "flutter-partner-app/intro",
         "flutter-partner-app/installation",
-        "flutter-partner-app/configuration",
+        {
+          type: "category",
+          label: "Configuration",
+          items: [
+            "flutter-partner-app/configuration/run-the-app",
+            "flutter-partner-app/configuration/app-logo",
+            "flutter-partner-app/configuration/app-name-version",
+            "flutter-partner-app/configuration/package-name",
+            "flutter-partner-app/configuration/app-theme",
+            "flutter-partner-app/configuration/fonts-assets",
+            "flutter-partner-app/configuration/languages",
+          ],
+        },
         "flutter-partner-app/map-location-services",
         "flutter-partner-app/firebase-integration",
         "flutter-partner-app/app-distribution",

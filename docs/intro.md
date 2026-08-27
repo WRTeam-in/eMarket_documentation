@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 slug: /
+sidebar_label: Introduction
 ---
 
 # eMarket Documentation
@@ -9,7 +10,7 @@ Welcome to the official documentation for eMarket - the complete multi-vendor, m
 
 ## What is eMarket?
 
-eMarket is a comprehensive multi-vendor commerce platform built around a multi-module system. It currently covers Grocery, Pharmacy, and eCommerce modules, with Food Delivery (including table reservation for restaurants) coming soon, and Parcel Delivery and Ride Booking modules planned. The platform consists of:
+eMarket is a comprehensive multi-vendor commerce platform built around a multi-module system. It currently covers Grocery, Pharmacy, and eCommerce modules. The platform consists of:
 
 1. **Website** - A responsive web interface for customers to browse and purchase products
 2. **Admin Panel** - A powerful dashboard for managing products, orders, vendors, and more

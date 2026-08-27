@@ -8,63 +8,17 @@ The eMarket Partner App includes location-based features for vendors and deliver
 
 ## Google Maps Integration
 
-To use Google Maps in the Partner App, you need to set up Google Maps API with proper API keys:
+Setting up your Google Maps API keys and billing is the same for every WRTeam app, so the full steps live in our common setup guide:
 
-### For Android
+👉 **[Firebase Billing, Maps & Places Setup](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase-billing)**
 
-1. Visit the [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable Google Maps API for Android
-4. Create an API key with appropriate restrictions
+That guide covers upgrading Firebase to the Blaze plan, linking a billing account, enabling the required APIs, creating your keys, and adding them to `AndroidManifest.xml` and `AppDelegate.swift`.
 
-   ![Google Maps API Setup](/img/flutter-partner-app/mapAPI1.webp)
+The partner app can reuse the **same** Google Maps keys as the customer app — they are per-project, not per-app.
 
-5. Add the API key to your project:
-
-   - Open `android/app/src/main/AndroidManifest.xml`
-   - Add the following inside the `<application>` tag:
-
-   ```xml
-   <meta-data
-     android:name="com.google.android.geo.API_KEY"
-     android:value="YOUR_API_KEY_HERE" />
-   ```
-
-   ![Android Maps Config](/img/flutter-partner-app/mapAPI2.webp)
-
-### For iOS
-
-1. Visit the [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable Google Maps API for iOS
-4. Create an API key with appropriate restrictions
-
-   ![Google Maps API Key](/img/flutter-partner-app/mapAPI3.webp)
-
-5. Add the API key to your project:
-
-   - Open `ios/Runner/AppDelegate.swift` or create it if it doesn't exist
-   - Add the following code:
-
-   ```swift
-   import UIKit
-   import Flutter
-   import GoogleMaps
-
-   @UIApplicationMain
-   @objc class AppDelegate: FlutterAppDelegate {
-     override func application(
-       _ application: UIApplication,
-       didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-     ) -> Bool {
-       GMSServices.provideAPIKey("YOUR_API_KEY_HERE")
-       GeneratedPluginRegistrant.register(with: self)
-       return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-     }
-   }
-   ```
-
-   ![iOS Maps Config](/img/flutter-partner-app/mapAPI4.webp)
+:::note
+Google Maps and Places return nothing without a billing account attached, even inside the free tier. If maps render blank, check that first.
+:::
 
 ## Delivery Partner Location Tracking
 

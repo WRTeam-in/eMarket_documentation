@@ -49,13 +49,6 @@ sidebar_position: 2
 
 This page lists all released versions of the eMarket platform with release dates and key changes.
 
-## Documentation Update - 24 August 2026
-
-- <span class="label label-added">ADDED</span> New "Features" page listing 74 platform capabilities in a card grid, sourced from the official feature grid
-- <span class="label label-updated">UPDATED</span> Platform description across the docs to reflect the multi-vendor, multi-module positioning (Grocery, Pharmacy, eCommerce live; Food Delivery with restaurant table reservation coming soon; Parcel Delivery and Ride Booking planned) instead of grocery-only language
-- <span class="label label-updated">UPDATED</span> Features page route moved from `/docs/features-new` to `/docs/features`, replacing the old Features page
-- <span class="label label-updated">UPDATED</span> Homepage tagline and meta description to match the new multi-module positioning
-
 ## Version 4.0.0 - 22 August 2026
 
 - <span class="label label-added">ADDED</span> Migration eGrocer to eMarket (Whole new multi module system)

@@ -4,78 +4,22 @@ sidebar_position: 6
 
 # Map and Location Services
 
-## Map API Key In Code
+eMarket uses Google Maps for delivery addresses, store locations, and live order tracking. Setting this up is the same for every WRTeam app, so the full steps live in our common setup guide:
 
-Follow these steps to add map API keys in your code:
+👉 **[Firebase Billing, Maps & Places Setup](https://wrteam-in.github.io/common_app_doc/GeneralSettings/firebase-billing)**
 
-### For Android
+That guide covers the whole process end to end:
 
-1. Copy your Google Maps API key
+1. Upgrading your Firebase project from the Spark plan to the **Blaze** (pay as you go) plan
+2. Linking a billing account to your Google Cloud project
+3. Enabling the required APIs — Maps SDK for Android, Maps SDK for iOS, Geocoding, Places, Routes, and Maps JavaScript
+4. Creating your API keys and setting their restrictions
+5. Adding the keys to your app — `AndroidManifest.xml` for Android, `AppDelegate.swift` for iOS
 
-   ![Copy Android Map API Key](/img/flutter-app/copy-android-map-api-key.webp)
+## Why Billing Is Required
 
-2. Paste it in the appropriate location in your Android code
+Google Maps and Places will not return results without a billing account attached, even inside the free tier. Firebase phone OTP login has the same requirement. If maps render blank or address search returns nothing, an unlinked billing account is the first thing to check.
 
-   ![Paste Android Map API Key](/img/flutter-app/paste-android-map-api-key.webp)
+## Also Add Your Key to the Admin Panel
 
-### For iOS
-
-1. Copy your Google Maps API key for iOS
-
-   ![Copy iOS Map API Key](/img/flutter-app/copy-ios-map-api-key.webp)
-
-2. Paste it in the appropriate location in your iOS code
-
-   ![Paste iOS Map API Key](/img/flutter-app/paste-ios-map-api-key.webp)
-
-## Enable Firebase Blaze Plan
-
-To use certain Firebase features, you need to upgrade to the Blaze (Pay as you go) Plan:
-
-1. Go to your Firebase console
-2. Navigate to the Billing section
-3. Select "Upgrade to Blaze Plan"
-4. Enter your billing information and confirm
-
-## Enable Map Billing
-
-To use Google Maps services, you need to enable billing:
-
-1. Go to the Google Cloud Console
-2. Select your project
-
-   ![Map API Key 1](/img/flutter-app/map-api-key-1.webp)
-
-3. Navigate to "Google Maps Platform" > "APIs"
-
-   ![Map API Key 2](/img/flutter-app/map-api-key-2.webp)
-   ![Map API Key 3](/img/flutter-app/map-api-key-3.webp)
-
-4. Enable the necessary APIs:
-
-   - Maps SDK for Android
-   - Maps SDK for iOS
-   - Places API
-   - Geocoding API
-   - Directions API
-   - Distance Matrix API
-   - Places API (New)
-   - Maps JAvascript API
-
-   ![Map API Key 4](/img/flutter-app/map-api-key-4.webp)
-   ![Map API Key 5](/img/flutter-app/map-api-key-5.webp)
-   ![Map API Key 6](/img/flutter-app/map-api-key-6.webp)
-   ![Map API Key 7](/img/flutter-app/map-api-key-7.webp)
-
-5. Under Billing, ensure your account is properly set up with payment information
-
-   ![Map API Key 8](/img/flutter-app/map-api-key-8.webp)
-   ![Map API Key 9](/img/flutter-app/map-api-key-9.webp)
-   ![Map API Key 10](/img/flutter-app/map-api-key-10.webp)
-
-6. Create API restrictions to secure your API keys
-
-   ![Map API Key 11](/img/flutter-app/map-api-key-11.webp)
-   ![Map API Key 12](/img/flutter-app/map-api-key-12.webp)
-   ![Map API Key 13](/img/flutter-app/map-api-key-13.webp)
-   ![Map API Key 14](/img/flutter-app/map-api-key-14.webp)
+The app is only one half of the setup. The admin panel and website need the same Google Maps key entered separately — see [Map API Key Settings](../admin-panel/map-api-key-settings.md).

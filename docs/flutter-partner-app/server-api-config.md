@@ -18,7 +18,7 @@ To configure the server URL for the eMarket Partner App:
 
 ## Change API Parameters
 
-You can change or add API parameters from lib > Helper > String.dart. Here, all list of APIs and API parameters are listed that are used in the app.
+You can change or add API parameters from `lib > helper > utils > apiAndParams.dart`. Here, all list of APIs and API parameters are listed that are used in the app.
 
 ![API Parameters](/img/flutter-partner-app/api.webp)
 

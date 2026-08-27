@@ -25,7 +25,7 @@ function HomepageHeader() {
             Get Started
           </Link>
         </div> */}
-      <DocBanner />
+        <DocBanner />
       </div>
     </header>
   );
@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Documentation for eMarket - Multi-Vendor, Multi-Module Commerce Platform covering Grocery, Pharmacy, eCommerce, Food Delivery, and more, with Flutter Apps and Admin Panel"
+      description="Documentation for eMarket - Multi-Vendor, Multi-Module Commerce Platform covering Grocery, Pharmacy, eCommerce modules, with Flutter Apps and Admin Panel"
     >
       <HomepageHeader />
       <main>

@@ -4,75 +4,20 @@ sidebar_position: 6
 
 # App Distribution
 
-## Generate Release APK
+Publishing to the stores is the same for every WRTeam app, so the full steps live in our common setup guide:
 
-To generate a release APK for the eMarket Partner App:
+👉 **[Deployment](https://wrteam-in.github.io/common_app_doc/GeneralSettings/deployment)**
 
-1. Create an upload keystore by running one of the following commands:
+- **[Publish to Google Play Store](https://wrteam-in.github.io/common_app_doc/GeneralSettings/deployment/playstore)** — creating the upload keystore, `key.properties`, and building the APK / App Bundle
+- **[Publish to Apple App Store](https://wrteam-in.github.io/common_app_doc/GeneralSettings/deployment/appstore)** — signing, archiving in Xcode, validating, and submitting
 
-   - On Mac/Linux:
-     ```
-     keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-     ```
-   - On Windows:
-     ```
-     keytool -genkey -v -keystore c:\Users\USER_NAME\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-     ```
+## Before You Publish
 
-   ![Modify Path](/img/flutter-partner-app/modifyPath.webp)
-   ![Remember Password](/img/flutter-partner-app/remeberPassword.webp)
-   ![Success](/img/flutter-partner-app/success.webp)
+Work through these partner-app items first — each one requires a new build to correct:
 
-2. Reference the keystore from the app:
-
-   - Create a file named [project]/android/key.properties that contains a reference to your keystore:
-
-   ![Create File](/img/flutter-partner-app/createfile.webp)
-
-   - Copy below code, paste into key.properties file and change as per your configuration:
-     ```
-     storePassword=<password from previous step>
-     keyPassword=<password from previous step>
-     keyAlias=upload
-     storeFile=<location of the key store file, such as /Users/username/upload-keystore.jks>
-     ```
-
-   ![Set Path](/img/flutter-partner-app/setPath.webp)
-
-3. Run one of the following commands in Terminal:
-   - To generate an APK:
-     ```
-     flutter build apk
-     ```
-   - To generate an App Bundle:
-     ```
-     flutter build appbundle
-     ```
-     ![Generate APK](/img/flutter-partner-app/generateAPK.webp)
-
-## Publish iOS App to App Store
-
-To publish your eMarket Partner App to the iOS App Store:
-
-1. Open your Project's Runner.xcworkspace file in Xcode
-2. Add your Team [Your Apple Developer ID]
-3. Insert GoogleService-Info.plist file [Downloaded from Firebase Project] inside the folder named Runner
-
-   ![iOS 1](/img/flutter-partner-app/ios1.webp)
-
-4. Select **Any iOS Device (armv7,arm64)**
-
-   ![iOS 2](/img/flutter-partner-app/ios2.webp)
-
-5. Select **Archive** from the Product Menu of Xcode
-
-   ![iOS 3](/img/flutter-partner-app/ios3.webp)
-
-6. Once Build/Archive is generated, a popup window will be shown
-7. Validate app first, and after successful validation, you can distribute the app to AppStore
-
-   ![iOS 4](/img/flutter-partner-app/ios4.webp)
-
-8. After successful submission of the build file, it will be reflected in your Apple Developer Account
-
-For detailed help, see [Submit Your App to the App Store](https://codewithchris.com/submit-your-app-to-the-app-store/)
+1. **Separate store listing** — the partner app must use a **different package name** from the customer app. See [Package Name](./configuration/package-name.md).
+2. **Server URL** — confirm it points at your live admin panel, not a demo or staging server. See [Server and API Configuration](./server-api-config.md).
+3. **App name, logo and version** — see [App Name & Version](./configuration/app-name-version.md) and [App Logo](./configuration/app-logo.md).
+4. **Firebase** — the release build needs its own SHA-1 / SHA-256 keys registered, separate from your debug keys. See [Firebase Integration](./firebase-integration.md).
+5. **Background location** — the partner app requests background location for delivery tracking. Both stores require you to declare and justify this in the listing, and Google Play reviews it separately. See [Map & Location Services](./map-location-services.md).
+6. **Privacy policy URL** — required by both stores.

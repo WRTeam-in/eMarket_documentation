@@ -4,7 +4,11 @@ sidebar_position: 10
 
 # Theme Settings
 
-Customize admin panel's color scheme from here. Navigate to **System → Theme Settings**.
+Customize the platform's color scheme from here. Navigate to **System → Theme Settings**.
+
+These colors apply to the **website** and the **customer app** — both download the palette from the server, so changing your brand color here does not require rebuilding or resubmitting the app.
+
+The admin panel's own interface and the partner app are not affected by these settings.
 
 ![Theme Settings](/img/admin-panel/theme-settings.png)
 
@@ -42,7 +46,11 @@ Each status color has its own hex input, shade preview, **Reset to Default**, an
 
 ## Important Notes
 
-- Changes apply across admin panel UI after save
+- Changes apply to the website and customer app after save
+- The admin panel interface and the partner app keep their own colors and are not changed here
+- The customer app picks up the new palette on next launch; it caches the last palette so it still renders correctly offline
+- You enter one Primary and one Neutral color; the system generates the full shade range from each
+- Light and dark mode share the same palette and are not configured separately
 - Use accessible color contrast for readability
 - Reset to Default restores original color for that section only
 

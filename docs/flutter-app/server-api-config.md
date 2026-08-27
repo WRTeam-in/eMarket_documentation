@@ -8,45 +8,45 @@ sidebar_position: 4
 
 1. Open your admin panel, copy link from URL as shown below
 
-![Server URL Admin](/img/flutter-app/serverurladmin.webp)
+![Server URL Admin](/img/flutter-app/serverurladmin.png)
 
 2. In Android code go to lib > helper > utils > constant.dart and paste the URL
 
-![Server URL Code](/img/flutter-app/serverurladmin2.webp)
+![Server URL Code](/img/flutter-app/serverurladmin2.png)
 
 ## Change Default Country Code For OTP
 
-Go to lib > helper > Constant.dart file. Inside that, the defaultCountryCode variable is available where you have to change country code to your language code.
+The country selected by default on the login screen comes from the **admin panel**:
 
-![OTP Country Code](/img/flutter-app/otp.webp)
+1. Log in to admin panel
+2. Go to **Store Settings → Other Setting** tab
+3. Set the **Country Code** (for example `+91`)
+4. Click **Update**
 
-## Deeplink Setup
+The app reads this on startup and preselects the matching country, so this is the setting you normally want.
 
-1. First download the google files from this link: [Server Side Deeplink Files](https://drive.google.com/drive/folders/1LbSXPmTRvz6-VWdr4isJz9AE00p8ynJ6)
-2. Open both files in any text editor
+### Fallback in code
 
-![Deeplink 1](/img/flutter-app/deep-link-1.webp)
+Until the app has loaded settings from the server (for example on first launch with no internet), it falls back to the `initialCountryCode` value in `lib > helper > utils > constant.dart`:
 
-![Deeplink 2](/img/flutter-app/deep-link-2.webp)
+```dart
+static String initialCountryCode = "IN";
+```
 
-3. After making changes, save both files (Note - Keep the name proper and the same for both files)
-4. Open server > Go to admin panel root folder
-5. You will find a .well-known folder on root directory
-6. If you don't see that folder, enable settings to view hidden files
-7. If you still don't find the files, create a new directory named **.well-known** (Make sure the name starts with a dot [.])
-8. Add both saved files inside the **.well-known** folder
-9. In server > admin panel root folder, you will find a **.htaccess** file. Open it and make changes as needed
+Set it to a two-letter ISO country code such as `"IN"` or `"US"` — note this is the **ISO code**, not the dial code. Leaving it empty means no country is preselected until settings load.
 
-![Deeplink 3](/img/flutter-app/deep-link-3.webp)
+![OTP Country Code](/img/flutter-app/otp.png)
+## Increase Product Load Limit
 
-10. For further steps, open customer app code in Android Studio
+You can change how many items are fetched at a time when a request is sent to the server.
 
-![Deeplink 4](/img/flutter-app/deep-link-4.webp)
+1. Go to `lib > helper > utils > constant.dart`
+2. Adjust these values as needed:
 
-![Deeplink 5](/img/flutter-app/deep-link-5.webp)
+```dart
+static int defaultImagesLoadLimitAtOnce = 10;
+static int defaultDataLoadLimitAtOnce = 10;
+static int defaultGridDataLoadLimitAtOnce = 20;
+```
 
-## Change API Parameter
-
-You can change or add API parameters from lib > Helper > String.dart. Here, all list of APIs and API parameters are listed that are used in the app.
-
-![API Parameters](/img/flutter-app/api.webp)
+![Limit](/img/flutter-app/limit.png)

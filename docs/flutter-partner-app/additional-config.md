@@ -6,53 +6,43 @@ sidebar_position: 9
 
 ## Troubleshooting Flutter Issues
 
-If you are encountering errors when running the eMarket Partner App, you can try these troubleshooting steps:
+If you are encountering errors when running the eMarket Partner App, try these steps:
 
-1. If firewall is on in your system, temporarily disable it and try to run the project
-2. If your flutter channel is not stable, change it to stable:
-
-   - Check your flutter channel in terminal by typing `flutter channel`
-
-   ![Check Channel](/img/flutter-partner-app/ch1.webp)
-
-   - If not in stable, type `flutter channel stable`
-
-3. Go to Tools > Flutter > Flutter Clean
-4. Go to file > invalidate cache/restart
+1. Confirm your Flutter and JDK versions match the table in [Partner App Installation](./installation.md) — a version mismatch is the most common cause
+2. Clear and refetch packages: `flutter clean` then `flutter pub get`
+3. In Android Studio, use **File → Invalidate Caches / Restart**
+4. If your firewall blocks the package download, disable it temporarily and run again
 
 ## Flutter Version Management
 
-### Upgrade to Flutter 2.x
+If `flutter doctor` reports **"license status unknown"** after changing Flutter versions:
 
-If you need to upgrade to Flutter 2.x:
+![Upgrade Error](/img/flutter-partner-app/upgrade1.webp)
 
-1. For upgrade, go to terminal in Android Studio and type `flutter upgrade`. It will automatically pick the latest version with stable channel
-2. If you have updated to Flutter 2.x, after upgrade run `flutter doctor`. If you see an error like "license status unknown":
+1. Open **SDK Manager** from the upper right corner, then go to **Android SDK**
+2. Select the **SDK Tools** tab
+3. Uncheck **Hide obsolete packages**
+4. Check **Android SDK Command-line tools (latest)**, then click Apply and OK to download it
 
-   ![Upgrade Error](/img/flutter-partner-app/upgrade1.webp)
+![SDK Tools](/img/flutter-partner-app/upgrade2.webp)
 
-3. Go to SDK Manager from the upper right corner, then go to Android SDK. Inside that select SDK Tools, then uncheck "Hide obsolete packages". Check "Android SDK Command-line tools (latest)" then apply and ok. It will download the latest version:
+5. Run `flutter doctor` again — the error should be resolved
 
-   ![SDK Tools](/img/flutter-partner-app/upgrade2.webp)
+:::warning `flutter upgrade` moves you off the tested version
+eMarket 4.0.0 is built and tested against Flutter 3.44.8. Running `flutter upgrade` pulls the newest stable release, which may be newer than that and can break the build. To return to the tested version, check it out directly in your Flutter SDK folder:
 
-4. Now run `flutter doctor` again, and your error should be resolved
+```bash
+git checkout 3.44.8
+flutter --version
+```
+:::
 
-## Manage Languages
+## Looking for something else?
 
-You can manage all app and website languages from the admin panel:
-
-1. Go to Admin Panel > Language > Add Language OR Manage Languages
-
-   ![Manage Languages](/img/flutter-partner-app/lan1.webp)
-
-## Change Font Family
-
-1. You need to select a font from Google Fonts only. Visit [https://fonts.google.com/](https://fonts.google.com/)
-
-   ![Google Fonts](/img/flutter-partner-app/google-font.webp)
-
-## Change Assets Images
-
-Go to Assets > images folder. Here you have 2 folders: 1.webp and 2.svg. You can change your image to an existing image with the same name.
-
-![Change Images](/img/flutter-partner-app/imageschange.webp)
+| Task | Where it lives |
+| ---- | -------------- |
+| Change languages | [Languages](./configuration/languages.md) |
+| Change font family | [Fonts & Assets](./configuration/fonts-assets.md) |
+| Replace images | [Fonts & Assets](./configuration/fonts-assets.md) |
+| Change app colors | [App Theme](./configuration/app-theme.md) |
+| Change server URL | [Server & API Configuration](./server-api-config.md) |
