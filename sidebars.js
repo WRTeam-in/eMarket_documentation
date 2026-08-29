@@ -44,10 +44,10 @@ const sidebars = {
         "admin-panel/cart-reminder",
         "admin-panel/app-settings",
         "admin-panel/map-api-key-settings",
+        "admin-panel/gemini-config",
         "admin-panel/subscription",
         "admin-panel/support",
         "admin-panel/feedback",
-        "admin-panel/contact",
       ],
     },
     // Website Documentation
@@ -124,8 +124,6 @@ const sidebars = {
         "flutter-partner-app/app-distribution",
         "flutter-partner-app/server-api-config",
         "flutter-partner-app/support",
-        "flutter-partner-app/additional-config",
-        "flutter-partner-app/gemini-config"
       ],
     },
 
@@ -149,6 +147,9 @@ const sidebars = {
       label: "FAQ",
       items: ["faq/intro"],
     },
+
+    // Contact — applies to every section, so it sits at the top level
+    "contact",
   ],
 };
 

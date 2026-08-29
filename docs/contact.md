@@ -1,5 +1,6 @@
 ---
-sidebar_position: 18
+sidebar_position: 99
+sidebar_label: Contact Us
 ---
 
 # Contact Us
@@ -12,7 +13,7 @@ WRTeam has creative and dedicated group of developers who are mastered in Apps D
 
 Visit Us : [https://wrteam.in](https://wrteam.in/)
 
-Head of Customer Support : Hency Pithadiya  
+Head of Customer Support : Deep Velani  
 Teams: [Deep Velani](https://teams.live.com/l/invite/FEAzZULbcUFLxWFGAI?v=g1)
 
 Mail Us : support@wrteam.in

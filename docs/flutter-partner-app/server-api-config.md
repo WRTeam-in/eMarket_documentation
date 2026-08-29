@@ -1,43 +1,52 @@
 ---
-sidebar_position: 7
+sidebar_position: 4
 ---
 
-# Server & API Configuration
+# Server and API Configuration
 
-## Change Server URL
-
-To configure the server URL for the eMarket Partner App:
+## Server URL Setup
 
 1. Open your admin panel, copy link from URL as shown below
 
-   ![Server URL Admin](/img/flutter-partner-app/serverurladmin.webp)
+![Server URL Admin](/img/flutter-app/serverurladmin.png)
 
 2. In Android code go to lib > helper > utils > constant.dart and paste the URL
 
-   ![Server URL Code](/img/flutter-partner-app/serverurladmin2.webp)
+![Server URL Code](/img/flutter-app/serverurladmin2.png)
 
-## Change API Parameters
+## Change Default Country Code For OTP
 
-You can change or add API parameters from `lib > helper > utils > apiAndParams.dart`. Here, all list of APIs and API parameters are listed that are used in the app.
+The country selected by default on the login screen comes from the **admin panel**:
 
-![API Parameters](/img/flutter-partner-app/api.webp)
+1. Log in to admin panel
+2. Go to **Store Settings → Other Setting** tab
+3. Set the **Country Code** (for example `+91`)
+4. Click **Update**
 
+The app reads this on startup and preselects the matching country, so this is the setting you normally want.
+
+### Fallback in code
+
+Until the app has loaded settings from the server (for example on first launch with no internet), it falls back to the `initialCountryCode` value in `lib > helper > utils > constant.dart`:
+
+```dart
+static String initialCountryCode = "IN";
+```
+
+Set it to a two-letter ISO country code such as `"IN"` or `"US"` — note this is the **ISO code**, not the dial code. Leaving it empty means no country is preselected until settings load.
+
+![OTP Country Code](/img/flutter-app/otp.png)
 ## Increase Product Load Limit
 
-You can change how many items are fetched at a time when a request is sent to the server:
+You can change how many items are fetched at a time when a request is sent to the server.
 
-1. Go to lib > helper > Constant.dart
-2. Find the parameter that controls the product load limit
-3. Adjust the value as needed
+1. Go to `lib > helper > utils > constant.dart`
+2. Adjust these values as needed:
 
-![Limit](/img/flutter-partner-app/limit.webp)
+```dart
+static int defaultImagesLoadLimitAtOnce = 10;
+static int defaultDataLoadLimitAtOnce = 10;
+static int defaultGridDataLoadLimitAtOnce = 20;
+```
 
-## Privacy Policy URL for PlayStore
-
-To get the privacy policy URL for your PlayStore submission:
-
-1. First login to admin panel
-2. Go to System > Privacy Policy
-3. Use the URL provided there in your app store submissions
-
-![Privacy](/img/flutter-partner-app/privacy.webp)
+![Limit](/img/flutter-app/limit.png)

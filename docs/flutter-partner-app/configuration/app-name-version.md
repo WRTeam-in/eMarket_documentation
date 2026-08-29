@@ -12,20 +12,20 @@ This is the label shown under the app icon on the home screen.
 
 Open `android > app > src > main > AndroidManifest.xml` and change the `android:label` string.
 
-![Android App Name](/img/flutter-partner-app/appname2.webp)
+![Android App Name](/img/flutter-app/androidname.png)
 
 ### For iOS
 
 Open `ios > Runner > Info.plist`, find `<key>CFBundleName</key>`, and change that string.
 
-![iOS App Name](/img/flutter-partner-app/appname3.webp)
+![iOS App Name](/img/flutter-app/iosname.png)
 
 ## Change App Version
 
 1. Go to `pubspec.yaml`
 2. Update `version: A.B.C+X`
 
-![Version Change](/img/flutter-partner-app/version_1.webp)
+![Version Change](/img/flutter-app/version_1.png)
 
 For Android:
 
