@@ -83,6 +83,7 @@ const sidebars = {
           items: [
             "flutter-app/app-configuration/run-the-app",
             "flutter-app/app-configuration/app-icon",
+            "flutter-app/app-configuration/splash-screen",
             "flutter-app/app-configuration/app-name-version",
             "flutter-app/app-configuration/package-name",
             "flutter-app/app-configuration/app-theme",
