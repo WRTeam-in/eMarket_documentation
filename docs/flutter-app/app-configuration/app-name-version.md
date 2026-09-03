@@ -6,7 +6,14 @@ sidebar_position: 4
 
 ## Change App Name
 
-This is the label shown under the app icon on the home screen.
+The app name is stored in **four separate places**, and each one controls something different. Changing one does not change the others, so for a full rename you need all four.
+
+| Where | What it controls |
+| ----- | ---------------- |
+| `AndroidManifest.xml` | The label under the app icon on Android |
+| `Info.plist` | The label under the app icon on iOS |
+| `constant.dart` | The name drawn on the splash screen |
+| Your language file | The name used inside the app — around 20 screens |
 
 ### For Android
 
@@ -16,9 +23,40 @@ Open `android > app > src > main > AndroidManifest.xml` and change the `android:
 
 ### For iOS
 
-Open `ios > Runner > Info.plist`, find `<key>CFBundleName</key>`, and change that string.
+Open `ios > Runner > Info.plist` and change **both** of these strings:
+
+- `CFBundleDisplayName` — the name shown under the icon on the home screen
+- `CFBundleName` — the short name iOS falls back to, limited to 15 characters
 
 ![iOS App Name](/img/flutter-app/iosname.png)
+
+### For the splash screen
+
+Open `lib > helper > utils > constant.dart` and change `appName`:
+
+```dart
+static String appName = "eMarket";
+```
+
+This is the name drawn on the splash screen, and the label Android shows in the recent-apps switcher.
+
+:::note Why this one is hardcoded
+The splash is the first screen the app paints, before the language data has downloaded. A translation key there would render as `app_name` on a cold start, so the splash reads this value directly instead.
+:::
+
+### For the rest of the app
+
+Everywhere else — payment screens, downloaded invoice filenames, push notification titles, and the merchant name shown in the Stripe payment sheet — uses the `app_name` translation key.
+
+Change it in your **admin panel language settings**, then reopen the app.
+
+:::warning Do not change only `assets/en.json`
+`assets/en.json` is the offline fallback the app uses before it reaches your server. The live values come from the admin panel, so a name changed only in `en.json` is replaced by the panel's value as soon as the app loads.
+
+Change it in the admin panel first. Update `en.json` as well if you want the fallback to match.
+:::
+
+Your logo is a separate asset and is not affected by any of this — see [Splash Screen](./splash-screen.md).
 
 ## Change App Version
 
