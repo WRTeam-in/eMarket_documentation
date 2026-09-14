@@ -4,35 +4,27 @@ sidebar_position: 12
 
 # Payment Gateway
 
-Set here payment gateways list.
+here payment gateways list.
 
-![Payment Gateways](/img/admin-panel/payment_gateways.png)
+- Cash on Delivery (COD)
+- PayPal
+- PayUmoney
+- Razorpay
+- Paystack
+- Flutterwave
+- Stripe
+- SSLCommerz (ssl_commerce)
+- Direct Bank Transfer (manual, not a gateway API)
+- Midtrans
+- PhonePe (phonepay)
+- Cashfree
+- PayTabs
+- DPO
 
-Set here payment method details.
+here payment method details.
 
-![Payment Method](/img/admin-panel/payment_method.png)
+![Payment Gateways & Methods Settings](/img/admin-panel/payment_gateways_methods_settings.png)
 
-Here you can set Stripe and Razorpay details.
-
-![Stripe Setting](/img/admin-panel/stripe_setting.png)
-
-![Razorpay Setting](/img/admin-panel/razorpay_setting.png)
-
-Here you can enable Paystack.
-
-![Paystack Setting](/img/admin-panel/paystack_setting.png)
-
-Here you can enable your Paytm account.
-
-![Paytm Setting](/img/admin-panel/paytm_setting.png)
-
-Here you can enable your PayPal account.
-
-![PayPal Setting](/img/admin-panel/paypal_setting.png)
-
-Here you can set your Direct Bank Transfer information.
-
-![Direct Bank Transfer](/img/admin-panel/direct_bank_transfer.png)
 
 Verity of options available for payments, just follow the below steps to configure the payment gateways for eMarket.
 

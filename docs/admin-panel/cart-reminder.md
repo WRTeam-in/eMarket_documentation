@@ -6,7 +6,7 @@ sidebar_position: 13
 
 Set here cart reminder notification time.
 
-![Cart Reminder](/img/admin-panel/cart_reminder.png)
+![Cart Reminder](/img/admin-panel/cart_setting.png)
 
 ## Cart Reminder Configuration
 
