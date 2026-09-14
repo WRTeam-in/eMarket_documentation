@@ -12,7 +12,7 @@ That guide covers the whole process end to end:
 
 1. Upgrading your Firebase project from the Spark plan to the **Blaze** (pay as you go) plan
 2. Linking a billing account to your Google Cloud project
-3. Enabling the required APIs — Maps SDK for Android, Maps SDK for iOS, Geocoding, Places, Routes, and Maps JavaScript
+3. Enabling the required APIs — Maps SDK for Android, Maps SDK for iOS, Geocoding and Places
 4. Creating your API keys and setting their restrictions
 5. Adding the keys to your app — `AndroidManifest.xml` for Android, `AppDelegate.swift` for iOS
 
