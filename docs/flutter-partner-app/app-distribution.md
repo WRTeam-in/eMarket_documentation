@@ -18,6 +18,5 @@ Work through these partner-app items first — each one requires a new build to 
 1. **Separate store listing** — the partner app must use a **different package name** from the customer app. See [Package Name](./configuration/package-name.md).
 2. **Server URL** — confirm it points at your live admin panel, not a demo or staging server. See [Server and API Configuration](./server-api-config.md).
 3. **App name, logo and version** — see [App Name & Version](./configuration/app-name-version.md) and [App Logo](./configuration/app-logo.md).
-4. **Firebase** — the release build needs its own SHA-1 / SHA-256 keys registered, separate from your debug keys. See [Firebase Integration](./firebase-integration.md).
-5. **Background location** — the partner app requests background location for delivery tracking. Both stores require you to declare and justify this in the listing, and Google Play reviews it separately. See [Map & Location Services](./map-location-services.md).
-6. **Privacy policy URL** — required by both stores.
+4. **Background location** — the partner app requests background location for delivery tracking. Both stores require you to declare and justify this in the listing, and Google Play reviews it separately. See [Map & Location Services](./map-location-services.md).
+5. **Privacy policy URL** — required by both stores.
