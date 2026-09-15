@@ -6,8 +6,6 @@ sidebar_position: 17
 
 Here you can see customer feedback.
 
-![Feedback](/img/admin-panel/feedback.png)
-
 ## Your Feedback
 
 Dear valuable customer,  

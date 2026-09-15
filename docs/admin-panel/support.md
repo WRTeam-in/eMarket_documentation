@@ -6,8 +6,6 @@ sidebar_position: 16
 
 Here you can ask question from WRTeam. You can simply create ticket and we'll support you.
 
-![Support](/img/admin-panel/support.png)
-
 Its our pleasure to serve our service and support. please contact our support team.
 
 Head of Customer Support : Vrajeshwari Parmar  
