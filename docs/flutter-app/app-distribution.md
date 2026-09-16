@@ -21,3 +21,4 @@ Work through these eMarket-specific items first — they are easy to miss and ea
 4. **Firebase** — the release build needs its own SHA-1 / SHA-256 keys registered, separate from your debug keys. See [Firebase Integration](./firebase-integration.md).
 5. **Privacy policy URL** — required by both stores.
 6. **In-app purchase** — if you are shipping the iOS membership feature, the products must be live in App Store Connect before submission. See [In-App Purchase](./in-app-purchase.md).
+7. **Deep links** — your own domain in `constant.dart`, `AndroidManifest.xml` and `Runner.entitlements`, not the demo domains. See [Deep Links](./deep-links.md).

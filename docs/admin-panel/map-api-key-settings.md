@@ -5,72 +5,16 @@ sidebar_position: 19
 # Google Maps & Firebase API Integration Guide
 
 This document explains how to integrate Google Maps & Firebase APIs for:
-- **Mobile App** (Android & iOS)
 - **Web**
 - **Admin Panel**
-- Key restrictions & security best practices
+- API restrictions & security best practices
 - Quota & alert setup
 
----
-
-## 1. APP API INTEGRATION
-
-### **Android**
-Required APIs:
-1. Maps SDK for Android  
-2. Identity Toolkit API  
-3. Firebase Installations API  
-4. Firebase Cloud Messaging API  
-5. FCM Registration API  
-6. Firebase App Check API
-7. Cloud Messaging
-
-**Key Generation & Restriction:**
-- Generate **Android API Key** (auto-generated from Firebase project).
-- Restrict with:
-  - **Package Name**: `com.example.app`
-  - **SHA-1 Fingerprint** (from Firebase settings)
-- Restrict Libraries:
-  - Maps SDK for Android
-  - Identity Toolkit API
-  - Firebase Installations API
-  - Firebase Cloud Messaging API
-  - FCM Registration API
-  - Firebase App Check API
-  - Cloud Messaging
-- **Platform Identification**: Android
-![Android API Key Restriction Screenshot](/img/admin-panel/map-key-app-android.webp)
+The Android and iOS app keys are set up inside the app — see [Map and Location Services](../flutter-app/map-location-services.md).
 
 ---
 
-### **iOS**
-Required APIs:
-1. Maps SDK for iOS  
-2. Identity Toolkit API  
-3. Firebase Installations API  
-4. Firebase Cloud Messaging API  
-5. FCM Registration API  
-6. Firebase App Check API  
-7. Cloud Messaging
-
-**Key Generation & Restriction:**
-- Generate **iOS API Key** (auto-generated from Firebase project).
-- Restrict with:
-  - **Bundle ID**: `com.example.iosapp`
-- Enable required APIs:
-  - Maps SDK for iOS
-  - Identity Toolkit API
-  - Firebase Installations API
-  - Firebase Cloud Messaging API
-  - FCM Registration API
-  - Firebase App Check API
-  - Cloud Messaging
-
-![ios API Key Restriction Screenshot](/img/admin-panel/map-key-app-ios.webp)
-
----
-
-## 2. WEB API INTEGRATION
+## 1. WEB API INTEGRATION
 
 Required APIs:
 1. Maps JavaScript API  
@@ -78,12 +22,10 @@ Required APIs:
 3. Places API (NEW)  
 4. Geocoding API  
 
-**Key Generation & Restriction:**
+**Key Generation & API Restrictions:**
 - Use **Browser API Key** (auto-generated from Firebase project).
-- Restrict with:
-  - **Firebase Auth Domain**: `https://firebaseappid.firebaseapp.com/*`
-  - Additional custom domains if needed: `https://example.com/*`
-- Enable required APIs:
+- Leave **Application restrictions** set to **None**.
+- Under **API restrictions**, choose **Restrict key** and allow:
   - Maps JavaScript API
   - Places API
   - Places API (NEW)
@@ -100,11 +42,9 @@ Required APIs:
   - Token Service API
   - Cloud Logging API
 
-![Web API Key Restriction Screenshot](/img/admin-panel/map-key-web.webp)
-
 ---
 
-## 3. ADMIN PANEL API INTEGRATION
+## 2. ADMIN PANEL API INTEGRATION
 
 ### Getting Started
 
@@ -123,13 +63,12 @@ Required APIs:
 6. Places API
 7. Places API (New)
 
-**Key Generation & Restriction:**
+**Key Generation & API Restrictions:**
 - Create **two API Keys** from Google Cloud Console → "Create Credentials" → API Key.
 
-### 3.1 Place API Key
-- Restrict by:
-  - **IP Address**: `XXX.XXX.XXX.XXX` (Server IP)
-- Enable Libraries:
+### 2.1 Place API Key
+- Leave **Application restrictions** set to **None**.
+- Under **API restrictions**, choose **Restrict key** and allow:
   - Directions API
   - Distance Matrix API
   - Geocoding API
@@ -138,12 +77,9 @@ Required APIs:
   - Places API
   - Places API (New)
 
-![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-place-suggestion.webp)
-
-### 3.2 Map API Key
-- Restrict by:
-  - **Domain**: `admin.example.com` and subdomains
-- Enable Libraries:
+### 2.2 Map API Key
+- Leave **Application restrictions** set to **None**.
+- Under **API restrictions**, choose **Restrict key** and allow:
   - Directions API
   - Distance Matrix API
   - Geocoding API
@@ -151,8 +87,6 @@ Required APIs:
   - Maps JavaScript API
   - Places API
   - Places API (New)
-
-![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-map-render.webp)
 
 ![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-setting.webp)
 
@@ -209,7 +143,7 @@ const autocomplete = new google.maps.places.Autocomplete(
 
 **API Key Security**
 
-- Restrict API key usage
+- Limit each key to the APIs it needs
 - Monitor API usage
 - Regular key rotation
 
@@ -230,7 +164,7 @@ const autocomplete = new google.maps.places.Autocomplete(
 **Map Not Loading**
 
 - Check API key
-- Verify domain restrictions
+- Check the key's API restrictions allow that API
 - Console for errors
 
 **Geocoding Failures**
@@ -267,7 +201,7 @@ const autocomplete = new google.maps.places.Autocomplete(
 
 ---
 
-## 4. QUOTA & ALERT SETUP
+## 3. QUOTA & ALERT SETUP
 
 ### **Quota Setup**
 - Go to **Google Cloud Console → APIs & Services → Quotas**.
@@ -287,17 +221,16 @@ const autocomplete = new google.maps.places.Autocomplete(
   - **90% usage**
 - Email alerts to the dev & admin team.
 
-- **�� Set up Budget and Quota Notifications**
+- **Set up Budget and Quota Notifications**
     - [Budget & Alert Setup Guide](https://drive.google.com/file/d/1bbDnAUpHPuF5xhkGuAe6FBrO8nwoKRNb/view?usp=sharing)
     - [Quota Setup Guide](https://drive.google.com/file/d/1_1zJSNMRnBfrXXYoCm9S4AMqmyTECV6E/view?usp=sharing)
 
 ---
 
-## 5. REFERENCE LINKS
+## 4. REFERENCE LINKS
 - [Google Cloud Console](https://console.cloud.google.com/)
-- [Restricting API Keys](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
 - [Firebase Project Settings](https://console.firebase.google.com/)
 
 ---
 
-**�� NOTE:** Always restrict your API keys to avoid unauthorized usage and unexpected billing.
+**NOTE:** Leave application restrictions set to **None** on every key. Instead, limit each key to the APIs it needs and set up the budget alerts above, so unexpected usage is caught before it turns into a large bill.

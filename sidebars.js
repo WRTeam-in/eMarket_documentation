@@ -96,6 +96,7 @@ const sidebars = {
         "flutter-app/server-api-config",
         "flutter-app/firebase-integration",
         "flutter-app/map-location-services",
+        "flutter-app/deep-links",
         "flutter-app/in-app-purchase",
         "flutter-app/app-distribution",
         "flutter-app/support",
