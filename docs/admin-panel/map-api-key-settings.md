@@ -5,7 +5,6 @@ sidebar_position: 19
 # Google Maps & Firebase API Integration Guide
 
 This document explains how to integrate Google Maps & Firebase APIs for:
-- **Mobile App** (Android & iOS)
 - **Web**
 - **Admin Panel**
 - Key restrictions & security best practices
