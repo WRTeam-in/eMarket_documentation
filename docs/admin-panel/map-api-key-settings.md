@@ -5,12 +5,11 @@ sidebar_position: 19
 # Google Maps & Firebase API Integration Guide
 
 This document explains how to integrate Google Maps & Firebase APIs for:
+- **Mobile App** (Android & iOS)
 - **Web**
 - **Admin Panel**
-- API restrictions & security best practices
+- Key restrictions & security best practices
 - Quota & alert setup
-
-The Android and iOS app keys are set up inside the app — see [Map and Location Services](../flutter-app/map-location-services.md).
 
 ---
 
@@ -22,10 +21,12 @@ Required APIs:
 3. Places API (NEW)  
 4. Geocoding API  
 
-**Key Generation & API Restrictions:**
+**Key Generation & Restriction:**
 - Use **Browser API Key** (auto-generated from Firebase project).
-- Leave **Application restrictions** set to **None**.
-- Under **API restrictions**, choose **Restrict key** and allow:
+- Restrict with:
+  - **Firebase Auth Domain**: `https://firebaseappid.firebaseapp.com/*`
+  - Additional custom domains if needed: `https://example.com/*`
+- Enable required APIs:
   - Maps JavaScript API
   - Places API
   - Places API (NEW)
@@ -41,6 +42,8 @@ Required APIs:
   - Identity Toolkit API
   - Token Service API
   - Cloud Logging API
+
+![Web API Key Restriction Screenshot](/img/admin-panel/map-key-web.webp)
 
 ---
 
@@ -63,12 +66,13 @@ Required APIs:
 6. Places API
 7. Places API (New)
 
-**Key Generation & API Restrictions:**
+**Key Generation & Restriction:**
 - Create **two API Keys** from Google Cloud Console → "Create Credentials" → API Key.
 
 ### 2.1 Place API Key
-- Leave **Application restrictions** set to **None**.
-- Under **API restrictions**, choose **Restrict key** and allow:
+- Restrict by:
+  - **IP Address**: `XXX.XXX.XXX.XXX` (Server IP)
+- Enable Libraries:
   - Directions API
   - Distance Matrix API
   - Geocoding API
@@ -77,9 +81,12 @@ Required APIs:
   - Places API
   - Places API (New)
 
+![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-place-suggestion.webp)
+
 ### 2.2 Map API Key
-- Leave **Application restrictions** set to **None**.
-- Under **API restrictions**, choose **Restrict key** and allow:
+- Restrict by:
+  - **Domain**: `admin.example.com` and subdomains
+- Enable Libraries:
   - Directions API
   - Distance Matrix API
   - Geocoding API
@@ -87,6 +94,8 @@ Required APIs:
   - Maps JavaScript API
   - Places API
   - Places API (New)
+
+![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-map-render.webp)
 
 ![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-setting.webp)
 
@@ -143,7 +152,7 @@ const autocomplete = new google.maps.places.Autocomplete(
 
 **API Key Security**
 
-- Limit each key to the APIs it needs
+- Restrict API key usage
 - Monitor API usage
 - Regular key rotation
 
@@ -164,7 +173,7 @@ const autocomplete = new google.maps.places.Autocomplete(
 **Map Not Loading**
 
 - Check API key
-- Check the key's API restrictions allow that API
+- Verify domain restrictions
 - Console for errors
 
 **Geocoding Failures**
@@ -221,7 +230,7 @@ const autocomplete = new google.maps.places.Autocomplete(
   - **90% usage**
 - Email alerts to the dev & admin team.
 
-- **Set up Budget and Quota Notifications**
+- **�� Set up Budget and Quota Notifications**
     - [Budget & Alert Setup Guide](https://drive.google.com/file/d/1bbDnAUpHPuF5xhkGuAe6FBrO8nwoKRNb/view?usp=sharing)
     - [Quota Setup Guide](https://drive.google.com/file/d/1_1zJSNMRnBfrXXYoCm9S4AMqmyTECV6E/view?usp=sharing)
 
@@ -229,8 +238,9 @@ const autocomplete = new google.maps.places.Autocomplete(
 
 ## 4. REFERENCE LINKS
 - [Google Cloud Console](https://console.cloud.google.com/)
+- [Restricting API Keys](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
 - [Firebase Project Settings](https://console.firebase.google.com/)
 
 ---
 
-**NOTE:** Leave application restrictions set to **None** on every key. Instead, limit each key to the APIs it needs and set up the budget alerts above, so unexpected usage is caught before it turns into a large bill.
+**�� NOTE:** Always restrict your API keys to avoid unauthorized usage and unexpected billing.
