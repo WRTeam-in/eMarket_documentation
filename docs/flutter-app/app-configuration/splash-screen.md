@@ -10,7 +10,7 @@ Its background colour comes from the palette your **admin panel** serves — the
 
 ## 🖼️ Replace the Logo
 
-![Logo assets folder](/img/flutter-app/splash-logo-assets.png)
+![Logo assets folder](/img/flutter-app/splash-logo-assets.webp)
 
 The logo files live in `assets/svg/logo/`:
 

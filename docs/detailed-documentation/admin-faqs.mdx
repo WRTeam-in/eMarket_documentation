@@ -1,0 +1,61 @@
+---
+sidebar_position: 12
+title: Administration, Roles & FAQs
+description: Comprehensive operational guide for managing system users, configuring granular role-based permissions, and maintaining customer help FAQs.
+---
+
+# Administration, Roles & FAQs
+
+Securing administrative access and delegating responsibilities across departmental staff is paramount for enterprise marketplaces. This section details user roles, permission matrices, and platform FAQs.
+
+---
+
+## 1. System Users (`/system_users`)
+
+![System Users](/img/detailed-documentation/system-users.webp)
+
+Manages internal staff accounts with access to the admin panel (e.g. Customer Support Executives, Catalog Moderators, Delivery Coordinators, Accountants).
+
+### Creating a System User
+1. Click **Add System User**.
+2. Enter the staff member's **Full Name**, **Email Address**, and secure **Password**.
+3. Assign a specific **Role** (e.g., `Order Manager`, `Support Agent`, `Product Moderator`).
+4. Toggle status to `Active` and click **Save**.
+
+---
+
+## 2. Roles & Permissions Matrix (`/role`)
+
+![Role & Permissions](/img/detailed-documentation/role.webp)
+
+eMarket provides an enterprise-grade Role-Based Access Control (RBAC) permission engine. Platform owners can create tailored roles with granular read, create, edit, and delete permissions.
+
+### Granular Permission Categories
+- **Dashboard**: View high-level metrics vs restrict to operational screens.
+- **Orders**: `order_list`, `order_update`, `order_delete`, `assign_delivery_boy`.
+- **Products**: `product_list`, `product_create`, `product_update`, `product_delete`, `approve_requests`.
+- **Sellers**: `seller_list`, `seller_create`, `seller_update`, `seller_delete`, `seller_requests`.
+- **Financials**: `manage_customer_wallet`, `manage_seller_wallet`, `withdrawal_requests`.
+- **Settings**: Restrict critical payment gateway keys and database settings exclusively to Super Admins.
+
+---
+
+## 3. Platform FAQs (`/faqs`)
+
+![FAQs](/img/detailed-documentation/faqs.webp)
+
+A knowledge base management tool for creating customer and seller FAQs displayed on mobile apps and websites.
+
+### Setup Steps
+1. Navigate to **FAQs > Add FAQ**.
+2. Enter the **Question** (e.g. "What is your return policy?").
+3. Compose the **Answer** with clear instructions.
+4. Set status to `Active` to publish immediately across all customer apps.
+
+---
+
+## Real-World Administration Use Cases
+
+- **Restricting Support Agents to Read-Only Orders**: Prevent accidental order cancellations or financial tampering by assigning support agents a custom role that grants `order_list` and `order_view` without giving `order_delete` or `payment_methods` access.
+- **Dedicated Catalog Moderation Team**: Create an intern or contractor role strictly with `approve_requests` and `manage_products` access to review seller listings without seeing financial revenue data.
+- **Proactive Customer Self-Service via FAQs**: Populating the **FAQs** with clear answers regarding delivery time slots, payment methods, and refund turnaround times reduces incoming customer support tickets by up to 40%.

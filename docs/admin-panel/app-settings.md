@@ -6,7 +6,7 @@ sidebar_position: 14
 
 Set here app settings like version and URL.
 
-![App Settings](/img/admin-panel/app_settings.png)
+![App Settings](/img/admin-panel/app_settings.webp)
 
 ## Mobile App Configuration
 

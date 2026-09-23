@@ -6,7 +6,7 @@ sidebar_position: 7
 
 The admin can enable or disable the self pickup feature globally for all sellers. When enabled, individual sellers can then configure their own self pickup settings.
 
-![Admin Self Pickup Settings](/img/admin-panel/selfpickup.png)
+![Admin Self Pickup Settings](/img/admin-panel/selfpickup.webp)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Once the admin enables the self pickup feature, individual sellers can configure
 - **Store Location**: Set pickup address and location details
 - **Store Timings**: Set timings for pickup
 
-![Admin Self Pickup Settings](/img/admin-panel/seller-selfpickup.png)
+![Admin Self Pickup Settings](/img/admin-panel/seller-selfpickup.webp)
 
 
 ## Configuration Steps

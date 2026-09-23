@@ -8,11 +8,11 @@ sidebar_position: 4
 
 1. Open your admin panel, copy link from URL as shown below
 
-![Server URL Admin](/img/flutter-app/serverurladmin.png)
+![Server URL Admin](/img/flutter-app/serverurladmin.webp)
 
 2. In Android code go to lib > helper > utils > constant.dart and paste the URL
 
-![Server URL Code](/img/flutter-app/serverurladmin2.png)
+![Server URL Code](/img/flutter-app/serverurladmin2.webp)
 
 ## Change Default Country Code For OTP
 
@@ -35,7 +35,7 @@ static String initialCountryCode = "IN";
 
 Set it to a two-letter ISO country code such as `"IN"` or `"US"` — note this is the **ISO code**, not the dial code. Leaving it empty means no country is preselected until settings load.
 
-![OTP Country Code](/img/flutter-app/otp.png)
+![OTP Country Code](/img/flutter-app/otp.webp)
 ## Increase Product Load Limit
 
 You can change how many items are fetched at a time when a request is sent to the server.
@@ -49,4 +49,4 @@ static int defaultDataLoadLimitAtOnce = 10;
 static int defaultGridDataLoadLimitAtOnce = 20;
 ```
 
-![Limit](/img/flutter-app/limit.png)
+![Limit](/img/flutter-app/limit.webp)

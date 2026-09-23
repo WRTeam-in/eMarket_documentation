@@ -21,6 +21,7 @@
     "clsx": "^2.0.0",
     "npm": "^11.5.2",
     "prism-react-renderer": "^2.3.0",
+    "puppeteer-core": "^25.11.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

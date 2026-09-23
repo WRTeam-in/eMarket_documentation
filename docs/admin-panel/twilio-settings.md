@@ -8,15 +8,15 @@ Set here SMS setting. If you want Twilio SMS enable than first enable custom SMS
 
 Open yout Twilio dashboard and get these information.
 
-![Twilio Dashboard](/img/admin-panel/twilio_dashboard.png)
+![Twilio Dashboard](/img/admin-panel/twilio_dashboard.webp)
 
 Go to System->SMS Settings and fill those values
 
-![Twilio Setting](/img/admin-panel/twilio_setting.png)
+![Twilio Setting](/img/admin-panel/twilio_setting.webp)
 
 If tou want change any SMS template, than Go to System->SMS Templates and edit message.
 
-![SMS Templates](/img/admin-panel/sms_templates.png)
+![SMS Templates](/img/admin-panel/sms_templates.webp)
 
 ## Twilio Integration
 

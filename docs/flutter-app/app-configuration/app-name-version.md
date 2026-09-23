@@ -19,7 +19,7 @@ The app name is stored in **four separate places**, and each one controls someth
 
 Open `android > app > src > main > AndroidManifest.xml` and change the `android:label` string.
 
-![Android App Name](/img/flutter-app/androidname.png)
+![Android App Name](/img/flutter-app/androidname.webp)
 
 ### For iOS
 
@@ -28,7 +28,7 @@ Open `ios > Runner > Info.plist` and change **both** of these strings:
 - `CFBundleDisplayName` — the name shown under the icon on the home screen
 - `CFBundleName` — the short name iOS falls back to, limited to 15 characters
 
-![iOS App Name](/img/flutter-app/iosname.png)
+![iOS App Name](/img/flutter-app/iosname.webp)
 
 ### For the splash screen
 
@@ -63,7 +63,7 @@ Your logo is a separate asset and is not affected by any of this — see [Splash
 1. Go to `pubspec.yaml`
 2. Update `version: A.B.C+X`
 
-![Version Change](/img/flutter-app/version_1.png)
+![Version Change](/img/flutter-app/version_1.webp)
 
 For Android:
 

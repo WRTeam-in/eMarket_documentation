@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "@docusaurus/Link";
 import Icon from "./icons";
 import styles from "./styles.module.css";
 
@@ -8,7 +7,13 @@ const TOPICS = [
     icon: "cube",
     title: "Multi-Module Commerce Ecosystem",
     description:
-      "A unified platform bringing Grocery, Pharmacy, eCommerce, POS, and delivery modules together in one system — with Food Delivery, Parcel Delivery, and Ride Booking on the roadmap.",
+      "A unified multi-store architecture combining Grocery, Pharmacy, eCommerce, Food Delivery, and POS modules inside a single powerful platform.",
+  },
+  {
+    icon: "utensils",
+    title: "Food Delivery Module",
+    description:
+      "A specialized food ordering vertical supporting restaurant management, custom dish addons/modifiers, cuisine filters, and instant courier dispatch.",
   },
   {
     icon: "store",
@@ -41,10 +46,28 @@ const TOPICS = [
       "Organize products into categories and sub-categories for easier browsing and discovery.",
   },
   {
+    icon: "list",
+    title: "Streamlined Category Navigation",
+    description:
+      "An enhanced, frictionless multi-level category navigation flow that accelerates product discovery and browsing speed.",
+  },
+  {
     icon: "box",
     title: "Product Management",
     description:
       "Add, edit, and organize products with pricing, images, variants, and stock details.",
+  },
+  {
+    icon: "tag",
+    title: "Veg / Non-Veg & Dynamic Custom Fields",
+    description:
+      "Extensible custom fields architecture supporting dietary markers (Veg / Non-Veg), allergen info, technical specifications, and warranty details.",
+  },
+  {
+    icon: "sparkles",
+    title: "AI-Powered Product Descriptions (Gemini AI)",
+    description:
+      "Integrated Google Gemini AI assisting marketplace administrators and sellers in generating engaging product descriptions and SEO metadata automatically.",
   },
   {
     icon: "archive",
@@ -143,6 +166,18 @@ const TOPICS = [
       "Define and enforce platform policies and terms that sellers must comply with.",
   },
   {
+    icon: "sliders",
+    title: "Seller Attribute & Custom Field Control",
+    description:
+      "Vendors can independently create, configure, and maintain product attributes and custom specifications directly from their seller panel.",
+  },
+  {
+    icon: "bell",
+    title: "Seller Global Attribute Migration Alerts",
+    description:
+      "Built-in warning system alerting sellers regarding global attribute transitions to ensure clean migration to seller-owned attributes.",
+  },
+  {
     icon: "image",
     title: "Home Slider Management",
     description:
@@ -183,7 +218,6 @@ const TOPICS = [
     title: "Module Management",
     description:
       "A complete list of admin panel modules and control over which ones are enabled.",
-    link: "/docs/admin-panel/modules",
   },
   {
     icon: "messageSquare",
@@ -198,6 +232,24 @@ const TOPICS = [
       "Configure core platform settings such as store details, currency, and delivery charges.",
   },
   {
+    icon: "palette",
+    title: "Module-Wise Theme Color Management",
+    description:
+      "Define custom primary branding colors, accents, and themes per business module to differentiate Grocery, Food Delivery, Pharmacy, and eCommerce.",
+  },
+  {
+    icon: "share2",
+    title: "Website Social Media Icon Management",
+    description:
+      "Configure, update, and manage social media channel icons and external profile links displayed across the customer web storefront directly from the Admin Panel.",
+  },
+  {
+    icon: "image",
+    title: "WebP Next-Gen Image Support",
+    description:
+      "Native WebP image format support across the Admin Panel and Customer Website for lightning-fast page loading and reduced bandwidth consumption.",
+  },
+  {
     icon: "tool",
     title: "Technical Configuration",
     description:
@@ -209,13 +261,12 @@ const TOPICS = [
     description:
       "Oversee platform health, backups, and administrative controls from a central place.",
   },
-  {
-    icon: "package",
-    title: "Subscription Plan Management",
-    description:
-      "Manage vendor subscription plans and control feature access across the marketplace.",
-    link: "/docs/admin-panel/subscription",
-  },
+  // {
+  //   icon: "package",
+  //   title: "Subscription Plan Management",
+  //   description:
+  //     "Manage vendor subscription plans and control feature access across the marketplace.",
+  // },
   {
     icon: "languages",
     title: "Localization Management",
@@ -251,21 +302,18 @@ const TOPICS = [
     title: "FAQ Management",
     description:
       "Add and manage frequently asked questions shown to customers on the website and apps.",
-    link: "/docs/faq/intro",
   },
   {
     icon: "map",
     title: "Location-Based Shopping",
     description:
       "Show customers products and stores available in their selected location.",
-    link: "/docs/admin-panel/map-api-key-settings",
   },
   {
     icon: "map",
     title: "Distance & Delivery Estimates",
     description:
       "Calculate delivery distance and estimated time based on customer and store location.",
-    link: "/docs/admin-panel/map-api-key-settings",
   },
   {
     icon: "layout",
@@ -352,6 +400,12 @@ const TOPICS = [
       "Let customers choose a preferred delivery date and time slot for their order.",
   },
   {
+    icon: "zap",
+    title: "Quick Delivery (15 & 30 Minutes)",
+    description:
+      "Ultra-fast hyper-local delivery options offering 15-minute and 30-minute rapid dispatch guarantees for everyday essentials and urgent orders.",
+  },
+  {
     icon: "map",
     title: "Live Order Tracking",
     description:
@@ -362,7 +416,6 @@ const TOPICS = [
     title: "Multiple Payment Gateways",
     description:
       "Connect Stripe, Razorpay, PayPal, and other gateways to accept payments across all platforms.",
-    link: "/docs/admin-panel/payment-gateway",
   },
   {
     icon: "wallet",
@@ -411,7 +464,6 @@ const TOPICS = [
     title: "Secure Login & Authentication",
     description:
       "Enable secure authentication options including email, phone OTP, and social login via Firebase.",
-    link: "/docs/admin-panel/login-settings",
   },
   {
     icon: "bell",
@@ -424,14 +476,12 @@ const TOPICS = [
     title: "SMS Gateway Integration",
     description:
       "Integrate SMS gateways to send OTPs, order updates, and alerts to users.",
-    link: "/docs/admin-panel/twilio-settings",
   },
   {
     icon: "mail",
     title: "Email Notification System",
     description:
       "Configure SMTP so the platform can send order confirmations, invoices, and account notifications.",
-    link: "/docs/admin-panel/email-settings",
   },
   {
     icon: "languages",
@@ -452,11 +502,16 @@ const TOPICS = [
       "Prompt users to update the app to the latest version to ensure compatibility and security.",
   },
   {
+    icon: "smartphone",
+    title: "Flutter 3.47.2 Modern App Architecture",
+    description:
+      "Customer App and Delivery Partner App upgraded to Flutter 3.47.2 for superior rendering performance, smoother 120Hz scrolling, and OS security.",
+  },
+  {
     icon: "globe",
     title: "SEO Management",
     description:
       "Manage meta tags, sitemaps, and SEO settings to improve website search rankings.",
-    link: "/docs/website/seo-for-web",
   },
 ];
 
@@ -477,17 +532,11 @@ function Card({ topic, number }) {
 export default function TopicGrid() {
   return (
     <div className={styles.grid}>
-      {TOPICS.map((topic, idx) =>
-        topic.link ? (
-          <Link key={idx} to={topic.link} className={styles.cardLink}>
-            <Card topic={topic} number={idx + 1} />
-          </Link>
-        ) : (
-          <div key={idx} className={styles.plainCard}>
-            <Card topic={topic} number={idx + 1} />
-          </div>
-        )
-      )}
+      {TOPICS.map((topic, idx) => (
+        <div key={idx} className={styles.plainCard}>
+          <Card topic={topic} number={idx + 1} />
+        </div>
+      ))}
     </div>
   );
 }

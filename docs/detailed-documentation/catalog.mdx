@@ -1,0 +1,191 @@
+---
+sidebar_position: 2
+title: Catalog & Products
+description: In-depth guide to managing categories, products, inventory, attributes, media, bulk uploads, and tax rules in eMarket.
+---
+
+# Catalog & Product Management
+
+The Catalog system in eMarket powers product discovery, categorization, stock tracking, and pricing across multi-vendor stores. It provides both high-level governance for marketplace administrators and granular catalog control for individual sellers.
+
+---
+
+## 1. Category Management
+
+Categories structure your store catalog into intuitive, navigable hierarchies that make it easy for shoppers to discover items on mobile apps and the web store.
+
+### 1.1 Manage Categories (`/manage_categories`)
+
+![Manage Categories](/img/detailed-documentation/categories-manage.webp)
+
+Displays the complete hierarchical tree of main categories and nested sub-categories.
+
+#### Key Features & Elements
+- **Category Tree Table**: Displays Category Name, Sub-category count, Thumbnail image, Banner image, Status (`Active` / `Inactive`), and Actions.
+- **Search & Filter**: Search by category title or filter by parent category.
+- **Quick Status Toggle**: Instantly activate or deactivate entire product taxonomies with a single switch.
+
+---
+
+### 1.2 Add Category (`/manage_categories/create`)
+
+![Add Category](/img/detailed-documentation/categories-add.webp)
+
+The form used to create top-level departments or nested child categories.
+
+#### Step-by-Step Instructions
+1. Navigate to **Categories > Add Category**.
+2. Select **Parent Category** (leave empty for a main department, or select an existing parent to create a subcategory).
+3. Enter the **Category Name** in the default platform language and any secondary languages configured.
+4. Upload a high-resolution square **Category Image** (used on app home screens and grid icons).
+5. Upload a wide **Category Banner** (displayed at the top of category product listing pages).
+6. Toggle **Status** to `Active` and click **Save**.
+
+---
+
+### 1.3 Categories Order (`/categories_order`)
+
+![Categories Order](/img/detailed-documentation/categories-order.webp)
+
+Allows administrators to define the visual display sequence of categories on the customer mobile app home screen and navigation menus.
+
+#### Operational Instructions
+- Drag and drop category rows up or down to set their display priority.
+- Categories at the top of this list appear first in customer apps and website mega-menus.
+
+---
+
+## 2. Product Management
+
+### 2.1 Manage Products (`/manage_products`)
+
+![Manage Products](/img/detailed-documentation/products-manage.webp)
+
+The primary inventory repository listing all active, draft, and out-of-stock products across all sellers.
+
+#### Key Table Fields
+- **Product ID & Image**: Visual thumbnail with SKU identifier.
+- **Name & Category**: Product title linked to its catalog category.
+- **Seller**: The vendor offering the product.
+- **Price & Discount**: Base price, special discounted offer price, and active margin.
+- **Stock Status**: In-Stock indicator or low-stock warning alert.
+- **Status Switch**: Fast toggle to show or hide the product on storefronts.
+- **Actions**: Edit, duplicate/clone product, view public page, or delete.
+
+---
+
+### 2.2 Add Product (`/manage_products/create`)
+
+![Add Product](/img/detailed-documentation/products-add.webp)
+
+A comprehensive multi-tab product wizard enabling rich product specifications, variant combinations, media assets, and SEO metadata.
+
+#### Step-by-Step Product Creation Workflow
+1. **General Information**:
+   - Select **Store / Seller** and choose the primary **Category**.
+   - Fill in **Product Name**, **Short Description**, and rich HTML **Full Description**.
+   - Set **Brand** and assign applicable **Tax Rules**.
+2. **Product Type & Variants**:
+   - Choose between **Simple Product** (single SKU) or **Variable Product** (multiple sizes, colors, weights).
+   - For variable products, add attributes (e.g., Weight: 500g, 1kg) to auto-generate variant rows with independent pricing and stock numbers.
+3. **Pricing & Inventory**:
+   - Define **Standard Price**, **Discounted Price**, and **Stock Quantity**.
+   - Set **Minimum Order Quantity** and **Maximum Allowed Quantity per Order**.
+4. **Media & Gallery**:
+   - Upload the main thumbnail and gallery photos via the Media Manager.
+5. **SEO & Additional Flags**:
+   - Enter Meta Title and Meta Description for search engine indexing.
+   - Toggle flags: `Is Returnable`, `Is Cancelable`, and `COD Allowed`.
+6. Click **Submit Product** to publish or submit for admin approval.
+
+---
+
+## 3. Product Approvals (`/approve_requests`)
+
+![Product Approvals](/img/detailed-documentation/approve-requests.webp)
+
+In multi-vendor marketplaces where quality control is enforced, new products and major edits submitted by sellers land here for quality inspection before going live.
+
+### How It Works
+1. Review the seller's submitted title, imagery, description, and pricing.
+2. Click **Approve** to immediately publish the listing live across customer apps.
+3. Click **Reject** and provide a rejection remark (e.g., "Image resolution too low" or "Inappropriate category") so the seller can correct and re-submit.
+
+---
+
+## 4. Product Ratings & Reviews (`/product_ratings`)
+
+![Product Ratings](/img/detailed-documentation/product-ratings.webp)
+
+Monitors customer feedback and star ratings across all catalog items.
+
+### Operational Actions
+- Audit verified buyer reviews and uploaded review images.
+- Approve or unpublish abusive, defamatory, or spam reviews to safeguard platform integrity.
+
+---
+
+## 5. Media Library (`/media`)
+
+![Media Library](/img/detailed-documentation/media.webp)
+
+A centralized cloud asset repository for product imagery, category banners, promotional icons, and brand graphics.
+
+### Key Capabilities
+- Drag-and-drop batch upload of WebP, PNG, and JPEG files.
+- Copy permanent image URLs for instant reuse across sliders and product variants without re-uploading duplicate assets.
+
+---
+
+## 6. Bulk Operations
+
+### 6.1 Bulk Upload (`/bulk_upload`)
+
+![Bulk Upload](/img/detailed-documentation/bulk-upload.webp)
+
+Onboard hundreds or thousands of products simultaneously using CSV or Excel spreadsheets.
+
+#### Workflow Steps
+1. Download the pre-formatted **Sample CSV Template** and review column instructions.
+2. Populate product titles, category IDs, seller IDs, prices, variant specs, and image URLs.
+3. Upload the completed spreadsheet. The background parser validates each line and imports all items with zero manual data entry.
+
+---
+
+### 6.2 Bulk Update (`/bulk_update`)
+
+![Bulk Update](/img/detailed-documentation/bulk-update.webp)
+
+Export your existing catalog to a spreadsheet, quickly modify prices or stock levels in bulk, and re-import to update your entire inventory in seconds.
+
+---
+
+## 7. Taxes, Brands, Addons & Attributes
+
+| Section | Route | Purpose |
+| :--- | :--- | :--- |
+| **Taxes** | `/taxes` | Configure regional tax slabs (e.g. 5% GST, 12% VAT) applied automatically during checkout. |
+| **Brands** | `/brands` | Maintain official manufacturer and brand catalogs (e.g. Nestlé, Apple, Nike) for brand-based filtering. |
+| **Addons** | `/addons` | Create customizable side items and extras (e.g. extra cheese, gift packaging, cutlery) for Food and specialty modules. |
+| **Attributes** | `/attributes` | Define variant attributes such as Size (S, M, L, XL), Color, or Pack Size. |
+
+---
+
+## 8. Stock Management (`/manage_stock`)
+
+![Stock Management](/img/detailed-documentation/stock-management.webp)
+
+A dedicated, real-time inventory ledger giving store managers an instant overview of inventory health.
+
+### Key Operations
+- Spot items with **Low Stock** warnings before they sell out.
+- Rapidly adjust stock counts inline without opening full product edit forms.
+- Filter by out-of-stock items to generate supplier replenishment purchase orders.
+
+---
+
+## Real-World Catalog Use Cases
+
+- **Seasonal Catalog Refresh**: During festival or holiday sales, store managers use **Bulk Update** to mark down hundreds of SKUs and activate seasonal discounts across entire categories.
+- **Vendor Product Quality Assurance**: Large marketplaces require all seller-submitted items to go through the **Approve Requests** pipeline, ensuring every listing has professional photography and complies with regulatory labeling requirements.
+- **Fast Stock Reconciliation**: After physical warehouse inventory audits, store teams use **Stock Management** to adjust on-hand counts and prevent overselling out-of-stock variants.

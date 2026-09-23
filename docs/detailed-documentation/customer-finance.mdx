@@ -1,0 +1,112 @@
+---
+sidebar_position: 6
+title: Customer & Financial Operations
+description: Comprehensive operational guide for customer account management, digital wallets, payment transaction auditing, return request approvals, and vendor withdrawal processing.
+---
+
+# Customer Accounts & Financial Operations
+
+Managing customer accounts, digital wallets, and reverse logistics workflows is essential for customer retention and fraud prevention. This guide details user management, returns processing, and payout reconciliation in eMarket.
+
+---
+
+## 1. Customers Registry (`/users`)
+
+![Customers](/img/detailed-documentation/customers.webp)
+
+The central database of all shoppers registered across the mobile applications and web storefront.
+
+### Key Table Information
+- **Customer Name & Avatar**: User profile details.
+- **Email & Mobile**: Verified communication channels.
+- **Wallet Balance (₹)**: Current digital wallet credits available for order payment.
+- **Referral Code**: Unique invitation code for the platform Refer & Earn program.
+- **Account Status Switch**: Instant control to deactivate bad-faith or fraudulent customer accounts.
+- **Actions**: View complete order history, adjust wallet balances manually, or inspect saved addresses.
+
+---
+
+## 2. Customer Digital Wallet (`/wallet_transactions`)
+
+![Customer Wallet](/img/detailed-documentation/customer-wallet.webp)
+
+Tracks every credit and debit transaction across customer digital wallets.
+
+### Common Wallet Movements
+- **Cashback Credits**: Promotional cashbacks rewarded from promo codes.
+- **Instant Order Refunds**: Money returned immediately to the customer wallet when an out-of-stock item is cancelled.
+- **Order Debit**: Wallet funds deducted during cart checkout.
+- **Manual Admin Adjustment**: Customer support crediting goodwill balance to resolve service grievances.
+
+---
+
+## 3. Payment Gateway Transactions (`/transactions`)
+
+![Transactions](/img/detailed-documentation/transactions.webp)
+
+The master payment ledger recording all inbound financial settlements via external payment gateways (Stripe, Razorpay, PayPal, Cashfree, Midtrans, Paytm).
+
+### Transaction Fields
+- **Transaction ID & Order ID**: Cross-reference identifiers.
+- **Payment Gateway**: Gateway processor name.
+- **Amount & Currency**: Settled funds.
+- **Status**: `Success`, `Pending`, or `Failed`.
+- **Timestamp**: Exact gateway authorization time.
+
+---
+
+## 4. Return Requests & Reverse Logistics (`/return_requests`)
+
+![Return Requests](/img/detailed-documentation/return-requests.webp)
+
+Handles customer product returns when goods arrive damaged, expired, or incorrect.
+
+### Step-by-Step Return Resolution Workflow
+1. When a customer submits a return request through their order history screen in the mobile app:
+2. Open **Return Requests** in the admin panel to view the case.
+3. Review the customer's stated reason, uploaded photo proofs, and original order invoice.
+4. **Approve Request**:
+   - Assign a delivery partner for doorstep package pickup.
+   - Once the driver confirms package handover at the depot, the system automatically credits the refund back to the customer's wallet or original payment method.
+5. **Reject Request**:
+   - Enter an explanatory remark (e.g., "Return window expired" or "Item opened/consumed").
+
+---
+
+## 5. Withdrawal Requests (`/withdrawal_requests`)
+
+![Withdrawal Requests](/img/detailed-documentation/withdrawal-requests.webp)
+
+When vendors or delivery partners accumulate earnings in their wallet balances, they submit payout withdrawal requests to cash out into their registered bank accounts.
+
+### Step-by-Step Payout Fulfillment
+1. Open **Withdrawal Requests** to view pending cash-out petitions.
+2. Check the requester's identity, verified bank account number, and requested payout amount.
+3. Execute the electronic bank wire transfer via your banking portal or payment API.
+4. Return to the admin panel, enter the **Bank Transaction / UTR Number**, and click **Mark as Approved / Transferred**.
+5. The requester's wallet balance updates instantly and a confirmation notification is dispatched.
+
+---
+
+## 6. Wishlists & Product Requests
+
+| Screen | Route | Purpose |
+| :--- | :--- | :--- |
+| **Customer Wishlists** | `/wishlists` | View real-time analytics on which products customers are saving to their wishlists, highlighting demand trends. |
+| **Product Requests** | `/product_requests` | Review items requested by customers that are not currently stocked in the store catalog. |
+
+---
+
+## 7. Custom Fields Management (`/custom_fields/seller`)
+
+![Custom Fields](/img/detailed-documentation/custom-fields.webp)
+
+Allows administrators to define dynamic custom attributes and input fields required during seller registration (e.g., FSSAI License Number, Trade Certificate, Halal Certification).
+
+---
+
+## Real-World Financial & User Use Cases
+
+- **Immediate Goodwill Credits**: A customer reports a missing item in their grocery order. Support immediately credits the item's value into their **Customer Wallet** within 60 seconds, converting an unhappy customer into a loyal advocate.
+- **Auditing Disputed Chargebacks**: When a credit card chargeback notification arrives from Stripe, the finance team searches the **Payment Transactions** table by transaction reference to trace the order, customer IP, and delivery proof.
+- **Weekly Vendor Payout Batches**: Finance teams review all verified **Withdrawal Requests** every Monday morning, executing automated batch bank transfers and closing out weekly merchant disbursements cleanly.

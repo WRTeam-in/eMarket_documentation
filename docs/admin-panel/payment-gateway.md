@@ -23,7 +23,7 @@ here payment gateways list.
 
 here payment method details.
 
-![Payment Gateways & Methods Settings](/img/admin-panel/payment_gateways_methods_settings.png)
+![Payment Gateways & Methods Settings](/img/admin-panel/payment_gateways_methods_settings.webp)
 
 
 Verity of options available for payments, just follow the below steps to configure the payment gateways for eMarket.

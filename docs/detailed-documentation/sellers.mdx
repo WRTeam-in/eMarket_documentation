@@ -1,0 +1,96 @@
+---
+sidebar_position: 3
+title: Seller & Vendor Management
+description: Comprehensive operational guide for merchant onboarding, KYC verification, store permissions, commissions, and seller wallet ledgers in eMarket.
+---
+
+# Seller & Vendor Management
+
+eMarket is built from the ground up as a multi-vendor marketplace platform. The Seller Management suite enables platform owners to scale their vendor ecosystem, verify merchant identities, enforce commission structures, and maintain transparent financial settlements.
+
+---
+
+## 1. Manage Sellers (`/sellers`)
+
+![Manage Sellers](/img/detailed-documentation/sellers-manage.webp)
+
+The central directory of all active and suspended vendor storefronts on the platform.
+
+### Key Table Columns & Controls
+- **Store Name & Logo**: The merchant's branding as seen by shoppers.
+- **Owner Name & Contact**: Primary business contact person, email, and verified phone number.
+- **Commission Rate (%)**: Platform commission deducted automatically on completed orders.
+- **Wallet Balance**: Real-time unsettled vendor earnings available for withdrawal.
+- **Product Approval Requirement**: Toggle determining whether the seller's new products require manual admin review before publishing.
+- **Store Status Switch**: Instant toggle to suspend or activate a merchant's storefront.
+- **Actions**: Edit store settings, view store analytics, view product catalog, or remove vendor.
+
+---
+
+## 2. Add / Onboard Seller (`/sellers/create`)
+
+![Add Seller](/img/detailed-documentation/sellers-add.webp)
+
+Allows administrators to directly onboard and configure a merchant's store profile, operational zones, and banking information.
+
+### Step-by-Step Onboarding Workflow
+
+1. **Basic Store Information**:
+   - Enter **Store Name**, **Seller Name**, **Email Address**, and secure **Password** (for seller panel access).
+   - Enter primary **Mobile Number**.
+2. **Category & Module Assignment**:
+   - Assign the **Module** (e.g., Grocery, Pharmacy, eCommerce).
+   - Select the **Permitted Categories** that this vendor is authorized to sell under.
+3. **Commission & Approvals Policy**:
+   - Set **Admin Commission (%)** (e.g., 10% or 15% platform fee).
+   - Configure **Require Product Approval** (Yes/No).
+4. **Physical Location & Service Radius**:
+   - Enter street address, city, and state.
+   - Use the interactive Google Map pin to define the store's exact latitude and longitude for distance-based delivery calculations.
+5. **Bank & Tax Details**:
+   - Enter Bank Name, Account Holder Name, Account Number, and IFSC / Swift Code for automated payout transfers.
+   - Enter Tax / GST / VAT Registration number and National Identity documentation.
+6. Click **Save Seller** to activate their account and dispatch their seller panel credentials.
+
+---
+
+## 3. Seller Registration Requests (`/registered_sellers`)
+
+![Seller Requests](/img/detailed-documentation/seller-requests.webp)
+
+When prospective merchants apply to join the marketplace via the public seller registration portal or partner app, their applications land here for compliance and KYC vetting.
+
+### How Administrators Review Applications
+1. Click **View Application** to examine the vendor's submitted business registration, store photos, address proofs, and tax certifications.
+2. If verified and compliant, click **Approve** and assign an initial commission tier.
+3. If documentation is incomplete, click **Reject** with a clear explanation so the merchant can re-submit the required documents.
+
+---
+
+## 4. Seller Wallet Transactions (`/seller_wallet_transactions`)
+
+![Seller Wallet Transactions](/img/detailed-documentation/seller-wallet.webp)
+
+An auditable double-entry accounting ledger tracking all financial movements for every vendor across the marketplace.
+
+### Transaction Types Recorded
+- **Order Credit**: Net earnings credited to the seller upon successful order delivery (Order Total minus Platform Commission).
+- **Admin Debit**: Manual adjustments or chargebacks for customer disputes.
+- **Withdrawal Payout**: Deductions when a seller's payout withdrawal request is fulfilled.
+- **Subscription Fee**: Automated monthly or yearly fee deductions for marketplace subscription tiers.
+
+---
+
+## 5. Seller Policies & Guidelines (`/privacy_policy_seller`)
+
+![Seller Policies](/img/detailed-documentation/seller-policies.webp)
+
+A rich-text policy editor where marketplace operators establish legal terms of service, packaging guidelines, hygiene protocols, and SLA requirements that sellers must accept during onboarding.
+
+---
+
+## Real-World Multi-Vendor Use Cases
+
+- **Dynamic Merchant Commission Tiers**: A marketplace operator charges a standard 15% commission to general vendors, but offers a preferential 8% commission to a high-volume anchor supermarket using the **Manage Sellers** settings.
+- **Enforcing Food Safety Compliance**: For perishable grocery and restaurant vendors, administrators review food safety certifications in **Seller Requests** before granting permission to publish food listings.
+- **Vendor Dispute Resolution**: When an item arrives damaged and the customer receives a refund, the administrator uses **Seller Wallet Transactions** to debit the corresponding reimbursement amount from the responsible vendor's balance.

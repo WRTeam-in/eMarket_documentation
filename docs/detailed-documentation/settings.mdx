@@ -1,0 +1,117 @@
+---
+sidebar_position: 8
+title: Platform & Store Settings
+description: In-depth reference for core marketplace settings, payment gateways, additional service charges, Firebase credentials, SEO parameters, and system updater.
+---
+
+# Platform & Store Settings
+
+The Settings suite configures the foundation of your marketplace: branding, currencies, payment processors, delivery surcharges, security credentials, and search engine optimization.
+
+---
+
+## 1. Store Settings (`/store_settings`)
+
+![Store Settings](/img/detailed-documentation/store-settings.webp)
+
+The primary administrative console for platform-wide business logic and operating defaults.
+
+### Essential Configuration Panels
+- **Platform Identity**:
+  - **App Name**: The public platform title displayed in notifications and storefront headers.
+  - **Support Email & Helpline Phone**: Customer service contacts.
+  - **Light & Dark Logos**: Brand imagery rendered across client apps and admin consoles.
+  - **Favicon**: Browser tab bookmark icon.
+- **Currency & Localization**:
+  - **Currency Symbol** (e.g. `$`, `€`, `₹`, `£`).
+  - **Currency Code** (USD, EUR, INR, GBP).
+  - **Decimal Points**: Precision format (typically 2 decimals).
+- **Order Limits & Rules**:
+  - **Minimum Order Amount**: Minimum checkout cart threshold.
+  - **Maximum Cart Weight / Units Limit**: Safeguard against unfulfillable bulk orders.
+  - **Order Return Window**: Number of days after delivery when customers can submit return requests.
+
+---
+
+## 2. Payment Gateways (`/payment_methods`)
+
+![Payment Methods](/img/detailed-documentation/payment-methods.webp)
+
+Enable, disable, and configure credentials for multi-country payment processors.
+
+### Supported Payment Engines
+- **Cash on Delivery (COD)**: Toggle COD availability, set minimum/maximum COD cart thresholds.
+- **Stripe**: Publishable Key, Secret Key, and Webhook Signing Secret for global credit card processing.
+- **Razorpay**: Key ID and Key Secret for instant UPI, net banking, and card processing in India.
+- **PayPal**: Client ID, Secret, and Live/Sandbox environment toggle.
+- **Cashfree**: App ID and Secret Key for direct settlement.
+- **Midtrans**: Server Key and Client Key for Southeast Asian payment methods.
+- **Paytm / Paystack**: Regional payment gateways.
+- **Direct Bank Transfer**: Bank account display details for manual wire confirmation.
+
+---
+
+## 3. Additional Charges (`/additional_charges`)
+
+![Additional Charges](/img/detailed-documentation/additional-charges.webp)
+
+Configure automated line-item surcharges appended to customer orders.
+
+### Surcharge Categories
+- **Store Packaging Charges**: Nominal fees covering eco-friendly containers and bags.
+- **Platform Service / Convenience Fee**: Flat or percentage-based operational fee.
+- **Rush Hour / Rain Surcharge**: Dynamic logistics fee during adverse weather or peak demand periods.
+
+---
+
+## 4. Firebase Configuration (`/firebase-settings`)
+
+![Firebase Settings](/img/detailed-documentation/firebase-settings.webp)
+
+Connects the eMarket web and Flutter mobile applications to Google Firebase services.
+
+### Core Credentials Required
+- **Firebase API Key** & **Project ID**
+- **Messaging Sender ID** & **App ID**
+- **FCM Server Key / Service Account JSON**: Powers instant push notifications to Android and iOS.
+- **Web VAPID Key**: Authorizes in-browser push notification subscriptions.
+
+---
+
+## 5. SEO Settings (`/seo-settings`)
+
+![SEO Settings](/img/detailed-documentation/seo-settings.webp)
+
+Configure metadata ensuring that your marketplace storefront and products rank at the top of Google, Bing, and social media feeds.
+
+### Key Fields
+- **Global Meta Title**: Homepage browser title tag.
+- **Meta Description**: Search engine snippet summary.
+- **Keywords**: Comma-separated search terms.
+- **Open Graph (OG) Image**: Preview image rendered when links are shared on WhatsApp, Facebook, or Twitter.
+
+---
+
+## 6. Theme & Visual Customizer (`/theme-settings`)
+
+![Theme Settings](/img/detailed-documentation/theme-settings.webp)
+
+Tailor the visual aesthetic of the admin control panel and web store with custom brand colors, dark mode defaults, and typography.
+
+---
+
+## 7. System Tools & Updater
+
+| Screen | Route | Purpose |
+| :--- | :--- | :--- |
+| **Contact Us & About Us** | `/contact_us`, `/about_us` | Manage company background, leadership bios, office addresses, and contact forms. |
+| **System Registration** | `/purchase_code` | Validates your Envato / CodeCanyon purchase code to unlock updates and licensing. |
+| **System Updater** | `/system_updater` | Upload official zip update packages to automatically upgrade database migrations and frontend bundles. |
+
+---
+
+## Real-World Settings Use Cases
+
+- **Enabling Instant Holiday Payments**: Ahead of Black Friday, administrators activate **Stripe** and **Razorpay** while disabling COD to accelerate order dispatch and reduce courier delivery failures.
+- **Optimizing Google Search Traffic**: Utilizing **SEO Settings** with tailored keywords ("Organic Grocery Delivery Mumbai", "Online Pharmacy Bhuj") ensures maximum local organic search customer acquisition.
+- **Updating Corporate Contact Details**: When moving headquarters or expanding customer support phone lines, the team updates **Store Settings** once, instantly reflecting new phone numbers across mobile apps and invoice headers.
