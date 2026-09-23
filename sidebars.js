@@ -138,6 +138,27 @@ const sidebars = {
       items: ["features/intro"],
     },
 
+    // Detailed Documentation
+    {
+      type: "category",
+      label: "Detailed Documentation",
+      items: [
+        "detailed-documentation/intro",
+        "detailed-documentation/orders",
+        "detailed-documentation/catalog",
+        "detailed-documentation/sellers",
+        "detailed-documentation/delivery",
+        "detailed-documentation/promotions",
+        "detailed-documentation/customer-finance",
+        "detailed-documentation/communications",
+        "detailed-documentation/settings",
+        "detailed-documentation/localization",
+        "detailed-documentation/content-blogs",
+        "detailed-documentation/reports",
+        "detailed-documentation/admin-faqs",
+      ],
+    },
+
     // Changelog Documentation
     {
       type: "category",

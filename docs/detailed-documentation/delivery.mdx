@@ -1,0 +1,120 @@
+---
+sidebar_position: 5
+title: Delivery Operations & Fleet
+description: Comprehensive operational manual for delivery partner onboarding, time slot scheduling, cash collection reconciliation, driver payouts, and compensation models.
+---
+
+# Delivery Operations & Fleet Management
+
+Last-mile delivery is often the most critical touchpoint in on-demand commerce. The Delivery Operations suite in eMarket equips logistics managers to supervise driver fleets, manage scheduled delivery time windows, reconcile cash collected on delivery, and administer driver payroll.
+
+---
+
+## 1. Manage Delivery Partners (`/delivery_boys`)
+
+![Manage Delivery Boys](/img/detailed-documentation/delivery-boys-manage.webp)
+
+The live master roster of all registered delivery personnel operating across your service territory.
+
+### Key Columns & Driver Parameters
+- **Name & Avatar**: Driver identity and profile photo.
+- **Mobile Number**: Primary contact for dispatch and emergency communication.
+- **Cash in Hand (₹)**: Current un-remitted cash collected by the driver from Cash-on-Delivery (COD) orders.
+- **Cash Limit (₹)**: Maximum COD cash threshold allowed before the driver is locked from receiving new orders until remitting funds.
+- **Bonus / Commission Percentage (%)**: Driver payout incentive per completed delivery.
+- **Availability / Status Switch**: Toggle to mark a driver as active or temporarily offline.
+- **Actions**: Edit driver profile, view order fulfillment history, or suspend account.
+
+---
+
+## 2. Onboard Delivery Partner (`/delivery_boys/create`)
+
+![Add Delivery Boy](/img/detailed-documentation/delivery-boys-add.webp)
+
+Form used by dispatch operations to register verified couriers into the dispatch system.
+
+### Step-by-Step Onboarding Guide
+1. Enter the driver's **Full Name**, **Email**, **Phone Number**, and initial **Login Password** for the Delivery Partner Flutter App.
+2. Enter their residential **Address**, **City**, and assign operational delivery zones.
+3. Configure financial parameters:
+   - **Cash Limit**: Set threshold (e.g. ₹5,000 maximum COD cash holding).
+   - **Bonus Percentage**: Set per-order commission or incentive rate.
+4. Upload KYC verification documents:
+   - **Driving License** (Front & Back).
+   - **National Identity Card** (Government-issued photo ID).
+5. Set status to `Active` and click **Save**.
+
+---
+
+## 3. Delivery Partner Applications (`/registered_delivery_boys`)
+
+![Delivery Boy Requests](/img/detailed-documentation/delivery-boy-requests.webp)
+
+When couriers sign up independently through the Delivery Partner Mobile App, their profiles remain pending here until background verification is finalized.
+
+### Verification Steps
+1. Inspect uploaded license copies, vehicle registration documents, and identity numbers.
+2. Confirm telephone verification or reference checks.
+3. Click **Approve** to activate their account and permit immediate order dispatching.
+
+---
+
+## 4. Delivery Settings & Time Slots (`/delivery_settings`)
+
+![Delivery Settings](/img/detailed-documentation/delivery-settings.webp)
+
+Configure operational delivery windows, estimated fulfillment lead times, and daily order capacity limits.
+
+### Time Slot Configuration
+- **Operating Days**: Select which days of the week delivery operations run.
+- **Time Slot Windows**: Create customizable time bands (e.g. `08:00 AM - 11:00 AM`, `01:00 PM - 04:00 PM`, `06:00 PM - 09:00 PM`).
+- **Maximum Order Capacity**: Limit orders per time window (e.g., maximum 50 orders per slot) to prevent delivery partner bottlenecks.
+
+---
+
+## 5. Cash Collection Reconciliation (`/cash_collection`)
+
+![Cash Collection](/img/detailed-documentation/cash-collection.webp)
+
+Tracks the vital financial loop of Cash-on-Delivery (COD) orders, ensuring physical cash collected from customers is properly deposited with the platform cashier.
+
+### Step-by-Step Cash Handover
+1. When a delivery partner visits the depot or hub to deposit physical cash:
+2. Open **Cash Collection** and search for the driver's name.
+3. Review their recorded **Cash in Hand** balance.
+4. Enter the physical amount received into the **Collect Cash** prompt.
+5. Click **Confirm Collection**. The driver's cash-in-hand liability decreases immediately, unlocking their dispatch queue if they had previously hit their cash ceiling.
+
+---
+
+## 6. Fund Transfers (`/fund_transfers`)
+
+![Fund Transfers](/img/detailed-documentation/fund-transfers.webp)
+
+Audits payout disbursements and incentive bonuses transferred directly into delivery partners' registered bank accounts or digital wallets.
+
+---
+
+## 7. Salary Management (`/salary`)
+
+![Salary Management](/img/detailed-documentation/salary.webp)
+
+Enables hybrid fleet compensation models:
+- **Fixed Monthly Salary**: Full-time dedicated couriers receive standard monthly pay schedules.
+- **Commission + Incentive Model**: Gig couriers receive tiered payouts tied to on-time delivery rates, weather bonuses, and peak hour performance.
+
+---
+
+## 8. Delivery Boy Policies (`/privacy_policy_delivery_boy`)
+
+![Delivery Boy Policies](/img/detailed-documentation/delivery-boy-policies.webp)
+
+The contractual agreement and code of conduct for couriers covering road safety rules, customer interaction etiquette, parcel handling, and grounds for deactivation.
+
+---
+
+## Real-World Logistics Use Cases
+
+- **Preventing COD Cash Loss**: By setting a strict ₹3,000 **Cash Limit**, the platform automatically stops assigning new COD orders to a driver until they remit their collected cash to an authorized hub.
+- **Handling Weather / Holiday Capacity Spikes**: During rainy days or holidays, operations managers edit **Delivery Settings** to restrict maximum orders per slot, preventing over-commitment and protecting customer satisfaction.
+- **Autonomous Driver Onboarding**: Delivery drivers download the partner app, submit their own license photos via mobile, and administrators verify and approve them within 15 minutes via **Delivery Boy Requests**.

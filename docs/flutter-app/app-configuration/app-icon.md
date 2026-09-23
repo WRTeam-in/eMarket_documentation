@@ -10,7 +10,7 @@ The customer app does not use an icon generator package, so replace the icon fil
 
 ## 📱 Android
 
-![Android mipmap folders](/img/flutter-app/appicon-android-mipmap.png)
+![Android mipmap folders](/img/flutter-app/appicon-android-mipmap.webp)
 
 All icons live under `android/app/src/main/res/`. Each density folder contains **four** files:
 
@@ -32,7 +32,7 @@ You do not need to edit `ic_launcher.xml` itself. Just replace the PNGs it point
 
 ## 🍏 iOS
 
-![iOS AppIcon.appiconset](/img/flutter-app/appicon-ios-appiconset.png)
+![iOS AppIcon.appiconset](/img/flutter-app/appicon-ios-appiconset.webp)
 
 Prepare a set of iOS app icons using Apple's required sizes.
 

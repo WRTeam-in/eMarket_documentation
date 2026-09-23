@@ -6,7 +6,7 @@ sidebar_position: 9
 
 Set here Login settings. If you want enable phone setting than you should enable either firebase or custom SMS gateway.
 
-![Login Settings](/img/admin-panel/login.png)
+![Login Settings](/img/admin-panel/login.webp)
 
 ## Authentication Methods
 

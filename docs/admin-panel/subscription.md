@@ -11,7 +11,7 @@ The Subscription feature allows you to create and manage subscription plans for 
 
 In the **Subscription** menu detailed section, you can add new subscription data.
 
-![Subscription Settings](/img/admin-panel/subscription.png)
+![Subscription Settings](/img/admin-panel/subscription.webp)
 
 When creating a plan, you can specify:
 

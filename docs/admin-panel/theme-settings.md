@@ -10,7 +10,7 @@ These colors apply to the **website** and the **customer app** — both download
 
 The admin panel's own interface and the partner app are not affected by these settings.
 
-![Theme Settings](/img/admin-panel/theme-settings.png)
+![Theme Settings](/img/admin-panel/theme-settings.webp)
 
 ## Primary & Neutral Color (per module)
 

@@ -1,0 +1,117 @@
+---
+sidebar_position: 4
+title: Marketing & Promotions
+description: Complete guide to configuring homepage sliders, promotional offers, popup campaigns, discount coupons, and curated featured sections.
+---
+
+# Marketing, Offers & Promotions
+
+The marketing and promotional toolset in eMarket allows platform operators to drive user engagement, increase average order values, and execute targeted seasonal campaigns across both mobile applications and the web storefront.
+
+---
+
+## 1. Home Sliders (`/home_sliders`)
+
+![Home Sliders](/img/detailed-documentation/home-sliders.webp)
+
+High-impact visual carousels positioned prominently at the very top of customer mobile app feeds and homepage storefronts.
+
+### Adding a Home Slider (`/home_sliders/create`)
+
+![Add Home Slider](/img/detailed-documentation/home-sliders-add.webp)
+
+#### Step-by-Step Instructions
+1. Navigate to **Home Sliders > Add Home Slider**.
+2. Select the target **Store Module** (e.g., Grocery, Pharmacy).
+3. Choose the **Redirection Type**:
+   - **Category**: Clicking the slider takes the customer straight into a specific category product listing.
+   - **Product**: Opens the detailed product screen for a hero SKU.
+   - **External URL**: Directs customers to a brand campaign, promotional landing page, or partner site.
+4. Upload the **Slider Image** (Optimized landscape aspect ratio for mobile screens).
+5. Set the **Sort Order** and toggle **Status** to `Active`.
+6. Click **Save Slider**.
+
+---
+
+## 2. Offer Images (`/offers`)
+
+![Offer Images](/img/detailed-documentation/offers.webp)
+
+Promotional banners interspersed throughout customer home feeds and department pages to highlight deals, discounts, and brand spotlights.
+
+### Adding an Offer (`/offers/create`)
+
+![Add Offer](/img/detailed-documentation/offers-add.webp)
+
+#### How It Works
+- Select the destination department or product collection.
+- Upload engaging visual artwork highlighting discount percentages (e.g., "Flat 30% Off on Fresh Produce").
+- Set operational dates so promotional banners automatically expire after campaign conclusion.
+
+---
+
+## 3. Popup Offers (`/popup`)
+
+![Popup Offers](/img/detailed-documentation/popup-offer.webp)
+
+Modal promotional overlays that trigger when customers launch the mobile app or visit the website homepage.
+
+### Key Use Cases & Controls
+- **Welcome Discount for First-Time Users**: Offer a first-order discount code to encourage immediate sign-ups.
+- **Flash Sale Alerts**: Alert returning shoppers to limited-time weekend discounts or clearance events.
+- **Direct Action Links**: Allow customers to tap the popup to immediately apply a coupon or open the sale collection.
+
+---
+
+## 4. Promo Codes & Coupons (`/promo_code`)
+
+![Promo Codes](/img/detailed-documentation/promo-codes.webp)
+
+Discount codes that customers enter during cart checkout to receive price deductions or cashbacks.
+
+### Adding a Promo Code (`/promo_code/create`)
+
+![Add Promo Code](/img/detailed-documentation/promo-codes-add.webp)
+
+#### Step-by-Step Configuration
+1. **Promo Code**: Enter the promotional code text (e.g., `SUMMER20`, `WELCOME50`).
+2. **Discount Type**:
+   - **Percentage**: Deducts a percentage (e.g., 20% off cart total).
+   - **Flat Amount**: Deducts an exact monetary amount (e.g., ₹100 off).
+3. **Discount Value & Maximum Discount**:
+   - For percentage discounts, define a **Max Discount Amount** (e.g., "20% off up to ₹150") to protect margins.
+4. **Order Thresholds**:
+   - **Minimum Order Amount**: The lowest basket size required to activate the coupon (e.g., minimum ₹500).
+5. **Usage Restrictions**:
+   - **Start Date & End Date**: Validity duration.
+   - **Total Usages Allowed**: Global cap (e.g., first 1,000 customers).
+   - **Usage Limit Per Customer**: Restrict to 1 use per customer account.
+6. Click **Create Promo Code**.
+
+---
+
+## 5. Featured Sections (`/sections`)
+
+![Featured Sections](/img/detailed-documentation/featured-sections.webp)
+
+Dynamic product showcases displayed as horizontal scrolling rows or distinct blocks on the app homepage (e.g., "Best Sellers", "Weekend Deals", "Organic Essentials").
+
+### Adding a Featured Section (`/sections/create`)
+
+![Add Section](/img/detailed-documentation/featured-sections-add.webp)
+
+#### Configuration Steps
+1. Enter the public section title (e.g., "Top Trending Grocery Items") and subtitle.
+2. Select the **Style / Layout** (Horizontal scroll carousel, 2x2 grid, or full-width banner block).
+3. Choose the product sourcing mode:
+   - **Category-Based**: Automatically displays the newest items from a designated category.
+   - **Custom Product Selection**: Hand-pick specific SKUs across any vendor to display in the section.
+4. Save the section and view the instant live preview on customer applications.
+
+---
+
+## Real-World Marketing Use Cases
+
+- **Festival Mega-Sale Launch**: Marketing managers coordinate a festival campaign by deploying a hero **Home Slider**, activating a sitewide **Promo Code**, and placing high-margin festival sweets in a prominent **Featured Section**.
+- **Cart Abandonment Recovery via Popups**: Setting up a discreet exit-intent or launch **Popup Offer** that delivers a 10% coupon increases mobile app checkout conversion rates by up to 22%.
+- **Supplier Sponsored Brand Banners**: Charge FMCG manufacturers a premium fee to feature their new product releases exclusively on the top **Home Slider** for a 7-day promotional window.

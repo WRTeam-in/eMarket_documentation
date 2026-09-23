@@ -12,7 +12,7 @@ The app ships with **Outfit**. The family is set in one place, so changing it up
 2. Copy the family name exactly as Google Fonts spells it, including capitals and spaces (for example `Poppins`, `Open Sans`)
 3. Open `lib > helper > styles > appTypography.dart`
 
-![Google Fonts](/img/flutter-app/google-font.png)
+![Google Fonts](/img/flutter-app/google-font.webp)
 
 4. Change the `fontFamily` value:
 

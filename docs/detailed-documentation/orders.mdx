@@ -1,0 +1,104 @@
+---
+sidebar_position: 1
+title: Order Management
+description: Comprehensive operational guide and step-by-step instructions for managing marketplace orders and self-pickup fulfillment in eMarket.
+---
+
+# Order Management & Fulfillment
+
+Order management is the operational core of the eMarket platform. It provides administrators and store managers with complete visibility and end-to-end control over incoming customer purchases across all vendors, delivery methods, and payment gateways.
+
+---
+
+## 1. Orders Hub (`/orders`)
+
+![Orders Management](/img/detailed-documentation/orders.webp)
+
+The **Orders** screen is the central dashboard where all door-step delivery orders are monitored, processed, assigned to delivery personnel, and tracked through to completion.
+
+### Key Components & Indicators
+
+- **KPI Metric Cards**: Quick-reference indicators at the top showing the real-time order pipeline:
+  - **New Orders** (Green): Newly placed orders awaiting vendor or admin acceptance.
+  - **Processing Orders** (Orange): Orders currently being picked, packed, or prepared.
+  - **Ready to Ship** (Blue): Packages packaged and staged for courier handover.
+  - **Out for Delivery** (Red): Orders currently in transit with an assigned delivery partner.
+- **Search Bar**: Instant full-text search across Order IDs, customer names, or seller names.
+- **Filters Dropdown**: Filter orders by date range, specific seller/vendor, order status, payment type (COD vs. Online), and assigned delivery boy.
+- **Columns Customizer**: Toggle column visibility to tailor the table view to your operational workflow.
+- **Orders Table**:
+  - **Order ID**: Unique clickable reference identifier.
+  - **Customer**: Customer profile name and registered telephone number.
+  - **Seller**: Originating vendor/store name and seller identifier.
+  - **Total Items**: Number of distinct SKUs, with a clickable link to view items drawer.
+  - **Payment**: Payable total currency amount and payment instrument (COD, Stripe, Razorpay, Wallet).
+  - **Order Date & Time**: Timestamp with relative date indicators.
+  - **Status Badge**: Color-coded fulfillment state (`Received`, `Processed`, `Shipped`, `Delivered`, `Cancelled`).
+  - **Actions**: View full details eye icon, invoice printer, and administrative deletion trigger.
+
+### Step-by-Step Operational Instructions
+
+#### How to Process and Update an Order Status
+1. Navigate to **Orders** from the left-hand navigation sidebar.
+2. Locate the target order using the search bar or filter by `Received` status.
+3. Click the **View (Eye Icon)** button in the **Action** column to open the comprehensive Order Details view.
+4. Review the ordered line items, delivery address, delivery time slot, and special customer notes.
+5. In the **Update Status** dropdown, select the next state:
+   - Change from `Received` to `Processed` once the seller acknowledges the order.
+   - Change from `Processed` to `Shipped` once goods are packed.
+6. Select an active **Delivery Partner** from the dropdown list to assign the delivery.
+7. Click **Update** to save the changes. An automated push notification and SMS/Email will be dispatched to both the customer and the assigned driver.
+
+#### How to Generate and Print Invoices
+1. In the order details drawer or directly from the orders table, click the **Invoice** button.
+2. Select your desired layout:
+   - **Standard A4 Invoice**: Detailed multi-vendor breakdown, tax breakup (CGST/SGST/VAT), company logo, and barcodes.
+   - **Thermal POS Slip (80mm/58mm)**: Compact receipt for thermal receipt printers.
+3. Click **Print** or **Download PDF** for record keeping or attaching to the physical parcel.
+
+### Real-World Use Cases
+
+- **Peak Delivery Rush Hours**: During lunch or evening grocery rush hours, dispatchers filter by `Ready to Ship` and batch-assign nearby orders to delivery partners clustered in the same delivery zone.
+- **Order Exception Handling**: If a customer calls customer support asking about an unexpected delay, the administrator searches by customer mobile number or Order ID to instantly see which driver has the package and view live GPS tracking.
+- **Failed Deliveries & Rescheduling**: When a delivery partner marks an order as undelivered due to customer unavailability, the admin can reschedule the delivery time slot or reassign the package for the following morning.
+
+---
+
+## 2. Self Pickup Orders (`/self_pickup_orders`)
+
+![Self Pickup Orders](/img/detailed-documentation/self-pickup-orders.webp)
+
+The **Self Pickup Orders** screen handles the "Click & Collect" fulfillment model, where customers place orders online and physically collect their packaged items from the seller's brick-and-mortar storefront or warehouse.
+
+### Key Components & Indicators
+
+- **Search Bar**: Quick lookup by Order ID, customer phone number, or store name.
+- **Self Pickup Table Columns**:
+  - **O.ID**: Unique order identifier.
+  - **User**: Customer full name.
+  - **Seller**: Target store branch location where goods are staged.
+  - **Mobile**: Customer contact number for collection verification.
+  - **Total (₹)**: Base cart value.
+  - **A. Charges**: Additional store packaging or convenience charges.
+  - **Wallet Used**: Credit deducted from customer's in-app digital wallet.
+  - **F. Total (₹)**: Final payable amount settled.
+  - **P. Method**: Payment mode (`COD / Pay on Pickup`, `Wallet`, `Online Payment`).
+  - **Status**: Collection state (`Pending`, `Ready for Pickup`, `Delivered`, `Cancelled`).
+  - **Actions**: View modal and delete options.
+
+### Step-by-Step Operational Instructions
+
+#### How to Fulfill a Self Pickup Order
+1. Go to **Self Pickup Orders** in the admin sidebar.
+2. When the seller packages the order, change the order status to **Ready for Pickup**. The customer automatically receives an alert that their package is ready for collection.
+3. When the customer arrives at the store counter:
+   - The cashier or store manager asks for the customer's **Order ID** and the **Verification OTP / QR Code** displayed in their customer mobile app.
+   - Verify the OTP matches the order details record.
+4. Click **View Order**, verify the items handed over, and update the status to **Delivered / Completed**.
+5. The transaction is immediately settled to the vendor's ledger balance.
+
+### Real-World Use Cases
+
+- **Click-and-Collect Groceries**: Customers order fresh dairy or bakery items during work hours and pick them up on their commute home without waiting in supermarket checkout queues.
+- **Express Pharmacy Pickup**: Prescription medicines are verified and pre-packaged by the licensed pharmacist ahead of customer arrival, cutting counter wait times to under 30 seconds.
+- **No Delivery Fee Incentive**: Cost-sensitive customers choose self-pickup to avoid distance-based delivery fees on small basket orders.

@@ -12,4 +12,4 @@ You can change how many items are fetched at a time when a request is sent to th
 2. Find the parameter that controls the product load limit
 3. Adjust the value as needed
 
-![Limit](/img/flutter-app/limit.png)
+![Limit](/img/flutter-app/limit.webp)

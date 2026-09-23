@@ -14,7 +14,7 @@ In Google Cloud, enable **Maps SDK for Android** and **Maps SDK for iOS**, and k
 
 In [Google Cloud Console](https://console.cloud.google.com/) → **Credentials**, copy **Android key (auto created by Firebase)** and **iOS key (auto created by Firebase)**.
 
-![Android and iOS keys in Google Cloud Credentials](/img/flutter-app/map-key-credentials.png)
+![Android and iOS keys in Google Cloud Credentials](/img/flutter-app/map-key-credentials.webp)
 
 ## Android
 
@@ -26,7 +26,7 @@ Replace the placeholder in `android > app > src > main > AndroidManifest.xml`:
     android:value="PLACE_GOOGLE_ANDROID_MAP_API_KEY_HERE" />
 ```
 
-![Android map key in AndroidManifest.xml](/img/flutter-app/map-key-android-manifest.png)
+![Android map key in AndroidManifest.xml](/img/flutter-app/map-key-android-manifest.webp)
 
 ## iOS
 
@@ -36,7 +36,7 @@ Replace the placeholder in `ios > Runner > AppDelegate.swift`:
 GMSServices.provideAPIKey("PLACE_HERE_GOOGLE_MAP_IOS_KEY")
 ```
 
-![iOS map key in AppDelegate.swift](/img/flutter-app/map-key-ios-appdelegate.png)
+![iOS map key in AppDelegate.swift](/img/flutter-app/map-key-ios-appdelegate.webp)
 
 ## Which key does what
 

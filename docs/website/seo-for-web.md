@@ -17,7 +17,7 @@ To enable SEO for your web application:
 2. Find the NEXT_PUBLIC_SEO variable
 3. Set its value to "true"
 
- ![Out Folder](/img/website/images/make-SEO-true.png)
+ ![Out Folder](/img/website/images/make-SEO-true.webp)
 
 ## Server Requirements
 

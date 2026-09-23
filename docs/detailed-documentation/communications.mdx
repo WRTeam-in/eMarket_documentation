@@ -1,0 +1,92 @@
+---
+sidebar_position: 7
+title: Communications & Messaging
+description: Operational manual for broadcast push notifications, automated transactional notification templates, email notifications, and SMS gateway configuration.
+---
+
+# Communications & Notifications
+
+Multi-channel communication ensures customers, sellers, and delivery partners stay informed about order status changes, time-sensitive offers, and account security alerts. eMarket includes native engines for Push Notifications, Transactional Emails, and SMS alerts.
+
+---
+
+## 1. Send Push Notifications (`/notifications/create`)
+
+![Send Notifications](/img/detailed-documentation/notifications-send.webp)
+
+A broadcast messaging console for creating and sending real-time Firebase Cloud Messaging (FCM) push notifications directly to user smartphones.
+
+### Step-by-Step Campaign Broadcast
+1. Select the **Target Audience**:
+   - **All Registered Customers**: Sitewide promotional announcements.
+   - **Specific Customer Segment**: Target active buyers or users in specific cities.
+   - **All Sellers** or **Delivery Partners**: Operational platform announcements.
+2. Enter the **Notification Title** (short, compelling hook).
+3. Compose the **Notification Message** body.
+4. Upload an optional high-resolution **Notification Banner Image** to render as an expanded rich push notification on Android and iOS lock screens.
+5. Set the **Target Redirection**:
+   - Open specific Category, Product, or Promo Code page when tapped.
+6. Click **Send Notification**. Delivery is instant across all registered FCM device tokens.
+
+---
+
+## 2. Notification History & Logs (`/notifications`)
+
+![Manage Notifications](/img/detailed-documentation/notifications-manage.webp)
+
+A historical audit log tracking all previously dispatched broadcasts, including transmission timestamps, recipient counts, and engagement status.
+
+---
+
+## 3. Automated Notification Templates (`/notification-templates`)
+
+![Notification Templates](/img/detailed-documentation/notification-templates.webp)
+
+Define the automated system notifications triggered during order lifecycle events.
+
+### Built-In Dynamic Event Triggers
+- `Order Received`: Dispatched to customer and vendor upon checkout.
+- `Order Processed`: Informs the customer that packaging is underway.
+- `Order Shipped / Out for Delivery`: Alerts customer with assigned courier details.
+- `Order Delivered`: Confirmation alert with delivery timestamp.
+- `Order Cancelled / Refunded`: Transparent notification of cancellation and refund credit.
+- **Dynamic Placeholders**: Use tags like `{order_id}`, `{customer_name}`, and `{total_amount}` to auto-personalize every message.
+
+---
+
+## 4. Email Management & Templates
+
+### 4.1 Transactional Email Templates (`/email_templates`)
+
+![Email Templates](/img/detailed-documentation/emails-templates.webp)
+
+Design and edit responsive HTML email layouts for critical business correspondence:
+- **Customer Order Confirmation & Invoice Attachment**
+- **Welcome Onboarding Email**
+- **Password Reset Verifications**
+- **Vendor Monthly Earnings Summaries**
+
+---
+
+### 4.2 Sent Emails Log (`/emails`)
+
+![Manage Emails](/img/detailed-documentation/emails-manage.webp)
+
+Monitors outgoing SMTP mail delivery status, allowing support teams to verify whether confirmation emails reached customer inboxes.
+
+---
+
+## 5. SMS Gateway & Templates
+
+| Screen | Route | Description |
+| :--- | :--- | :--- |
+| **SMS Settings** | `/sms-settings` | Configure Twilio or custom SMS HTTP gateway credentials, authentication tokens, and Sender IDs. |
+| **SMS Templates** | `/sms-templates` | Manage short-code SMS templates for instant OTP logins, phone verifications, and delivery arrival alerts. |
+
+---
+
+## Real-World Communication Use Cases
+
+- **Flash Sale App Push Notification**: At 11:00 AM on Sunday, the marketing team dispatches a rich push notification with an appetizing photo announcing "Free Delivery for the Next 2 Hours", producing an immediate 35% surge in app traffic.
+- **Transactional Delivery Updates**: A customer at work receives an automated SMS and push notification the moment their order transitions to `Out for Delivery`, giving them time to prepare for courier handover.
+- **Critical Vendor Stock Alerts**: Automated emails notify store managers whenever best-selling inventory drops below 5 units, prompting timely supplier re-stocking.

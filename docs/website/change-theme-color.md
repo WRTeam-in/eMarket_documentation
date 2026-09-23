@@ -15,7 +15,7 @@ Theme color is now set module-wise, meaning each module (Grocery, Pharmacy, Ecom
 3. Set the **Primary Color** (used for main brand elements and actions) and **Neutral Color** (used for text, backgrounds, borders, and neutral elements).
 4. Click **Save**.
 
-![Change Website Theme](/img/website/images/change-website-theme-color.png)
+![Change Website Theme](/img/website/images/change-website-theme-color.webp)
 
 ## How to set the default module
 
@@ -26,7 +26,7 @@ The website uses the theme color of the **default module** as its default/initia
 3. In the Edit Module form, enable the **Set as a default module** checkbox.
 4. Click **Save**.
 
-![Set Default Module](/img/website/images/set-default-module.png)
+![Set Default Module](/img/website/images/set-default-module.webp)
 
 ## How to change website favicon
 
@@ -35,4 +35,4 @@ The website uses the theme color of the **default module** as its default/initia
 
      Recommended Tool: https://favicon.io/favicon-converter/
 
-![Upload Favicon](/img/website/images/upload-favicon.png)
+![Upload Favicon](/img/website/images/upload-favicon.webp)

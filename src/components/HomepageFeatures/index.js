@@ -84,6 +84,17 @@ const FeatureList = [
     ),
     link: "/docs/faq/intro",
   },
+  {
+    title: "Detailed Documentation",
+    Svg: require("@site/static/img/documentation.png").default,
+    description: (
+      <>
+        Dive into the complete eMarket documentation covering setup, modules,
+        and configuration in full depth across every platform component.
+      </>
+    ),
+    link: "/docs/detailed-documentation",
+  },
 ];
 
 function Feature({ Svg, title, description, link }) {

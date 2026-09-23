@@ -1,0 +1,75 @@
+---
+sidebar_position: 9
+title: Localization & Geographical Zones
+description: Guide to managing multi-language translations, supported countries, serviceable cities, and delivery zone boundaries in eMarket.
+---
+
+# Localization & Geographical Zones
+
+eMarket supports cross-border and multi-regional commerce. This section covers configuring multi-language translations (including RTL support) and defining deliverable geographical zones down to the city and pincode level.
+
+---
+
+## 1. Multi-Language System
+
+eMarket features a dynamic internationalization (i18n) engine supporting English, Arabic, Spanish, French, Hindi, and any custom language.
+
+### 1.1 Manage Languages (`/languages`)
+
+![Manage Languages](/img/detailed-documentation/languages-manage.webp)
+
+Lists all active languages installed across the website and applications.
+
+#### Key Actions & Fields
+- **Language Name & Code**: e.g., English (`en`), Arabic (`ar`), Spanish (`es`).
+- **Direction Toggle**: Switch between **LTR** (Left-to-Right) and **RTL** (Right-to-Left) for Arabic/Hebrew script rendering.
+- **Default Language**: Sets the platform fallback language.
+- **Status Switch**: Enable or disable user-facing language selection.
+
+---
+
+### 1.2 Add Language (`/languages/create`)
+
+![Add Language](/img/detailed-documentation/languages-add.webp)
+
+#### Step-by-Step Instructions
+1. Navigate to **Languages > Add Language**.
+2. Enter the **Language Name** (e.g. `Arabic`).
+3. Enter the standard **ISO Language Code** (e.g. `ar`).
+4. Select text direction (**RTL** or **LTR**).
+5. Upload a flag icon.
+6. Click **Save Language** to auto-generate the translation key dictionary for that language.
+
+---
+
+## 2. Countries Management (`/countries`)
+
+![Countries](/img/detailed-documentation/countries.webp)
+
+Defines the nations where your platform operates, establishing default international telephone calling codes and currency conventions.
+
+### Parameters Configured
+- **Country Name** (e.g., India, United States, United Arab Emirates).
+- **Dialing Calling Code** (e.g., `+91`, `+1`, `+971`).
+- **Country ISO Code** (`IN`, `US`, `AE`).
+
+---
+
+## 3. Serviceable Cities & Zones (`/cities`)
+
+![Cities](/img/detailed-documentation/cities.webp)
+
+Controls the exact geographic boundaries where vendors are permitted to sell and delivery partners fulfill orders.
+
+### City & Boundary Configuration
+- **City Name**: Urban center or municipal region.
+- **Geofenced Coordinates**: Map coordinates (latitude, longitude) and radius polygon defining delivery coverage.
+- **Associated Pincodes / Postal Codes**: Customer delivery addresses must fall within these active pincodes to complete checkout.
+
+---
+
+## Real-World Localization & Territory Use Cases
+
+- **Right-to-Left (RTL) Arabic Commerce**: When deploying in the Middle East, activating Arabic with the **RTL** flag automatically mirrors the entire mobile app layout, navigation drawers, and typography for native Arabic users.
+- **Staged Geographic City Expansion**: A marketplace launching in a new metropolitan area creates a new **City** record with designated launch pincodes, allowing them to onboard local vendors ahead of marketing launch.
+- **Blocking Deliveries Outside Service Radii**: If a shopper enters an address outside the defined **Cities** boundary, the app gracefully notifies them that doorstep delivery is not yet available in their neighborhood.

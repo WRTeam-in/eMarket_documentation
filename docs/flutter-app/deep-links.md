@@ -16,7 +16,7 @@ Open `lib > helper > utils > constant.dart`:
 static String websiteUrl = "https://shop.example.com/";
 ```
 
-![Website URL in constant.dart](/img/flutter-app/deep-link-website-url.png)
+![Website URL in constant.dart](/img/flutter-app/deep-link-website-url.webp)
 
 ## 2. Android
 
@@ -27,7 +27,7 @@ Open `android > app > src > main > AndroidManifest.xml` and replace the demo `an
 <data android:host="shop.example.com" />
 ```
 
-![Deep link host in AndroidManifest.xml](/img/flutter-app/deep-link-android-host.png)
+![Deep link host in AndroidManifest.xml](/img/flutter-app/deep-link-android-host.webp)
 
 ## 3. iOS
 
@@ -40,4 +40,4 @@ Open `ios > Runner > Runner.entitlements` and replace the demo entries with your
 </array>
 ```
 
-![Associated domain in Runner.entitlements](/img/flutter-app/deep-link-ios-entitlements.png)
+![Associated domain in Runner.entitlements](/img/flutter-app/deep-link-ios-entitlements.webp)

@@ -7,7 +7,7 @@ sidebar_label: Contact Us
 
 Here you can contact to WRTeam.
 
-<!-- ![Contact](/img/admin-panel/contact.png) -->
+<!-- ![Contact](/img/admin-panel/contact.webp) -->
 
 WRTeam has creative and dedicated group of developers who are mastered in Apps Developments and Web Application Development with a niche in delivering quality solutions to customers across the globe. Contact us today to find out how we can help you or for freelance work.
 

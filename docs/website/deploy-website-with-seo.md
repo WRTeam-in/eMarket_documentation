@@ -63,11 +63,11 @@ pm2 ls
 
 You should see your application in the list of running processes:
 
- ![Out Folder](/img/website/images/pm2_success.png)
+ ![Out Folder](/img/website/images/pm2_success.webp)
 
  If you see errors:
 
- ![Out Folder](/img/website/images/pm2_error.png)
+ ![Out Folder](/img/website/images/pm2_error.webp)
 
  Run `pm2 logs` to see detailed error messages.
 

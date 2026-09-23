@@ -12,7 +12,7 @@ This guide provides instructions on how to open and run the eMarket website loca
 
 2. Open the terminal and change your current directory path to the folder that contains the `package.json` file of your project:
 
-   ![Change Path](/img/website/images/nextjs-change-path.png)
+   ![Change Path](/img/website/images/nextjs-change-path.webp)
 
 3. Install all the dependencies by running the following command in your terminal:
 
@@ -20,7 +20,7 @@ This guide provides instructions on how to open and run the eMarket website loca
    npm install
    ```
 
-   ![Install Dependencies](/img/website/images/nextjs-install-dep.png)
+   ![Install Dependencies](/img/website/images/nextjs-install-dep.webp)
 
 4. To run the website on your localhost, execute the following command:
 
@@ -28,7 +28,7 @@ This guide provides instructions on how to open and run the eMarket website loca
    npm run dev
    ```
 
-   ![Run Locally](/img/website/images/nextjs-run-locally.png)
+   ![Run Locally](/img/website/images/nextjs-run-locally.webp)
 
 5. To create a build folder for your project, run:
 
@@ -36,4 +36,4 @@ This guide provides instructions on how to open and run the eMarket website loca
    npm run export
    ```
 
-   ![Build Folder](/img/website/images/nextjs-build-folder.png)
+   ![Build Folder](/img/website/images/nextjs-build-folder.webp)

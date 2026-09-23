@@ -22,9 +22,9 @@ Setting up eMarket on your server is a straightforward process:
 > `Could not connect to the database. Maybe your Database is not available.`
 
 > Remove symlink from your server's disableFunctions
-> ![Disable symlink](/img/admin-panel/disable_sys_link.png)
+> ![Disable symlink](/img/admin-panel/disable_sys_link.webp)
 
-> Database password Should be include `Capital,Small latters with @ or _  with number` > ![Password Suggestion](/img/admin-panel/DatabaseStep3.png)
+> Database password Should be include `Capital,Small latters with @ or _  with number` > ![Password Suggestion](/img/admin-panel/DatabaseStep3.webp)
 
 4. Configure your database (enter host, username, password, and database name)
    ![Step 4](/img/admin-panel/step_4.webp)

@@ -6,7 +6,7 @@ sidebar_position: 24
 
 Navigate to **Delivery Settings → Manage Time Slots**. This feature is **module-wise** — configure it separately per module (Grocery, Pharmacy, eCommerce, Food Delivery, etc.) using the module switcher.
 
-![Manage Time Slots](/img/admin-panel/time_slots.png)
+![Manage Time Slots](/img/admin-panel/time_slots.webp)
 
 ## Time Slot Config
 
@@ -23,7 +23,7 @@ Click **Add** to save the config.
 
 Click **Add New Time Slot** to open the form.
 
-![Add Time Slot](/img/admin-panel/time_slots_add.png)
+![Add Time Slot](/img/admin-panel/time_slots_add.webp)
 
 - **Title** — slot label (e.g. "Morning 9AM to 12PM")
 - **Duration (minutes)** — shown for Quick Delivery slot type; order delivered within this many minutes of being placed
