@@ -13,18 +13,26 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <Heading as="h1" className={clsx("hero__title", styles.title)}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        {/* <div className={styles.buttons}>
+        <p className={clsx("hero__subtitle", styles.subtitle)}>
+          {siteConfig.tagline}
+        </p>
+        <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--secondary button--md"
             to="/docs/admin-panel/intro"
           >
-            Get Started
+            Read the Docs
           </Link>
-        </div> */}
+          <Link
+            className={clsx("button button--md", styles.ghostButton)}
+            to="/docs/features"
+          >
+            What's New in 4.0.2
+          </Link>
+        </div>
         <DocBanner />
       </div>
     </header>

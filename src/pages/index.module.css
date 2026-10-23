@@ -4,20 +4,53 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 2.25rem 0 1.75rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.title {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  max-width: 760px;
+  margin: 0 auto 1rem;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.ghostButton {
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  background-color: transparent;
+}
+
+.ghostButton:hover {
+  background-color: rgba(255, 153, 0, 0.12);
+  color: var(--ifm-color-primary);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 1.5rem 1rem 1.25rem;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
 }
