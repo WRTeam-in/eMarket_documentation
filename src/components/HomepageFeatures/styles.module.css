@@ -124,12 +124,16 @@
 .card {
   overflow: hidden;
   isolation: isolate;
-  opacity: 0;
-  transform: translateY(14px);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.25s ease,
     opacity 0.5s ease var(--delay, 0ms);
 }
 
+.armed .card {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.card,
 .visible .card {
   opacity: 1;
   transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));

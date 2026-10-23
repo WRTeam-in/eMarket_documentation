@@ -107,15 +107,14 @@ function Feature({ Svg, title, description, link, index }) {
 
 export default function HomepageFeatures() {
   const ref = useRef(null);
+  const [armed, setArmed] = useState(false);
   const [visible, setVisible] = useState(false);
 
   // Stagger the cards in once the grid scrolls into view
   useEffect(() => {
     const el = ref.current;
-    if (!el || !("IntersectionObserver" in window)) {
-      setVisible(true);
-      return undefined;
-    }
+    if (!el || !("IntersectionObserver" in window)) return undefined;
+    setArmed(true);
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -133,7 +132,7 @@ export default function HomepageFeatures() {
     <section className={styles.features}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Explore the documentation</h2>
-        <div ref={ref} className={`${styles.grid} ${visible ? styles.visible : ""}`}>
+        <div ref={ref} className={`${styles.grid} ${armed ? styles.armed : ""} ${visible ? styles.visible : ""}`}>
           {FeatureList.map((props, index) => (
             <Feature key={props.title} index={index} {...props} />
           ))}

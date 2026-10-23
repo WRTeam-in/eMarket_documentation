@@ -102,15 +102,14 @@ export default function Footer() {
     siteConfig.themeConfig.footer?.copyright ??
     `Copyright © ${new Date().getFullYear()} WRTeam. All rights reserved.`;
   const footerRef = useRef(null);
+  const [armed, setArmed] = useState(false);
   const [visible, setVisible] = useState(false);
 
   // Reveal the columns once the footer scrolls into view
   useEffect(() => {
     const el = footerRef.current;
-    if (!el || !("IntersectionObserver" in window)) {
-      setVisible(true);
-      return undefined;
-    }
+    if (!el || !("IntersectionObserver" in window)) return undefined;
+    setArmed(true);
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -134,7 +133,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className={`${styles.footer} ${visible ? styles.visible : ""}`}
+      className={`${styles.footer} ${armed ? styles.armed : ""} ${visible ? styles.visible : ""}`}
       onMouseMove={onMouseMove}
     >
       <div className={styles.glow} aria-hidden="true" />
