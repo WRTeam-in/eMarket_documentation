@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Version Compatibility Table
 
-This table lists the Flutter, Kotlin, AGP, Gradle and JDK versions to use with each eMarket release when building the apps. For what changed in each release, see the [Version History](./changelog/version-history.md).
+This table lists the Flutter, Kotlin, AGP, Gradle and JDK versions to use with each eMarket release when building the apps. For what changed in each release, see the [Version History](./version-history.md).
 
 | Product Version | Flutter Version | Kotlin Version | AGP Version | distributionUrl (Gradle) | JDK Version |
 | --------------- | --------------- | -------------- | ----------- | ------------------------ | ----------- |
