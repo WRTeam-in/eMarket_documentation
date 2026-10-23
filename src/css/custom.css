@@ -258,3 +258,31 @@ aside.theme-doc-sidebar-container {
 .doc-banner-wrapper {
   margin: 24px 0px;
 }
+/* Docs pages: keep the sidebar pinned full-height and sit the footer beside it */
+@media (min-width: 997px) {
+  /* The theme clips the container to its own box, which would cut the pinned sidebar off at the footer */
+  .docs-wrapper aside.theme-doc-sidebar-container {
+    clip-path: none;
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container > div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: 100vh;
+    max-height: 100vh;
+    z-index: calc(var(--ifm-z-index-fixed) - 1);
+    background-color: var(--ifm-background-color);
+    border-right: 1px solid var(--ifm-toc-border-color);
+  }
+
+  .docs-wrapper footer {
+    margin-left: var(--doc-sidebar-width);
+  }
+
+  .docs-wrapper:has(aside.theme-doc-sidebar-container[class*="docSidebarContainerHidden"]) footer {
+    margin-left: var(--doc-sidebar-hidden-width);
+  }
+}

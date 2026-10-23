@@ -5,9 +5,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import ScrollTopButton from "@site/src/components/ScrollTopButton";
 import styles from "./styles.module.css";
 
-const INSTALL_URL =
-  "https://api.whatsapp.com/send?phone=916359302924&text=Hello%20Vimal,%20I%20want%20to%20know%20more%20about%20the%20installation%20service%20for%20eMarket";
-
 const COLUMNS = [
   {
     title: "Documentation",
@@ -139,24 +136,6 @@ export default function Footer() {
       <div className={styles.glow} aria-hidden="true" />
       <div className={styles.spotlight} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
-        <div className={`${styles.cta} ${styles.reveal}`}>
-          <div>
-            <p className={styles.ctaEyebrow}>Launch faster</p>
-            <h2 className={styles.ctaTitle}>Need help getting eMarket live?</h2>
-            <p className={styles.ctaText}>
-              Our team can install and configure the apps and panels for you.
-            </p>
-          </div>
-          <div className={styles.ctaActions}>
-            <a className={styles.primaryBtn} href={INSTALL_URL} target="_blank" rel="noopener noreferrer">
-              Installation Service <span className={styles.btnArrow}>→</span>
-            </a>
-            <Link className={styles.ghostBtn} to="/docs/contact">
-              Contact Support
-            </Link>
-          </div>
-        </div>
-
         <div className={styles.main}>
           <div className={`${styles.brand} ${styles.reveal}`} style={{ "--delay": "80ms" }}>
             <Link to="/" className={styles.brandName}>

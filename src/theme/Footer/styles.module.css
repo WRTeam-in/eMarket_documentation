@@ -20,86 +20,11 @@
   position: relative;
 }
 
-.cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px 24px;
-  padding: 20px 24px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(255, 153, 0, 0.16), rgba(255, 255, 255, 0.03));
-  backdrop-filter: blur(8px);
-}
-
-.ctaEyebrow {
-  margin: 0 0 2px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #ffb84d;
-}
-
-.ctaTitle {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #ffffff;
-}
-
-.ctaText {
-  margin: 4px 0 0;
-  color: #a9a9b3;
-}
-
-.ctaActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.primaryBtn,
-.ghostBtn {
-  display: inline-flex;
-  align-items: center;
-  padding: 9px 18px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.88rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.primaryBtn {
-  background-color: #ff9900;
-  color: #111114;
-  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.35);
-}
-
-.primaryBtn:hover {
-  color: #111114;
-  text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(255, 153, 0, 0.5);
-}
-
-.ghostBtn {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.ghostBtn:hover {
-  color: #ffffff;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
 .main {
   display: grid;
   grid-template-columns: 1.6fr repeat(3, 1fr);
   gap: 28px;
-  padding: 2rem 0 1.5rem;
+  padding: 0.25rem 0 1.5rem;
 }
 
 .brandName {
@@ -203,10 +128,6 @@
     padding-top: 1.75rem;
   }
 
-  .cta {
-    padding: 18px;
-  }
-
   .main {
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
@@ -256,62 +177,6 @@
 .armed.visible .reveal {
   opacity: 1;
   transform: none;
-}
-
-/* CTA: animated gradient border on hover */
-.cta {
-  position: relative;
-  isolation: isolate;
-  transition: transform 0.3s ease;
-}
-
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(120deg, transparent 20%, #ff9900, #ffd28a, #ff6a00, transparent 80%);
-  background-size: 250% 250%;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.cta:hover {
-  transform: translateY(-2px);
-}
-
-.cta:hover::before {
-  opacity: 1;
-  animation: borderFlow 3s linear infinite;
-}
-
-@keyframes borderFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 250% 50%;
-  }
-}
-
-.btnArrow {
-  display: inline-block;
-  margin-left: 6px;
-  transition: transform 0.2s ease;
-}
-
-.primaryBtn:hover .btnArrow {
-  transform: translateX(4px);
-}
-
-.primaryBtn:active,
-.ghostBtn:active {
-  transform: scale(0.97);
 }
 
 /* Release pill */
@@ -464,8 +329,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .cta,
-  .cta::before,
   .pulse::after,
   .spotlight {
     transition: none;
