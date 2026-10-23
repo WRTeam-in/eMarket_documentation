@@ -40,6 +40,8 @@ const config = {
 
   plugins: [require.resolve("@easyops-cn/docusaurus-search-local")],
 
+  clientModules: [require.resolve("./src/clientModules/sidebarActiveIntoView.js")],
+
   presets: [
     [
       "classic",
