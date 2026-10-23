@@ -8,6 +8,8 @@ sidebar_position: 2
 
 | Product Version | Flutter Version | Kotlin Version | AGP Version | distributionUrl (Gradle) | JDK Version |
 | --------------- | --------------- | -------------- | ----------- | ------------------------ | ----------- |
+| 4.0.2           | 3.47.2          | 2.3.21         | 8.11.1      | gradle-9.5.1-all.zip      | 25          |
+| 4.0.1           | 3.44.8          | 2.3.21         | 8.11.1      | gradle-9.5.1-all.zip      | 25          |
 | 4.0.0           | 3.44.8          | 2.3.21         | 8.11.1      | gradle-9.5.1-all.zip      | 25          |
 | 3.0.3           | 3.44.0          | 2.2.20         | 8.11.0      | gradle-8.13-all.zip      | 19          |
 | 3.0.2.1           | 3.41.9          | 2.2.20         | 8.11.0      | gradle-8.13-all.zip      | 19          |
@@ -48,6 +50,79 @@ sidebar_position: 2
 | 1.1.0           | 2.10.5          | 1.7.10         | 7.1.3       | gradle-7.3.3-all.zip     | 17          |
 
 This page lists all released versions of the eMarket platform with release dates and key changes.
+
+## Version 4.0.2 - 22 October 2026
+
+- <span class="label label-major">IMPORTANT</span> Before updating, put the site in maintenance mode if possible and take a full backup of your files and database.
+- <span class="label label-major">IMPORTANT</span> Before clicking Update, delete php files inside the bootstrap/cache folder (packages.php, services.php).
+- <span class="label label-major">IMPORTANT</span> Before clicking Update, upload and extract the provided vendor folder (vendor.zip) in your project root, and replace the existing vendor folder. This release upgrades Laravel to version 12 and the vendor folder is no longer included in the update package.
+- <span class="label label-major">IMPORTANT</span> After the update finishes, open yourdomain.com/migration once to complete the database update, then clear the cache using the Clear Cache button.
+- <span class="label label-added">ADDED</span> Real-time delivery boy location tracking on the map (Customer App)
+- <span class="label label-added">ADDED</span> Multi-city service support for Delivery Boys (Admin Panel, Partner App)
+- <span class="label label-added">ADDED</span> Abandoned Carts management (Seller Panel, Partner App)
+- <span class="label label-added">ADDED</span> OpenStreetMap integration as an alternative map provider (Admin Panel, Customer App, Partner App)
+- <span class="label label-added">ADDED</span> Arrival countdown for Quick Delivery orders (Customer App)
+- <span class="label label-added">ADDED</span> Voice search for multiple products at once (Customer App)
+- <span class="label label-added">ADDED</span> Product search directly from the home screen (Customer App)
+- <span class="label label-added">ADDED</span> Similar product replacement for out-of-stock cart items (Customer App)
+- <span class="label label-added">ADDED</span> Demo Mode with default credential management through Settings API (Admin Panel)
+- <span class="label label-added">ADDED</span> Admin-wise and Seller-wise Delivery Boy management
+- <span class="label label-added">ADDED</span> Date field type in custom Field options
+- <span class="label label-added">ADDED</span> File upload option in Language Edit module (Admin Panel)
+- <span class="label label-added">ADDED</span> House/Flat Number field in customer addresses (Customer App)
+- <span class="label label-added">ADDED</span> Liquid Glass design support for iOS 26 and later (Customer App)
+- <span class="label label-updated">UPDATED</span> Next.js upgraded to version 16.2.4 (Website)
+- <span class="label label-updated">UPDATED</span> Laravel framework upgraded to version 12 for improved performance, security, and long-term support (Backend)
+- <span class="label label-updated">UPDATED</span> Server-side rendering enabled when SEO is enabled on VPS deployments (Website)
+- <span class="label label-improved">IMPROVED</span> Combined Cart and Checkout into a single screen (Customer App and Website)
+- <span class="label label-improved">IMPROVED</span> Customer App state management migrated to Cubit using flutter_bloc (Customer App)
+- <span class="label label-improved">IMPROVED</span> Centralized API communication through a shared Dio network client (Customer App)
+- <span class="label label-improved">IMPROVED</span> Safer API data parsing to prevent crashes when server data is missing (Customer App)
+- <span class="label label-improved">IMPROVED</span> Customer App code organization with a feature-based folder structure (Customer App)
+- <span class="label label-improved">IMPROVED</span> Shared component for paginated lists (Customer App)
+- <span class="label label-improved">IMPROVED</span> Deep link configuration centralized for Android and iOS (Customer App)
+- <span class="label label-improved">IMPROVED</span> Unified map configuration supporting Google Maps and OpenStreetMap (Customer App)
+- <span class="label label-improved">IMPROVED</span> API debugging logs and automated test coverage (Customer App)
+- <span class="label label-improved">IMPROVED</span> Partner App location tracking reliability with fewer unnecessary server requests
+- <span class="label label-improved">IMPROVED</span> Location update and timer cleanup during Partner App logout
+- <span class="label label-improved">IMPROVED</span> Demo login credentials removed from release builds (Partner App)
+- <span class="label label-improved">IMPROVED</span> Modern, consistent, and responsive UI across Admin, Seller, and Delivery Boy panels
+- <span class="label label-improved">IMPROVED</span> Centralized theme colour management through Theme Settings
+- <span class="label label-improved">IMPROVED</span> System-wide dark mode support
+- <span class="label label-improved">IMPROVED</span> Arabic language support with proper RTL layouts
+- <span class="label label-improved">IMPROVED</span> Responsive layouts for mobile, tablet, and desktop devices
+- <span class="label label-improved">IMPROVED</span> Card and Table view options for listings, with saved view preferences
+- <span class="label label-improved">IMPROVED</span> Dashboard with key metrics, order status icons, quick actions, stock alerts, top products, and top sellers
+- <span class="label label-improved">IMPROVED</span> Order details page with a progress tracker, summary cards, and an actions panel
+- <span class="label label-improved">IMPROVED</span> Header with consistent buttons, language selection, notification badges, sticky layout, and scrolling announcements
+- <span class="label label-improved">IMPROVED</span> Notifications popup with type-specific icons, unread highlights, and Read All functionality
+- <span class="label label-improved">IMPROVED</span> Category tree view with drag-and-drop reordering
+- <span class="label label-improved">IMPROVED</span> Settings page with grouped cards and search functionality
+- <span class="label label-improved">IMPROVED</span> Standardized Nunito typography, buttons, spacing, borders, and corner radii
+- <span class="label label-improved">IMPROVED</span> Listing item counts and pagination information
+- <span class="label label-improved">IMPROVED</span> Session handling to restore the previous page after logging in again
+- <span class="label label-improved">IMPROVED</span> Text editor support for light and dark modes
+- <span class="label label-improved">IMPROVED</span> Theme-based module icons and placeholder images for missing pictures
+- <span class="label label-improved">IMPROVED</span> Browser cache handling to load the latest version after updates
+- <span class="label label-fixed">REMOVED</span> Unused code, packages, and text keys (Customer App, Partner App)
+- <span class="label label-fixed">FIXED</span> UI inconsistencies and usability issues across Admin, Seller, and Delivery Boy panels
+- <span class="label label-fixed">FIXED</span> Error popups on Store Settings and Popup Offer pages
+- <span class="label label-fixed">FIXED</span> Misaligned icons, compressed dropdowns, and inconsistent button heights
+
+## Version 4.0.1 - 18 September 2026
+
+- <span class="label label-added">ADDED</span> Quick Delivery options (15 and 30 minutes)
+- <span class="label label-added">ADDED</span> Food Delivery module
+- <span class="label label-added">ADDED</span> Seller-level Attribute and Custom Field management
+- <span class="label label-added">ADDED</span> Module-wise theme color management
+- <span class="label label-added">ADDED</span> WebP image support in the Admin Panel and Web App
+- <span class="label label-added">ADDED</span> Social media icon management for the Website from the Admin Panel
+- <span class="label label-added">ADDED</span> Seller warning for Global Attributes and Custom Fields before their removal in the next update
+- <span class="label label-updated">UPDATED</span> App codebase upgraded to the latest Flutter version (3.47.2) (Customer App, Partner App)
+- <span class="label label-improved">IMPROVED</span> category flow
+- <span class="label label-improved">IMPROVED</span> veg and non veg moved to custom field
+- <span class="label label-improved">IMPROVED</span> System performance and overall functionality
+- <span class="label label-fixed">FIXED</span> Minor bugs and other issues
 
 ## Version 4.0.0 - 22 August 2026
 
