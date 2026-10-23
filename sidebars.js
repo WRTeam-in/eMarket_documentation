@@ -165,10 +165,12 @@ const sidebars = {
       label: "Changelog",
       items: [
         "changelog/intro",
-        "changelog/version-compatibility",
         "changelog/version-history",
       ],
     },
+
+    // Version Compatibility — toolchain versions per release, on its own route
+    "version-compatibility",
 
     // FAQ Documentation
     {

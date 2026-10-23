@@ -22,7 +22,7 @@ The common guide installs the latest Flutter and JDK. eMarket **4.0.0** is built
 | AGP | 8.11.1 |
 | Gradle | gradle-9.5.1-all.zip |
 
-The partner app and the customer app use the same versions. Using a different Flutter or JDK version is the most common cause of build failures. If you are on an older eMarket release, check the [Version Compatibility Table](../changelog/version-compatibility.md) for the matching versions.
+The partner app and the customer app use the same versions. Using a different Flutter or JDK version is the most common cause of build failures. If you are on an older eMarket release, check the [Version Compatibility Table](../version-compatibility.md) for the matching versions.
 
 ## Verify Your Setup
 

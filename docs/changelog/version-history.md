@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Version History
 
-This page lists all released versions of the eMarket platform with release dates and key changes. For the Flutter, Kotlin, AGP, Gradle and JDK versions each release needs, see the [Version Compatibility Table](./version-compatibility.md).
+This page lists all released versions of the eMarket platform with release dates and key changes. For the Flutter, Kotlin, AGP, Gradle and JDK versions each release needs, see the [Version Compatibility Table](../version-compatibility.md).
 
 ## Version 4.0.2 - 22 October 2026
 
