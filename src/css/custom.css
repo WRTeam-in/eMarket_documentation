@@ -256,7 +256,7 @@ aside.theme-doc-sidebar-container {
 }
 
 .doc-banner-wrapper {
-  margin: 24px 0px;
+  margin: 12px 0 20px;
 }
 /* Docs pages: floating sidebar panel pinned beside the content, with its own scroll */
 /* html.docs-wrapper outranks the theme's own :root value for the collapsed width */
