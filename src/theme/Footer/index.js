@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import ScrollTopButton from "@site/src/components/ScrollTopButton";
 import styles from "./styles.module.css";
 
 const INSTALL_URL =
@@ -94,31 +95,6 @@ function FooterLink({ label, to, href, copy }) {
   );
 }
 
-// Fills a ring around the back-to-top button as the page is scrolled
-function useScrollProgress() {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 1);
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-  return progress;
-}
-
 export default function Footer() {
   const { siteConfig } = useDocusaurusContext();
   const logo = useBaseUrl("/img/app_icon.png");
@@ -127,7 +103,6 @@ export default function Footer() {
     `Copyright © ${new Date().getFullYear()} WRTeam. All rights reserved.`;
   const footerRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const progress = useScrollProgress();
 
   // Reveal the columns once the footer scrolls into view
   useEffect(() => {
@@ -155,8 +130,6 @@ export default function Footer() {
     e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
     e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
   };
-
-  const ring = 2 * Math.PI * 15;
 
   return (
     <footer
@@ -241,30 +214,9 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>{copyright}</span>
-          <button
-            type="button"
-            className={styles.toTop}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            aria-label="Back to top"
-          >
-            <span>Back to top</span>
-            <span className={styles.ringWrap}>
-              <svg viewBox="0 0 36 36" width="36" height="36" aria-hidden="true">
-                <circle className={styles.ringTrack} cx="18" cy="18" r="15" />
-                <circle
-                  className={styles.ringFill}
-                  cx="18"
-                  cy="18"
-                  r="15"
-                  strokeDasharray={ring}
-                  strokeDashoffset={ring * (1 - progress)}
-                />
-              </svg>
-              <span className={styles.ringArrow}>↑</span>
-            </span>
-          </button>
         </div>
       </div>
+      <ScrollTopButton />
     </footer>
   );
 }

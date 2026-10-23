@@ -599,6 +599,8 @@ const TOPICS = [
   // },
 ];
 
+export const TOPIC_COUNT = TOPICS.length;
+
 function Card({ topic, number }) {
   return (
     <div className={styles.card}>

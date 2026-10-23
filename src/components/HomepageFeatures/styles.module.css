@@ -107,3 +107,72 @@
     gap: 10px;
   }
 }
+
+/* ---- Interactive cards ---- */
+
+.sectionTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.grid {
+  perspective: 900px;
+}
+
+.card {
+  overflow: hidden;
+  isolation: isolate;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.25s ease,
+    opacity 0.5s ease var(--delay, 0ms);
+}
+
+.visible .card {
+  opacity: 1;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+.visible .card:hover {
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-3px);
+  box-shadow: 0 12px 28px rgba(255, 153, 0, 0.18);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background: radial-gradient(
+    220px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 153, 0, 0.14),
+    transparent 70%
+  );
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.iconTile {
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.card:hover .iconTile {
+  transform: scale(1.08) rotate(-4deg);
+  background-color: rgba(255, 153, 0, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .visible .card,
+  .visible .card:hover {
+    transform: none;
+    opacity: 1;
+    transition: border-color 0.2s ease;
+  }
+}

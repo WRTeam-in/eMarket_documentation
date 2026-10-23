@@ -188,19 +188,6 @@
   color: #8a8a94;
 }
 
-.toTop {
-  background: none;
-  border: 0;
-  padding: 0;
-  font: inherit;
-  color: #a9a9b3;
-  cursor: pointer;
-}
-
-.toTop:hover {
-  color: #ffb84d;
-}
-
 @media screen and (max-width: 996px) {
   .main {
     grid-template-columns: repeat(3, 1fr);
@@ -470,57 +457,6 @@
   color: #111114;
   background-color: #34d399;
   border-color: #34d399;
-}
-
-/* Back to top with scroll progress ring */
-.toTop {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ringWrap {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.ringWrap svg {
-  position: absolute;
-  inset: 0;
-  transform: rotate(-90deg);
-}
-
-.ringTrack {
-  fill: rgba(255, 255, 255, 0.04);
-  stroke: rgba(255, 255, 255, 0.12);
-  stroke-width: 2;
-}
-
-.ringFill {
-  fill: none;
-  stroke: #ff9900;
-  stroke-width: 2;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.15s linear;
-}
-
-.ringArrow {
-  position: relative;
-  font-size: 0.85rem;
-  transition: transform 0.2s ease;
-}
-
-.toTop:hover .ringWrap {
-  transform: translateY(-2px);
-}
-
-.toTop:hover .ringArrow {
-  transform: translateY(-2px);
 }
 
 @media (prefers-reduced-motion: reduce) {
