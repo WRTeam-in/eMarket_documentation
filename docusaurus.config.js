@@ -75,6 +75,11 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: false,
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
         title: "eMarket",
         logo: {
