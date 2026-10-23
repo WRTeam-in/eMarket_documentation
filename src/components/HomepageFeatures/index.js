@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
@@ -55,32 +54,9 @@ const FeatureList = [
   },
 ];
 
-// Tilts the card toward the cursor and moves a glow under it
-function onCardMove(e) {
-  const el = e.currentTarget;
-  const rect = el.getBoundingClientRect();
-  const x = (e.clientX - rect.left) / rect.width;
-  const y = (e.clientY - rect.top) / rect.height;
-  el.style.setProperty("--glow-x", `${x * 100}%`);
-  el.style.setProperty("--glow-y", `${y * 100}%`);
-  el.style.setProperty("--tilt-x", `${(0.5 - y) * 6}deg`);
-  el.style.setProperty("--tilt-y", `${(x - 0.5) * 8}deg`);
-}
-
-function onCardLeave(e) {
-  e.currentTarget.style.setProperty("--tilt-x", "0deg");
-  e.currentTarget.style.setProperty("--tilt-y", "0deg");
-}
-
-function Feature({ Svg, title, description, link, index }) {
+function Feature({ Svg, title, description, link }) {
   return (
-    <Link
-      to={link}
-      className={styles.card}
-      style={{ "--delay": `${index * 60}ms` }}
-      onMouseMove={onCardMove}
-      onMouseLeave={onCardLeave}
-    >
+    <Link to={link} className={styles.card}>
       <span className={styles.iconTile}>
         <span
           className={styles.featureSvg}
@@ -98,43 +74,17 @@ function Feature({ Svg, title, description, link, index }) {
         </Heading>
         <span className={styles.description}>{description}</span>
       </span>
-      <span className={styles.arrow} aria-hidden="true">
-        →
-      </span>
     </Link>
   );
 }
 
 export default function HomepageFeatures() {
-  const ref = useRef(null);
-  const [armed, setArmed] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  // Stagger the cards in once the grid scrolls into view
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || !("IntersectionObserver" in window)) return undefined;
-    setArmed(true);
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0, rootMargin: "0px 0px -5% 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <section className={styles.features}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>Explore the documentation</h2>
-        <div ref={ref} className={`${styles.grid} ${armed ? styles.armed : ""} ${visible ? styles.visible : ""}`}>
-          {FeatureList.map((props, index) => (
-            <Feature key={props.title} index={index} {...props} />
+        <div className={styles.grid}>
+          {FeatureList.map((props) => (
+            <Feature key={props.title} {...props} />
           ))}
         </div>
       </div>
