@@ -28,6 +28,12 @@ const TOPICS = [
       "Dedicated dashboards for admins, sellers, and delivery partners with permissions tailored to each role.",
   },
   {
+    icon: "layout",
+    title: "Modern Responsive Admin, Seller & Delivery Boy Panels",
+    description:
+      "A refreshed, consistent panel UI with system-wide dark mode, Arabic RTL layouts, Card and Table list views with saved preferences, and responsive layouts for mobile, tablet, and desktop.",
+  },
+  {
     icon: "package",
     title: "Unified Order Management",
     description:
@@ -94,6 +100,18 @@ const TOPICS = [
       "Onboard, verify, and manage delivery partners along with their assignments and performance.",
   },
   {
+    icon: "users",
+    title: "Admin-Wise & Seller-Wise Delivery Boy Management",
+    description:
+      "Manage delivery boys separately for the admin and for each seller, so every store can run its own delivery team.",
+  },
+  {
+    icon: "truck",
+    title: "Multi-City Delivery Boy Service",
+    description:
+      "Assign delivery boys to serve multiple cities from the Admin Panel and the Partner App.",
+  },
+  {
     icon: "send",
     title: "Fund Transfer Management",
     description:
@@ -158,6 +176,12 @@ const TOPICS = [
     title: "Seller Account Management",
     description:
       "Manage seller profiles, permissions, commissions, and account status.",
+  },
+  {
+    icon: "cart",
+    title: "Abandoned Cart Management",
+    description:
+      "Let sellers view and follow up on carts that customers left without checking out, from the Seller Panel and the Partner App.",
   },
   {
     icon: "shield",
@@ -256,6 +280,12 @@ const TOPICS = [
       "Manage technical settings including API keys, integrations, and server-side configuration.",
   },
   {
+    icon: "settings",
+    title: "Demo Mode Management",
+    description:
+      "Turn on Demo Mode and manage the default demo login credentials through the Settings API.",
+  },
+  {
     icon: "server",
     title: "System Administration",
     description:
@@ -316,6 +346,12 @@ const TOPICS = [
       "Calculate delivery distance and estimated time based on customer and store location.",
   },
   {
+    icon: "map",
+    title: "OpenStreetMap Integration",
+    description:
+      "Use OpenStreetMap as an alternative to Google Maps across the Admin Panel, Customer App, and Partner App.",
+  },
+  {
     icon: "layout",
     title: "Dynamic Homepage",
     description:
@@ -332,6 +368,12 @@ const TOPICS = [
     title: "Smart Search & Product Discovery",
     description:
       "Help customers quickly find products with intelligent search and filtering.",
+  },
+  {
+    icon: "search",
+    title: "Voice Search for Multiple Products",
+    description:
+      "Let customers search for several products at once by voice, or start a product search directly from the home screen.",
   },
   {
     icon: "scan",
@@ -388,6 +430,18 @@ const TOPICS = [
       "Give customers a smooth cart experience with saved items and quick checkout.",
   },
   {
+    icon: "cart",
+    title: "Single-Screen Cart & Checkout",
+    description:
+      "Cart and checkout are combined into one screen in the Customer App and on the website for a faster purchase flow.",
+  },
+  {
+    icon: "shuffle",
+    title: "Similar Product Replacement",
+    description:
+      "Suggest similar products to replace out-of-stock items in the customer's cart.",
+  },
+  {
     icon: "truck",
     title: "Home Delivery",
     description:
@@ -406,10 +460,22 @@ const TOPICS = [
       "Ultra-fast hyper-local delivery options offering 15-minute and 30-minute rapid dispatch guarantees for everyday essentials and urgent orders.",
   },
   {
+    icon: "zap",
+    title: "Quick Delivery Arrival Countdown",
+    description:
+      "Show customers a live countdown to the expected arrival time of their Quick Delivery orders.",
+  },
+  {
     icon: "map",
     title: "Live Order Tracking",
     description:
       "Provide real-time tracking so customers can follow their order from dispatch to delivery.",
+  },
+  {
+    icon: "map",
+    title: "Real-Time Delivery Boy Location on Map",
+    description:
+      "Let customers follow the delivery boy's live location on a map while their order is on the way.",
   },
   {
     icon: "creditCard",
@@ -506,6 +572,24 @@ const TOPICS = [
     title: "Flutter 3.47.2 Modern App Architecture",
     description:
       "Customer App and Delivery Partner App upgraded to Flutter 3.47.2 for superior rendering performance, smoother 120Hz scrolling, and OS security.",
+  },
+  {
+    icon: "smartphone",
+    title: "Liquid Glass Design for iOS 26",
+    description:
+      "Customer App support for Apple's Liquid Glass design on iOS 26 and later.",
+  },
+  {
+    icon: "server",
+    title: "Laravel 12 Backend",
+    description:
+      "Backend upgraded to Laravel 12 for better performance, security, and long-term support.",
+  },
+  {
+    icon: "globe",
+    title: "Next.js 16 Website with Server-Side Rendering",
+    description:
+      "Website upgraded to Next.js 16.2.4, with server-side rendering enabled when SEO is turned on for VPS deployments.",
   },
   {
     icon: "globe",
