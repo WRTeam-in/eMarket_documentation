@@ -165,8 +165,8 @@ const sidebars = {
       label: "Changelog",
       items: [
         "changelog/intro",
-        "changelog/version-compatibility",
         "changelog/version-history",
+        "changelog/version-compatibility",
       ],
     },
 
