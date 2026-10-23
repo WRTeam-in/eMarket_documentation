@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -31,7 +31,7 @@ const COLUMNS = [
     links: [
       { label: "WRTeam", href: "https://wrteam.in" },
       { label: "Contact Us", to: "/docs/contact" },
-      { label: "support@wrteam.in", href: "mailto:support@wrteam.in" },
+      { label: "support@wrteam.in", copy: "support@wrteam.in" },
     ],
   },
 ];
@@ -59,10 +59,33 @@ const SOCIALS = [
   },
 ];
 
-function FooterLink({ label, to, href }) {
+function CopyLink({ label, copy }) {
+  const [copied, setCopied] = useState(false);
+  const onClick = async () => {
+    try {
+      await navigator.clipboard.writeText(copy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      window.location.href = `mailto:${copy}`;
+    }
+  };
+  return (
+    <button type="button" className={`${styles.link} ${styles.copyLink}`} onClick={onClick} title="Click to copy">
+      {label}
+      <span className={`${styles.copyBadge} ${copied ? styles.copyBadgeOn : ""}`} aria-live="polite">
+        {copied ? "Copied!" : "Copy"}
+      </span>
+    </button>
+  );
+}
+
+function FooterLink({ label, to, href, copy }) {
+  if (copy) return <CopyLink label={label} copy={copy} />;
   return href ? (
     <a className={styles.link} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
       {label}
+      {href.startsWith("http") && <span className={styles.external} aria-hidden="true">↗</span>}
     </a>
   ) : (
     <Link className={styles.link} to={to}>
@@ -71,18 +94,80 @@ function FooterLink({ label, to, href }) {
   );
 }
 
+// Fills a ring around the back-to-top button as the page is scrolled
+function useScrollProgress() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 1);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+  return progress;
+}
+
 export default function Footer() {
   const { siteConfig } = useDocusaurusContext();
   const logo = useBaseUrl("/img/app_icon.png");
   const copyright =
     siteConfig.themeConfig.footer?.copyright ??
     `Copyright © ${new Date().getFullYear()} WRTeam. All rights reserved.`;
+  const footerRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const progress = useScrollProgress();
+
+  // Reveal the columns once the footer scrolls into view
+  useEffect(() => {
+    const el = footerRef.current;
+    if (!el || !("IntersectionObserver" in window)) {
+      setVisible(true);
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Spotlight that follows the cursor
+  const onMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+  };
+
+  const ring = 2 * Math.PI * 15;
 
   return (
-    <footer className={styles.footer}>
+    <footer
+      ref={footerRef}
+      className={`${styles.footer} ${visible ? styles.visible : ""}`}
+      onMouseMove={onMouseMove}
+    >
       <div className={styles.glow} aria-hidden="true" />
+      <div className={styles.spotlight} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
-        <div className={styles.cta}>
+        <div className={`${styles.cta} ${styles.reveal}`}>
           <div>
             <p className={styles.ctaEyebrow}>Launch faster</p>
             <h2 className={styles.ctaTitle}>Need help getting eMarket live?</h2>
@@ -92,7 +177,7 @@ export default function Footer() {
           </div>
           <div className={styles.ctaActions}>
             <a className={styles.primaryBtn} href={INSTALL_URL} target="_blank" rel="noopener noreferrer">
-              Installation Service →
+              Installation Service <span className={styles.btnArrow}>→</span>
             </a>
             <Link className={styles.ghostBtn} to="/docs/contact">
               Contact Support
@@ -101,12 +186,16 @@ export default function Footer() {
         </div>
 
         <div className={styles.main}>
-          <div className={styles.brand}>
+          <div className={`${styles.brand} ${styles.reveal}`} style={{ "--delay": "80ms" }}>
             <Link to="/" className={styles.brandName}>
               <span className={styles.logoTile}>
                 <img src={logo} alt="" width="24" height="24" />
               </span>
               {siteConfig.title.replace(/ Documentation$/, "")}
+            </Link>
+            <Link to="/docs/changelog/version-history" className={styles.releasePill}>
+              <span className={styles.pulse} aria-hidden="true" />
+              v4.0.2 is out · See what's new
             </Link>
             <p className={styles.brandText}>
               Multi-vendor, multi-module commerce for Grocery, Pharmacy, Food, and eCommerce, with
@@ -114,7 +203,15 @@ export default function Footer() {
             </p>
             <div className={styles.socials}>
               {SOCIALS.map((s) => (
-                <a key={s.label} className={styles.social} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+                <a
+                  key={s.label}
+                  className={styles.social}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  data-tip={s.label}
+                >
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
                     <path d={s.path} />
                   </svg>
@@ -123,8 +220,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {COLUMNS.map((col) => (
-            <nav key={col.title} className={styles.column} aria-label={col.title}>
+          {COLUMNS.map((col, i) => (
+            <nav
+              key={col.title}
+              className={`${styles.column} ${styles.reveal}`}
+              style={{ "--delay": `${160 + i * 80}ms` }}
+              aria-label={col.title}
+            >
               <h3 className={styles.columnTitle}>{col.title}</h3>
               <ul className={styles.list}>
                 {col.links.map((l) => (
@@ -139,8 +241,27 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>{copyright}</span>
-          <button type="button" className={styles.toTop} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            Back to top ↑
+          <button
+            type="button"
+            className={styles.toTop}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Back to top"
+          >
+            <span>Back to top</span>
+            <span className={styles.ringWrap}>
+              <svg viewBox="0 0 36 36" width="36" height="36" aria-hidden="true">
+                <circle className={styles.ringTrack} cx="18" cy="18" r="15" />
+                <circle
+                  className={styles.ringFill}
+                  cx="18"
+                  cy="18"
+                  r="15"
+                  strokeDasharray={ring}
+                  strokeDashoffset={ring * (1 - progress)}
+                />
+              </svg>
+              <span className={styles.ringArrow}>↑</span>
+            </span>
           </button>
         </div>
       </div>
