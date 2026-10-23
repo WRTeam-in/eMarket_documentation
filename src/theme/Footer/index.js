@@ -133,7 +133,6 @@ export default function Footer() {
       className={`${styles.footer} ${armed ? styles.armed : ""} ${visible ? styles.visible : ""}`}
       onMouseMove={onMouseMove}
     >
-      <div className={styles.glow} aria-hidden="true" />
       <div className={styles.spotlight} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
         <div className={styles.main}>
