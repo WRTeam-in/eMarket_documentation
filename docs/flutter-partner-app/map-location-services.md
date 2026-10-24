@@ -19,3 +19,11 @@ The partner app can reuse the **same** Google Maps keys as the customer app — 
 :::note
 Google Maps and Places return nothing without a billing account attached, even inside the free tier. If maps render blank, check that first.
 :::
+
+## Google Maps or OpenStreetMap
+
+The partner app follows the same **Map Provider** setting in the admin panel as the customer app. See [Map and Location Services](../flutter-app/map-location-services.md#google-maps-or-openstreetmap) for what each option needs.
+
+:::note Keep your Google Maps keys
+Seller registration shows its map before the seller logs in, when the app has not loaded your settings yet, so that one map always uses Google Maps. Keep the Google Maps keys in the partner app even if you choose OpenStreetMap.
+:::

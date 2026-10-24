@@ -10,7 +10,7 @@ The app ships with **Outfit**. The family is set in one place, so changing it up
 
 1. Select a font from Google Fonts only. Visit [https://fonts.google.com/](https://fonts.google.com/)
 2. Copy the family name exactly as Google Fonts spells it, including capitals and spaces (for example `Poppins`, `Open Sans`)
-3. Open `lib > helper > styles > appTypography.dart`
+3. Open `lib > core > theme > styles > appTypography.dart`
 
 ![Google Fonts](/img/flutter-app/google-font.webp)
 
@@ -44,6 +44,8 @@ The customer app's artwork is all SVG, under `assets/svg/`:
 | `assets/svg/illustrations/` | Illustrations, with `light/` and `dark/` variants |
 | `assets/svg/logo/` | App logo and placeholder |
 | `assets/svg/nav/` | Bottom navigation icons |
+| `assets/svg/payment/` | Payment method and sign-in logos |
+| `assets/svg/status/` | Order status icons |
 
 Keep the same filename and extension when replacing a file and no code changes are needed.
 

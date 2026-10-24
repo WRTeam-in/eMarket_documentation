@@ -22,7 +22,7 @@ The logo files live in `assets/svg/logo/`:
 
 Replace `logo_light.svg` and `logo_dark.svg` with your own artwork.
 
-**Keep the filenames exactly as they are.** They are referenced by name in `lib/helper/utils/appAssets.dart`, so a renamed file will not be found.
+**Keep the filenames exactly as they are.** They are referenced by name in `lib/core/constants/appAssets.dart`, so a renamed file will not be found.
 
 :::warning You need two logo files, not one
 The app does not recolour one logo at runtime. It picks a whole file based on the theme.
@@ -42,7 +42,7 @@ Set your colours first, then check the splash in each module before you ship. If
 
 The splash draws two pieces of text:
 
-**The app name** comes from `Constant.appName` in `lib/helper/utils/constant.dart` — see [App Name & Version](./app-name-version.md).
+**The app name** comes from `Constant.appName` in `lib/core/constants/constant.dart` — see [App Name & Version](./app-name-version.md).
 
 **The line at the bottom** ships as `"made_by": "Made With ❤️ By WRTeam Design"`. Change it in your admin panel language settings, and in `assets/en.json` for the offline fallback.
 
