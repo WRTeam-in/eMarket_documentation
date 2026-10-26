@@ -256,5 +256,246 @@ aside.theme-doc-sidebar-container {
 }
 
 .doc-banner-wrapper {
-  margin: 24px 0px;
+  margin: 12px 0 20px;
+}
+/* Docs pages: floating sidebar panel pinned beside the content, with its own scroll */
+/* html.docs-wrapper outranks the theme's own :root value for the collapsed width */
+html.docs-wrapper {
+  --doc-sidebar-hidden-width: 68px;
+  --sb-gap: 12px;
+}
+
+@media (min-width: 997px) {
+  /* The theme clips the container to its own box, which would cut the pinned panel off at the footer */
+  .docs-wrapper aside.theme-doc-sidebar-container {
+    clip-path: none;
+    border-right: 0;
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container > div {
+    position: fixed;
+    top: calc(var(--ifm-navbar-height) + var(--sb-gap));
+    bottom: var(--sb-gap);
+    left: var(--sb-gap);
+    width: calc(var(--doc-sidebar-width) - 2 * var(--sb-gap));
+    height: auto;
+    max-height: none;
+    z-index: calc(var(--ifm-z-index-fixed) - 1);
+    border-radius: 18px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    background-color: var(--ifm-background-surface-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: width var(--ifm-transition-fast) ease;
+  }
+
+  [data-theme="dark"] .docs-wrapper aside.theme-doc-sidebar-container > div {
+    border-color: rgba(255, 255, 255, 0.08);
+    background-color: #111216;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container[class*="docSidebarContainerHidden"] > div {
+    width: calc(var(--doc-sidebar-hidden-width) - 2 * var(--sb-gap));
+  }
+
+  /* Inner column: compact header row (label + collapse button), menu scrolls underneath */
+  .docs-wrapper aside.theme-doc-sidebar-container > div > div:first-child {
+    position: relative;
+    height: 100%;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container > div > div:first-child::before {
+    content: "Documentation";
+    order: -2;
+    flex: none;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 52px 0 18px;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ifm-color-emphasis-600);
+  }
+
+  [data-theme="dark"] .docs-wrapper aside.theme-doc-sidebar-container > div > div:first-child::before {
+    border-bottom-color: rgba(255, 255, 255, 0.07);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container nav.menu {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 10px 10px 18px;
+    scroll-padding: 16px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ifm-color-emphasis-300) transparent;
+    /* Fade items out at the edges instead of slicing them off */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14px, #000 calc(100% - 18px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 14px, #000 calc(100% - 18px), transparent 100%);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container button[title="Collapse sidebar"] {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    border: 1px solid transparent;
+    background-color: var(--ifm-color-emphasis-100);
+    color: var(--ifm-color-emphasis-700);
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container button[title="Collapse sidebar"]:hover {
+    border-color: rgba(255, 153, 0, 0.45);
+    color: var(--ifm-color-primary);
+    background-color: rgba(255, 153, 0, 0.1);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container button[title="Collapse sidebar"]:active {
+    transform: scale(0.94);
+  }
+
+  /* Swap the theme's double arrow for a single light chevron */
+  .docs-wrapper aside.theme-doc-sidebar-container button[title="Collapse sidebar"] svg,
+  .docs-wrapper aside.theme-doc-sidebar-container [title="Expand sidebar"] svg {
+    display: none;
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container button[title="Collapse sidebar"]::before,
+  .docs-wrapper aside.theme-doc-sidebar-container [title="Expand sidebar"]::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%272.2%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27m15 6-6 6 6 6%27/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%272.2%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27m15 6-6 6 6 6%27/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* Collapsed state: slim floating rail with an expand chevron */
+  .docs-wrapper aside.theme-doc-sidebar-container [title="Expand sidebar"] {
+    background-color: transparent;
+    color: var(--ifm-color-emphasis-700);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container [title="Expand sidebar"]::before {
+    transform: rotate(180deg);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container [title="Expand sidebar"]:hover {
+    color: var(--ifm-color-primary);
+    background-color: rgba(255, 153, 0, 0.08);
+  }
+
+  .docs-wrapper aside.theme-doc-sidebar-container[class*="docSidebarContainerHidden"] > div > div:first-child::before {
+    content: none;
+  }
+
+  .docs-wrapper footer {
+    margin-left: var(--doc-sidebar-width);
+  }
+
+  .docs-wrapper:has(aside.theme-doc-sidebar-container[class*="docSidebarContainerHidden"]) footer {
+    margin-left: var(--doc-sidebar-hidden-width);
+  }
+}
+
+/* Sidebar items: pill-shaped links, filled pill for the current page */
+.theme-doc-sidebar-menu .menu__link {
+  border-radius: 10px;
+  padding: 7px 10px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist) {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(255, 153, 0, 0.3);
+}
+
+.theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist):hover {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+  border-radius: 10px;
+}
+
+.theme-doc-sidebar-menu .menu__list > .menu__list-item {
+  margin-top: 2px;
+}
+
+/* Top-level section icons */
+.theme-doc-sidebar-menu .sb-icon > .menu__link,
+.theme-doc-sidebar-menu .sb-icon > .menu__list-item-collapsible > .menu__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-doc-sidebar-menu .sb-icon > .menu__link::before,
+.theme-doc-sidebar-menu .sb-icon > .menu__list-item-collapsible > .menu__link::before {
+  content: "";
+  flex: none;
+  width: 19px;
+  height: 19px;
+  background-color: currentColor;
+  -webkit-mask: var(--sb-icon) center / contain no-repeat;
+  mask: var(--sb-icon) center / contain no-repeat;
+  opacity: 0.85;
+}
+
+.sb-icon-intro {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 10.5 12 3l9 7.5%22/%3E%3Cpath d=%22M5 9.5V21h14V9.5%22/%3E%3Cpath d=%22M10 21v-6h4v6%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-admin {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%223%22 y=%223%22 width=%227%22 height=%229%22 rx=%221.5%22/%3E%3Crect x=%2214%22 y=%223%22 width=%227%22 height=%225%22 rx=%221.5%22/%3E%3Crect x=%2214%22 y=%2212%22 width=%227%22 height=%229%22 rx=%221.5%22/%3E%3Crect x=%223%22 y=%2216%22 width=%227%22 height=%225%22 rx=%221.5%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-website {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%229%22/%3E%3Cpath d=%22M3 12h18%22/%3E%3Cpath d=%22M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-app {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%226%22 y=%222.5%22 width=%2212%22 height=%2219%22 rx=%222.5%22/%3E%3Cpath d=%22M11 18h2%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-partner {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M2 6h11v10H2z%22/%3E%3Cpath d=%22M13 9h4l4 4v3h-8%22/%3E%3Ccircle cx=%226.5%22 cy=%2217.5%22 r=%221.8%22/%3E%3Ccircle cx=%2217%22 cy=%2217.5%22 r=%221.8%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-features {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-detailed {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M2 5.5A2.5 2.5 0 0 1 4.5 3H11v17H4.5A2.5 2.5 0 0 0 2 22.5z%22/%3E%3Cpath d=%22M22 5.5A2.5 2.5 0 0 0 19.5 3H13v17h6.5a2.5 2.5 0 0 1 2.5 2.5z%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-changelog {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 12a9 9 0 1 0 3-6.7L3 8%22/%3E%3Cpath d=%22M3 3v5h5%22/%3E%3Cpath d=%22M12 7v5l3 2%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-faq {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M21 12a8 8 0 0 1-11.8 7L4 20.5l1.5-5A8 8 0 1 1 21 12z%22/%3E%3C/svg%3E");
+}
+
+.sb-icon-contact {
+  --sb-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M4 14v-2a8 8 0 0 1 16 0v2%22/%3E%3Crect x=%222.5%22 y=%2213%22 width=%224.5%22 height=%227%22 rx=%221.5%22/%3E%3Crect x=%2217%22 y=%2213%22 width=%224.5%22 height=%227%22 rx=%221.5%22/%3E%3C/svg%3E");
 }
