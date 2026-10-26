@@ -45,6 +45,7 @@ const sidebars = {
         "admin-panel/payment-gateway",
         "admin-panel/cart-reminder",
         "admin-panel/app-settings",
+        "admin-panel/deeplink-settings",
         "admin-panel/map-api-key-settings",
         "admin-panel/gemini-config",
         "admin-panel/addons",

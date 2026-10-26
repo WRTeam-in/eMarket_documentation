@@ -8,8 +8,8 @@ This table lists the Flutter, Kotlin, AGP, Gradle and JDK versions to use with e
 
 | Product Version | Flutter Version | Kotlin Version | AGP Version | distributionUrl (Gradle) | JDK Version |
 | --------------- | --------------- | -------------- | ----------- | ------------------------ | ----------- |
-| 4.0.2           | 3.47.2          | 2.3.21         | 8.11.1      | gradle-9.5.1-all.zip      | 25          |
-| 4.0.1           | 3.44.8          | 2.3.21         | 8.11.1      | gradle-9.5.1-all.zip      | 25          |
+| 4.0.2           | 3.47.2          | 2.4.0 (Customer) / 2.3.21 (Partner) | 9.1.0 (Customer) / 8.11.1 (Partner) | gradle-9.5.1-all.zip      | 25          |
+| 4.0.1           | 3.47.2          | 2.4.0 (Customer) / 2.3.21 (Partner) | 9.1.0 (Customer) / 8.11.1 (Partner) | gradle-9.5.1-all.zip      | 25          |
 | 4.0.0           | 3.44.8          | 2.3.21         | 8.11.1      | gradle-9.5.1-all.zip      | 25          |
 | 3.0.3           | 3.44.0          | 2.2.20         | 8.11.0      | gradle-8.13-all.zip      | 19          |
 | 3.0.2.1           | 3.41.9          | 2.2.20         | 8.11.0      | gradle-8.13-all.zip      | 19          |

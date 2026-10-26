@@ -10,7 +10,7 @@ sidebar_position: 4
 
 ![Server URL Admin](/img/flutter-app/serverurladmin.webp)
 
-2. In Android code go to lib > helper > utils > constant.dart and paste the URL
+2. In the app code, open `lib > core > constants > constant.dart` and paste the URL into `hostUrl`
 
 ![Server URL Code](/img/flutter-app/serverurladmin2.webp)
 
@@ -27,7 +27,7 @@ The app reads this on startup and preselects the matching country, so this is th
 
 ### Fallback in code
 
-Until the app has loaded settings from the server (for example on first launch with no internet), it falls back to the `initialCountryCode` value in `lib > helper > utils > constant.dart`:
+Until the app has loaded settings from the server (for example on first launch with no internet), it falls back to the `initialCountryCode` value in `lib > core > constants > constant.dart`:
 
 ```dart
 static String initialCountryCode = "IN";
@@ -40,7 +40,7 @@ Set it to a two-letter ISO country code such as `"IN"` or `"US"` — note this i
 
 You can change how many items are fetched at a time when a request is sent to the server.
 
-1. Go to `lib > helper > utils > constant.dart`
+1. Go to `lib > core > constants > constant.dart`
 2. Adjust these values as needed:
 
 ```dart
