@@ -32,7 +32,7 @@ Open `ios > Runner > Info.plist` and change **both** of these strings:
 
 ### For the splash screen
 
-Open `lib > helper > utils > constant.dart` and change `appName`:
+Open `lib > core > constants > constant.dart` and change `appName`:
 
 ```dart
 static String appName = "eMarket";

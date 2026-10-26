@@ -383,7 +383,7 @@ const icons = {
   ),
 };
 
-export default function Icon({ name, size = 48, color = "white" }) {
+export default function Icon({ name, size = 48 }) {
   const content = icons[name] || icons.star;
   return (
     <svg
@@ -391,7 +391,7 @@ export default function Icon({ name, size = 48, color = "white" }) {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={color}
+      stroke="white"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

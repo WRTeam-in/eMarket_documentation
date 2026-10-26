@@ -40,8 +40,6 @@ const config = {
 
   plugins: [require.resolve("@easyops-cn/docusaurus-search-local")],
 
-  clientModules: [require.resolve("./src/clientModules/sidebarActiveIntoView.js")],
-
   presets: [
     [
       "classic",
@@ -76,11 +74,6 @@ const config = {
         defaultMode: "dark",
         disableSwitch: false,
         respectPrefersColorScheme: false,
-      },
-      docs: {
-        sidebar: {
-          hideable: true,
-        },
       },
       navbar: {
         title: "eMarket",

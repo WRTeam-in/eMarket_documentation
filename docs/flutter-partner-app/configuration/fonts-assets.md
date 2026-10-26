@@ -6,27 +6,33 @@ sidebar_position: 6
 
 ## Change Font Family
 
-The app ships with **Outfit**. The family is set in one place, so changing it updates every screen.
+The partner app ships with **Lato**, loaded from Google Fonts. It is set in one place for both light and dark mode.
 
-1. Select a font from Google Fonts only. Visit [https://fonts.google.com/](https://fonts.google.com/)
-2. Copy the family name exactly as Google Fonts spells it, including capitals and spaces (for example `Poppins`, `Open Sans`)
-3. Open `lib > helper > styles > appTypography.dart`
+1. Pick a font on [Google Fonts](https://fonts.google.com/).
 
 ![Google Fonts](/img/flutter-app/google-font.webp)
 
-4. Change the `fontFamily` value:
+2. Open `lib > main.dart` and find the two `GoogleFonts.latoTextTheme(` lines, one under `theme:` and one under `darkTheme:`:
 
-```dart
-static const String fontFamily = 'Outfit';
+```dart title="lib/main.dart"
+theme: ColorsRes.lightTheme.copyWith(
+  textTheme: GoogleFonts.latoTextTheme(
+    ThemeData(brightness: Brightness.light).textTheme,
+  ),
+),
+darkTheme: ColorsRes.darkTheme.copyWith(
+  textTheme: GoogleFonts.latoTextTheme(
+    ThemeData(brightness: Brightness.dark).textTheme,
+  ),
+),
 ```
 
-5. Run the app
+3. Replace `latoTextTheme` in **both** places with your font's method, for example `poppinsTextTheme` for Poppins or `openSansTextTheme` for Open Sans: the font name in lower camel case, followed by `TextTheme`.
+4. Run the app.
 
-:::warning A misspelled font name fails at runtime, not at build time
-The family name is looked up at runtime, so a typo will not show as a compile error — the app builds, then fails when it tries to load the font. Check the spelling against the Google Fonts page.
+:::tip A wrong method name stops the build
+If the name does not match a Google Font, the app does not build. Type `GoogleFonts.` in your editor to see the available names.
 :::
-
-The font sizes and weights used across the app are defined in the same file, below `fontFamily`. Changing only `fontFamily` keeps the existing sizing and swaps the typeface.
 
 ## Change Assets Images
 
@@ -34,16 +40,14 @@ Replacing images and animations is the same for every WRTeam app, so it is cover
 
 👉 **[Assets Setup](https://wrteam-in.github.io/common_app_doc/GeneralSettings/assets)**
 
-### Where eMarket keeps its assets
-
-The customer app's artwork is all SVG, under `assets/svg/`:
+### Where the partner app keeps its assets
 
 | Folder | Contents |
 | ------ | -------- |
-| `assets/svg/icons/` | UI icons |
-| `assets/svg/illustrations/` | Illustrations, with `light/` and `dark/` variants |
-| `assets/svg/logo/` | App logo and placeholder |
-| `assets/svg/nav/` | Bottom navigation icons |
+| `assets/svg/` | UI icons |
+| `assets/svg/logo/` | App logo (`logo.svg`) and placeholder (`placeholder.svg`) |
+| `assets/images/` | Launcher icon sources and the background of the account type and forgot password screens |
+| `assets/mapTheme/` | Google Maps styles for light (`dayMode.json`) and dark (`nightMode.json`) mode |
 
 Keep the same filename and extension when replacing a file and no code changes are needed.
 

@@ -10,6 +10,10 @@ This document explains how to integrate Google Maps & Firebase APIs for:
 - Key restrictions & security best practices
 - Quota & alert setup
 
+:::tip Google Maps or OpenStreetMap
+**Map Provider** in Store Settings decides which map the customer and partner apps show. With **OpenStreetMap**, the apps' maps need no Google key, but the **Place API Key** below is still used for address search and address lookup. See [Map and Location Services](../flutter-app/map-location-services.md#google-maps-or-openstreetmap).
+:::
+
 ---
 
 ## 1. WEB API INTEGRATION

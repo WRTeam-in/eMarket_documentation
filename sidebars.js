@@ -18,13 +18,12 @@ const sidebars = {
   // Main sidebar for all documentation
   docsSidebar: [
     // Platform overview — lands at /docs/
-    { type: "doc", id: "intro", className: "sb-icon sb-icon-intro" },
+    "intro",
 
     // Admin Panel Documentation
     {
       type: "category",
       label: "Admin Panel",
-      className: "sb-icon sb-icon-admin",
       items: [
         "admin-panel/intro",
         "admin-panel/server-requirements",
@@ -45,6 +44,7 @@ const sidebars = {
         "admin-panel/payment-gateway",
         "admin-panel/cart-reminder",
         "admin-panel/app-settings",
+        "admin-panel/deeplink-settings",
         "admin-panel/map-api-key-settings",
         "admin-panel/gemini-config",
         "admin-panel/addons",
@@ -57,7 +57,6 @@ const sidebars = {
     {
       type: "category",
       label: "Website",
-      className: "sb-icon sb-icon-website",
       items: [
         "website/intro",
         "website/installation",
@@ -78,7 +77,6 @@ const sidebars = {
     {
       type: "category",
       label: "Flutter App",
-      className: "sb-icon sb-icon-app",
       items: [
         "flutter-app/intro",
         "flutter-app/installation",
@@ -110,7 +108,6 @@ const sidebars = {
     {
       type: "category",
       label: "Flutter Partner App",
-      className: "sb-icon sb-icon-partner",
       items: [
         "flutter-partner-app/intro",
         "flutter-partner-app/installation",
@@ -139,7 +136,6 @@ const sidebars = {
     {
       type: "category",
       label: "Features",
-      className: "sb-icon sb-icon-features",
       items: ["features/intro"],
     },
 
@@ -147,7 +143,6 @@ const sidebars = {
     {
       type: "category",
       label: "Detailed Documentation",
-      className: "sb-icon sb-icon-detailed",
       items: [
         "detailed-documentation/intro",
         "detailed-documentation/orders",
@@ -169,11 +164,10 @@ const sidebars = {
     {
       type: "category",
       label: "Changelog",
-      className: "sb-icon sb-icon-changelog",
       items: [
         "changelog/intro",
-        "changelog/version-history",
         "changelog/version-compatibility",
+        "changelog/version-history",
       ],
     },
 
@@ -181,12 +175,11 @@ const sidebars = {
     {
       type: "category",
       label: "FAQ",
-      className: "sb-icon sb-icon-faq",
       items: ["faq/intro"],
     },
 
     // Contact — applies to every section, so it sits at the top level
-    { type: "doc", id: "contact", className: "sb-icon sb-icon-contact" },
+    "contact",
   ],
 };
 
