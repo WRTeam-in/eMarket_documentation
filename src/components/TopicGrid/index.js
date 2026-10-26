@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Icon from "./icons";
 import styles from "./styles.module.css";
 
@@ -10,16 +10,280 @@ const TOPICS = [
       "A unified multi-store architecture combining Grocery, Pharmacy, eCommerce, Food Delivery, and POS modules inside a single powerful platform.",
   },
   {
+    icon: "store",
+    title: "Multi-Vendor Marketplace",
+    description:
+      "Allow multiple sellers to list and manage their own products, orders, and storefronts.",
+  },
+  {
+    icon: "zap",
+    title: "Quick Delivery (15 & 30 Minutes)",
+    description:
+      "Ultra-fast hyper-local delivery options offering 15-minute and 30-minute rapid dispatch guarantees for everyday essentials and urgent orders.",
+  },
+  {
     icon: "utensils",
     title: "Food Delivery Module",
     description:
       "A specialized food ordering vertical supporting restaurant management, custom dish addons/modifiers, cuisine filters, and instant courier dispatch.",
   },
   {
-    icon: "store",
-    title: "Multi-Vendor Marketplace",
+    icon: "monitor",
+    title: "Point of Sale (POS)",
     description:
-      "Allow multiple sellers to list and manage their own products, orders, and storefronts.",
+      "A dedicated POS system to manage in-store sales alongside your online orders.",
+  },
+  {
+    icon: "map",
+    title: "Real-Time Delivery Boy Location on Map",
+    description:
+      "Let customers follow the delivery boy's live location on a map while their order is on the way.",
+  },
+  {
+    icon: "map",
+    title: "Live Order Tracking",
+    description:
+      "Provide real-time tracking so customers can follow their order from dispatch to delivery.",
+  },
+  {
+    icon: "sparkles",
+    title: "AI-Powered Product Descriptions (Gemini AI)",
+    description:
+      "Integrated Google Gemini AI assisting marketplace administrators and sellers in generating engaging product descriptions and SEO metadata automatically.",
+  },
+  {
+    icon: "creditCard",
+    title: "Multiple Payment Gateways",
+    description:
+      "Connect Stripe, Razorpay, PayPal, and other gateways to accept payments across all platforms.",
+  },
+  {
+    icon: "crown",
+    title: "Membership Plans",
+    description:
+      "Offer premium membership plans with exclusive benefits and discounts for loyal customers.",
+  },
+  {
+    icon: "calendarClock",
+    title: "Customer Subscription Management",
+    description:
+      "Manage recurring product subscriptions ordered by customers.",
+  },
+  {
+    icon: "userPlus",
+    title: "Refer & Earn",
+    description:
+      "Reward customers with wallet credit or discounts for referring new users to the platform.",
+  },
+  {
+    icon: "cart",
+    title: "Single-Screen Cart & Checkout",
+    description:
+      "Cart and checkout are combined into one screen in the Customer App and on the website for a faster purchase flow.",
+  },
+  {
+    icon: "cart",
+    title: "Cart Management",
+    description:
+      "Give customers a smooth cart experience with saved items and quick checkout.",
+  },
+  {
+    icon: "search",
+    title: "Smart Search & Product Discovery",
+    description:
+      "Help customers quickly find products with intelligent search and filtering.",
+  },
+  {
+    icon: "search",
+    title: "Voice Search for Multiple Products",
+    description:
+      "Let customers search for several products at once by voice, or start a product search directly from the home screen.",
+  },
+  {
+    icon: "shuffle",
+    title: "Similar Product Replacement",
+    description:
+      "Suggest similar products to replace out-of-stock items in the customer's cart.",
+  },
+  {
+    icon: "cart",
+    title: "Abandoned Cart Management",
+    description:
+      "Let sellers view and follow up on carts that customers left without checking out, from the Seller Panel and the Partner App.",
+  },
+  {
+    icon: "shuffle",
+    title: "Cross-Selling Recommendations",
+    description:
+      "Suggest related or complementary products to increase average order value.",
+  },
+  {
+    icon: "percent",
+    title: "Coupon & Discount Management",
+    description:
+      "Create and manage coupons and discounts to run targeted promotional campaigns.",
+  },
+  {
+    icon: "tag",
+    title: "Offer Management",
+    description:
+      "Create and schedule special offers and discounts to boost sales and engagement.",
+  },
+  {
+    icon: "percent",
+    title: "Promo Code Management",
+    description:
+      "Create promo codes and coupons with custom rules, limits, and expiry dates.",
+  },
+  {
+    icon: "wallet",
+    title: "Digital Wallet",
+    description:
+      "A built-in wallet customers can use to pay for orders and store refunds or cashback.",
+  },
+  {
+    icon: "wallet",
+    title: "Partial Wallet Payment",
+    description:
+      "Allow customers to pay part of an order using wallet balance and the rest via another method.",
+  },
+  {
+    icon: "wallet",
+    title: "Add Funds to Wallet",
+    description:
+      "Let customers top up their wallet balance using their preferred payment method.",
+  },
+  {
+    icon: "wallet",
+    title: "Cash on Delivery (COD)",
+    description:
+      "Offer customers the option to pay in cash at the time of delivery.",
+  },
+  {
+    icon: "map",
+    title: "Location-Based Shopping",
+    description:
+      "Show customers products and stores available in their selected location.",
+  },
+  {
+    icon: "zap",
+    title: "Quick Delivery Arrival Countdown",
+    description:
+      "Show customers a live countdown to the expected arrival time of their Quick Delivery orders.",
+  },
+  {
+    icon: "calendarClock",
+    title: "Scheduled Delivery",
+    description:
+      "Let customers choose a preferred delivery date and time slot for their order.",
+  },
+  {
+    icon: "truck",
+    title: "Home Delivery",
+    description:
+      "Deliver orders directly to customers' doorsteps with real-time tracking.",
+  },
+  {
+    icon: "store",
+    title: "Self Pickup Order Management",
+    description:
+      "Let customers place orders and pick them up in-store instead of choosing home delivery.",
+  },
+  {
+    icon: "map",
+    title: "Distance & Delivery Estimates",
+    description:
+      "Calculate delivery distance and estimated time based on customer and store location.",
+  },
+  {
+    icon: "map",
+    title: "OpenStreetMap Integration",
+    description:
+      "Use OpenStreetMap as an alternative to Google Maps across the Admin Panel, Customer App, and Partner App.",
+  },
+  {
+    icon: "layout",
+    title: "Dynamic Homepage",
+    description:
+      "A configurable homepage layout that adapts to featured content, offers, and categories.",
+  },
+  {
+    icon: "image",
+    title: "Home Slider Management",
+    description:
+      "Manage homepage banners and sliders to highlight offers, products, and campaigns.",
+  },
+  {
+    icon: "star",
+    title: "Featured Section Management",
+    description:
+      "Curate featured products and categories to highlight them across the storefront.",
+  },
+  {
+    icon: "image",
+    title: "Popup Management",
+    description:
+      "Configure promotional popups shown to customers on the website and apps.",
+  },
+  {
+    icon: "bell",
+    title: "Push Notifications",
+    description:
+      "Send real-time push notifications to keep customers and partners informed and engaged.",
+  },
+  {
+    icon: "star",
+    title: "Ratings & Reviews",
+    description:
+      "Let customers rate and review products to build trust and improve buying decisions.",
+  },
+  {
+    icon: "refreshCw",
+    title: "Recently Viewed Products",
+    description:
+      "Automatically show customers the products they viewed most recently.",
+  },
+  {
+    icon: "scan",
+    title: "Barcode Scanner",
+    description:
+      "Scan product barcodes for faster checkout and inventory management at POS.",
+  },
+  {
+    icon: "sliders",
+    title: "Product Variants",
+    description:
+      "Offer products in multiple sizes, colors, or configurations with individual pricing and stock.",
+  },
+  {
+    icon: "layout",
+    title: "Grid & List Product View",
+    description:
+      "Let customers switch between grid and list layouts when browsing products.",
+  },
+  {
+    icon: "languages",
+    title: "Multi-Language Support",
+    description:
+      "Support multiple languages across the website and apps for a global customer base.",
+  },
+  {
+    icon: "moon",
+    title: "Dark & Light Mode",
+    description:
+      "Give users the choice to switch between dark and light themes across the apps.",
+  },
+  {
+    icon: "smartphone",
+    title: "Liquid Glass Design for iOS 26",
+    description:
+      "Customer App support for Apple's Liquid Glass design on iOS 26 and later.",
+  },
+  {
+    icon: "shield",
+    title: "Secure Login & Authentication",
+    description:
+      "Enable secure authentication options including email, phone OTP, and social login via Firebase.",
   },
   {
     icon: "gauge",
@@ -28,16 +292,52 @@ const TOPICS = [
       "Dedicated dashboards for admins, sellers, and delivery partners with permissions tailored to each role.",
   },
   {
+    icon: "layout",
+    title: "Modern Responsive Admin, Seller & Delivery Boy Panels",
+    description:
+      "A refreshed, consistent panel UI with system-wide dark mode, Arabic RTL layouts, Card and Table list views with saved preferences, and responsive layouts for mobile, tablet, and desktop.",
+  },
+  {
     icon: "package",
     title: "Unified Order Management",
     description:
       "Track and manage every order across vendors and delivery types from a single control panel.",
   },
   {
-    icon: "store",
-    title: "Self Pickup Order Management",
+    icon: "barChart",
+    title: "Business Reports & Analytics",
     description:
-      "Let customers place orders and pick them up in-store instead of choosing home delivery.",
+      "Gain insights into platform performance with comprehensive reports and analytics dashboards.",
+  },
+  {
+    icon: "trendingUp",
+    title: "Sales Reports",
+    description:
+      "Get a complete overview of platform-wide sales performance across a chosen time period.",
+  },
+  {
+    icon: "barChart",
+    title: "Product Sales Reports",
+    description:
+      "Analyze best-selling and low-performing products with detailed sales breakdowns.",
+  },
+  {
+    icon: "pieChart",
+    title: "POS Reports",
+    description:
+      "Review in-store POS sales separately with dedicated reporting and summaries.",
+  },
+  {
+    icon: "box",
+    title: "Product Management",
+    description:
+      "Add, edit, and organize products with pricing, images, variants, and stock details.",
+  },
+  {
+    icon: "archive",
+    title: "Stock Management",
+    description:
+      "Monitor inventory levels in real time and get notified before products run out of stock.",
   },
   {
     icon: "list",
@@ -47,15 +347,15 @@ const TOPICS = [
   },
   {
     icon: "list",
+    title: "Infinite Category Structure",
+    description:
+      "Create unlimited nested categories and sub-categories to organize a large catalog.",
+  },
+  {
+    icon: "list",
     title: "Streamlined Category Navigation",
     description:
       "An enhanced, frictionless multi-level category navigation flow that accelerates product discovery and browsing speed.",
-  },
-  {
-    icon: "box",
-    title: "Product Management",
-    description:
-      "Add, edit, and organize products with pricing, images, variants, and stock details.",
   },
   {
     icon: "tag",
@@ -64,16 +364,10 @@ const TOPICS = [
       "Extensible custom fields architecture supporting dietary markers (Veg / Non-Veg), allergen info, technical specifications, and warranty details.",
   },
   {
-    icon: "sparkles",
-    title: "AI-Powered Product Descriptions (Gemini AI)",
+    icon: "fileText",
+    title: "Product Request Management",
     description:
-      "Integrated Google Gemini AI assisting marketplace administrators and sellers in generating engaging product descriptions and SEO metadata automatically.",
-  },
-  {
-    icon: "archive",
-    title: "Stock Management",
-    description:
-      "Monitor inventory levels in real time and get notified before products run out of stock.",
+      "Let customers request products that aren't yet listed and manage those requests.",
   },
   {
     icon: "rotateCcw",
@@ -82,64 +376,22 @@ const TOPICS = [
       "Handle customer return and refund requests with a streamlined approval workflow.",
   },
   {
-    icon: "wallet",
-    title: "Withdrawal Request Management",
+    icon: "users",
+    title: "Customer Management",
     description:
-      "Review and process withdrawal requests submitted by sellers and delivery partners.",
-  },
-  {
-    icon: "truck",
-    title: "Delivery Partner Management",
-    description:
-      "Onboard, verify, and manage delivery partners along with their assignments and performance.",
-  },
-  {
-    icon: "send",
-    title: "Fund Transfer Management",
-    description:
-      "Transfer earnings and settlements to vendors and delivery partners securely from the admin panel.",
+      "View and manage customer profiles, order history, and account activity.",
   },
   {
     icon: "wallet",
-    title: "Cash Collection Management",
+    title: "Customer Financial Management",
     description:
-      "Track cash collected by delivery partners for cash-on-delivery orders and reconcile balances.",
-  },
-  {
-    icon: "creditCard",
-    title: "Salary Management",
-    description:
-      "Manage salary structures and payouts for delivery partners and staff members.",
-  },
-  {
-    icon: "monitor",
-    title: "Point of Sale (POS)",
-    description:
-      "A dedicated POS system to manage in-store sales alongside your online orders.",
+      "Track customer wallet balances, refunds, and financial transactions in one place.",
   },
   {
     icon: "wallet",
     title: "Wallet Transaction Management",
     description:
       "View and manage all wallet credits, debits, and transaction history across the platform.",
-  },
-  {
-    icon: "barChart",
-    title: "Product Sales Reports",
-    description:
-      "Analyze best-selling and low-performing products with detailed sales breakdowns.",
-  },
-  {
-    icon: "trendingUp",
-    title: "Sales Reports",
-    description:
-      "Get a complete overview of platform-wide sales performance across a chosen time period.",
-  },
-  {
-    icon: "pieChart",
-    title: "POS Reports",
-    description:
-      "Review in-store POS sales separately with dedicated reporting and summaries.",
   },
   {
     icon: "userPlus",
@@ -160,16 +412,16 @@ const TOPICS = [
       "Manage seller profiles, permissions, commissions, and account status.",
   },
   {
-    icon: "shield",
-    title: "Seller Policy Management",
-    description:
-      "Define and enforce platform policies and terms that sellers must comply with.",
-  },
-  {
     icon: "sliders",
     title: "Seller Attribute & Custom Field Control",
     description:
       "Vendors can independently create, configure, and maintain product attributes and custom specifications directly from their seller panel.",
+  },
+  {
+    icon: "shield",
+    title: "Seller Policy Management",
+    description:
+      "Define and enforce platform policies and terms that sellers must comply with.",
   },
   {
     icon: "bell",
@@ -178,34 +430,52 @@ const TOPICS = [
       "Built-in warning system alerting sellers regarding global attribute transitions to ensure clean migration to seller-owned attributes.",
   },
   {
-    icon: "image",
-    title: "Home Slider Management",
+    icon: "wallet",
+    title: "Withdrawal Request Management",
     description:
-      "Manage homepage banners and sliders to highlight offers, products, and campaigns.",
+      "Review and process withdrawal requests submitted by sellers and delivery partners.",
   },
   {
-    icon: "tag",
-    title: "Offer Management",
+    icon: "truck",
+    title: "Delivery Partner Management",
     description:
-      "Create and schedule special offers and discounts to boost sales and engagement.",
+      "Onboard, verify, and manage delivery partners along with their assignments and performance.",
   },
   {
-    icon: "image",
-    title: "Popup Management",
+    icon: "truck",
+    title: "Multi-City Delivery Boy Service",
     description:
-      "Configure promotional popups shown to customers on the website and apps.",
+      "Assign delivery boys to serve multiple cities from the Admin Panel and the Partner App.",
   },
   {
-    icon: "percent",
-    title: "Promo Code Management",
+    icon: "users",
+    title: "Admin-Wise & Seller-Wise Delivery Boy Management",
     description:
-      "Create promo codes and coupons with custom rules, limits, and expiry dates.",
+      "Manage delivery boys separately for the admin and for each seller, so every store can run its own delivery team.",
   },
   {
-    icon: "star",
-    title: "Featured Section Management",
+    icon: "wallet",
+    title: "Cash Collection Management",
     description:
-      "Curate featured products and categories to highlight them across the storefront.",
+      "Track cash collected by delivery partners for cash-on-delivery orders and reconcile balances.",
+  },
+  {
+    icon: "send",
+    title: "Fund Transfer Management",
+    description:
+      "Transfer earnings and settlements to vendors and delivery partners securely from the admin panel.",
+  },
+  {
+    icon: "creditCard",
+    title: "Salary Management",
+    description:
+      "Manage salary structures and payouts for delivery partners and staff members.",
+  },
+  {
+    icon: "globe",
+    title: "SEO Management",
+    description:
+      "Manage meta tags, sitemaps, and SEO settings to improve website search rankings.",
   },
   {
     icon: "edit",
@@ -214,262 +484,10 @@ const TOPICS = [
       "Publish and manage blog content to drive engagement and improve SEO.",
   },
   {
-    icon: "sliders",
-    title: "Module Management",
-    description:
-      "A complete list of admin panel modules and control over which ones are enabled.",
-  },
-  {
     icon: "messageSquare",
     title: "Communication Management",
     description:
       "Manage notifications, emails, and SMS communication sent to customers and partners.",
-  },
-  {
-    icon: "settings",
-    title: "Platform Configuration",
-    description:
-      "Configure core platform settings such as store details, currency, and delivery charges.",
-  },
-  {
-    icon: "palette",
-    title: "Module-Wise Theme Color Management",
-    description:
-      "Define custom primary branding colors, accents, and themes per business module to differentiate Grocery, Food Delivery, Pharmacy, and eCommerce.",
-  },
-  {
-    icon: "share2",
-    title: "Website Social Media Icon Management",
-    description:
-      "Configure, update, and manage social media channel icons and external profile links displayed across the customer web storefront directly from the Admin Panel.",
-  },
-  {
-    icon: "image",
-    title: "WebP Next-Gen Image Support",
-    description:
-      "Native WebP image format support across the Admin Panel and Customer Website for lightning-fast page loading and reduced bandwidth consumption.",
-  },
-  {
-    icon: "tool",
-    title: "Technical Configuration",
-    description:
-      "Manage technical settings including API keys, integrations, and server-side configuration.",
-  },
-  {
-    icon: "server",
-    title: "System Administration",
-    description:
-      "Oversee platform health, backups, and administrative controls from a central place.",
-  },
-  // {
-  //   icon: "package",
-  //   title: "Subscription Plan Management",
-  //   description:
-  //     "Manage vendor subscription plans and control feature access across the marketplace.",
-  // },
-  {
-    icon: "languages",
-    title: "Localization Management",
-    description:
-      "Translate and manage content for multiple languages across the website and apps.",
-  },
-  {
-    icon: "users",
-    title: "Customer Management",
-    description:
-      "View and manage customer profiles, order history, and account activity.",
-  },
-  {
-    icon: "wallet",
-    title: "Customer Financial Management",
-    description:
-      "Track customer wallet balances, refunds, and financial transactions in one place.",
-  },
-  {
-    icon: "barChart",
-    title: "Business Reports & Analytics",
-    description:
-      "Gain insights into platform performance with comprehensive reports and analytics dashboards.",
-  },
-  {
-    icon: "shield",
-    title: "User & Role Management",
-    description:
-      "Create admin users and assign granular roles and permissions across the panel.",
-  },
-  {
-    icon: "helpCircle",
-    title: "FAQ Management",
-    description:
-      "Add and manage frequently asked questions shown to customers on the website and apps.",
-  },
-  {
-    icon: "map",
-    title: "Location-Based Shopping",
-    description:
-      "Show customers products and stores available in their selected location.",
-  },
-  {
-    icon: "map",
-    title: "Distance & Delivery Estimates",
-    description:
-      "Calculate delivery distance and estimated time based on customer and store location.",
-  },
-  {
-    icon: "layout",
-    title: "Dynamic Homepage",
-    description:
-      "A configurable homepage layout that adapts to featured content, offers, and categories.",
-  },
-  {
-    icon: "list",
-    title: "Infinite Category Structure",
-    description:
-      "Create unlimited nested categories and sub-categories to organize a large catalog.",
-  },
-  {
-    icon: "search",
-    title: "Smart Search & Product Discovery",
-    description:
-      "Help customers quickly find products with intelligent search and filtering.",
-  },
-  {
-    icon: "scan",
-    title: "Barcode Scanner",
-    description:
-      "Scan product barcodes for faster checkout and inventory management at POS.",
-  },
-  {
-    icon: "layout",
-    title: "Grid & List Product View",
-    description:
-      "Let customers switch between grid and list layouts when browsing products.",
-  },
-  {
-    icon: "sliders",
-    title: "Product Variants",
-    description:
-      "Offer products in multiple sizes, colors, or configurations with individual pricing and stock.",
-  },
-  {
-    icon: "star",
-    title: "Ratings & Reviews",
-    description:
-      "Let customers rate and review products to build trust and improve buying decisions.",
-  },
-  {
-    icon: "refreshCw",
-    title: "Recently Viewed Products",
-    description:
-      "Automatically show customers the products they viewed most recently.",
-  },
-  {
-    icon: "shuffle",
-    title: "Cross-Selling Recommendations",
-    description:
-      "Suggest related or complementary products to increase average order value.",
-  },
-  {
-    icon: "fileText",
-    title: "Product Request Management",
-    description:
-      "Let customers request products that aren't yet listed and manage those requests.",
-  },
-  {
-    icon: "calendarClock",
-    title: "Customer Subscription Management",
-    description:
-      "Manage recurring product subscriptions ordered by customers.",
-  },
-  {
-    icon: "cart",
-    title: "Cart Management",
-    description:
-      "Give customers a smooth cart experience with saved items and quick checkout.",
-  },
-  {
-    icon: "truck",
-    title: "Home Delivery",
-    description:
-      "Deliver orders directly to customers' doorsteps with real-time tracking.",
-  },
-  {
-    icon: "calendarClock",
-    title: "Scheduled Delivery",
-    description:
-      "Let customers choose a preferred delivery date and time slot for their order.",
-  },
-  {
-    icon: "zap",
-    title: "Quick Delivery (15 & 30 Minutes)",
-    description:
-      "Ultra-fast hyper-local delivery options offering 15-minute and 30-minute rapid dispatch guarantees for everyday essentials and urgent orders.",
-  },
-  {
-    icon: "map",
-    title: "Live Order Tracking",
-    description:
-      "Provide real-time tracking so customers can follow their order from dispatch to delivery.",
-  },
-  {
-    icon: "creditCard",
-    title: "Multiple Payment Gateways",
-    description:
-      "Connect Stripe, Razorpay, PayPal, and other gateways to accept payments across all platforms.",
-  },
-  {
-    icon: "wallet",
-    title: "Cash on Delivery (COD)",
-    description:
-      "Offer customers the option to pay in cash at the time of delivery.",
-  },
-  {
-    icon: "wallet",
-    title: "Digital Wallet",
-    description:
-      "A built-in wallet customers can use to pay for orders and store refunds or cashback.",
-  },
-  {
-    icon: "wallet",
-    title: "Add Funds to Wallet",
-    description:
-      "Let customers top up their wallet balance using their preferred payment method.",
-  },
-  {
-    icon: "wallet",
-    title: "Partial Wallet Payment",
-    description:
-      "Allow customers to pay part of an order using wallet balance and the rest via another method.",
-  },
-  {
-    icon: "percent",
-    title: "Coupon & Discount Management",
-    description:
-      "Create and manage coupons and discounts to run targeted promotional campaigns.",
-  },
-  {
-    icon: "crown",
-    title: "Membership Plans",
-    description:
-      "Offer premium membership plans with exclusive benefits and discounts for loyal customers.",
-  },
-  {
-    icon: "userPlus",
-    title: "Refer & Earn",
-    description:
-      "Reward customers with wallet credit or discounts for referring new users to the platform.",
-  },
-  {
-    icon: "shield",
-    title: "Secure Login & Authentication",
-    description:
-      "Enable secure authentication options including email, phone OTP, and social login via Firebase.",
-  },
-  {
-    icon: "bell",
-    title: "Push Notifications",
-    description:
-      "Send real-time push notifications to keep customers and partners informed and engaged.",
   },
   {
     icon: "messageSquare",
@@ -484,22 +502,22 @@ const TOPICS = [
       "Configure SMTP so the platform can send order confirmations, invoices, and account notifications.",
   },
   {
+    icon: "palette",
+    title: "Module-Wise Theme Color Management",
+    description:
+      "Define custom primary branding colors, accents, and themes per business module to differentiate Grocery, Food Delivery, Pharmacy, and eCommerce.",
+  },
+  {
+    icon: "share2",
+    title: "Website Social Media Icon Management",
+    description:
+      "Configure, update, and manage social media channel icons and external profile links displayed across the customer web storefront directly from the Admin Panel.",
+  },
+  {
     icon: "languages",
-    title: "Multi-Language Support",
+    title: "Localization Management",
     description:
-      "Support multiple languages across the website and apps for a global customer base.",
-  },
-  {
-    icon: "moon",
-    title: "Dark & Light Mode",
-    description:
-      "Give users the choice to switch between dark and light themes across the apps.",
-  },
-  {
-    icon: "refreshCw",
-    title: "Force Update",
-    description:
-      "Prompt users to update the app to the latest version to ensure compatibility and security.",
+      "Translate and manage content for multiple languages across the website and apps.",
   },
   {
     icon: "smartphone",
@@ -509,34 +527,128 @@ const TOPICS = [
   },
   {
     icon: "globe",
-    title: "SEO Management",
+    title: "Next.js 16 Website with Server-Side Rendering",
     description:
-      "Manage meta tags, sitemaps, and SEO settings to improve website search rankings.",
+      "Website upgraded to Next.js 16.2.4, with server-side rendering enabled when SEO is turned on for VPS deployments.",
   },
+  {
+    icon: "server",
+    title: "Laravel 12 Backend",
+    description:
+      "Backend upgraded to Laravel 12 for better performance, security, and long-term support.",
+  },
+  {
+    icon: "image",
+    title: "WebP Next-Gen Image Support",
+    description:
+      "Native WebP image format support across the Admin Panel and Customer Website for lightning-fast page loading and reduced bandwidth consumption.",
+  },
+  {
+    icon: "refreshCw",
+    title: "Force Update",
+    description:
+      "Prompt users to update the app to the latest version to ensure compatibility and security.",
+  },
+  {
+    icon: "sliders",
+    title: "Module Management",
+    description:
+      "A complete list of admin panel modules and control over which ones are enabled.",
+  },
+  {
+    icon: "settings",
+    title: "Platform Configuration",
+    description:
+      "Configure core platform settings such as store details, currency, and delivery charges.",
+  },
+  {
+    icon: "tool",
+    title: "Technical Configuration",
+    description:
+      "Manage technical settings including API keys, integrations, and server-side configuration.",
+  },
+  {
+    icon: "shield",
+    title: "User & Role Management",
+    description:
+      "Create admin users and assign granular roles and permissions across the panel.",
+  },
+  {
+    icon: "helpCircle",
+    title: "FAQ Management",
+    description:
+      "Add and manage frequently asked questions shown to customers on the website and apps.",
+  },
+  {
+    icon: "settings",
+    title: "Demo Mode Management",
+    description:
+      "Turn on Demo Mode and manage the default demo login credentials through the Settings API.",
+  },
+  {
+    icon: "server",
+    title: "System Administration",
+    description:
+      "Oversee platform health, backups, and administrative controls from a central place.",
+  },
+  // {
+  //   icon: "package",
+  //   title: "Subscription Plan Management",
+  //   description:
+  //     "Manage vendor subscription plans and control feature access across the marketplace.",
+  // },
 ];
 
 function Card({ topic, number }) {
   return (
     <div className={styles.card}>
-      <div className={styles.iconBadge}>
-        <Icon name={topic.icon} size={32} />
+      <div className={styles.cardHead}>
+        <div className={styles.iconBadge}>
+          <Icon name={topic.icon} size={20} color="var(--ifm-color-primary)" />
+        </div>
+        <h3 className={styles.title}>{topic.title}</h3>
+        <span className={styles.number}>{String(number).padStart(2, "0")}</span>
       </div>
-      <h3 className={styles.title}>
-        {number}. {topic.title}
-      </h3>
       <p className={styles.description}>{topic.description}</p>
     </div>
   );
 }
 
 export default function TopicGrid() {
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const topics = TOPICS.map((topic, idx) => ({ topic, number: idx + 1 })).filter(
+    ({ topic }) =>
+      !q ||
+      topic.title.toLowerCase().includes(q) ||
+      topic.description.toLowerCase().includes(q)
+  );
+
   return (
-    <div className={styles.grid}>
-      {TOPICS.map((topic, idx) => (
-        <div key={idx} className={styles.plainCard}>
-          <Card topic={topic} number={idx + 1} />
+    <section className={styles.wrapper}>
+      <header className={styles.header}>
+        <h2 className={styles.heading}>
+          All Features <span className={styles.count}>{TOPICS.length}</span>
+        </h2>
+        <input
+          type="search"
+          className={styles.search}
+          placeholder="Search features…"
+          aria-label="Search features"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </header>
+
+      {topics.length ? (
+        <div className={styles.grid}>
+          {topics.map(({ topic, number }) => (
+            <Card key={topic.title} topic={topic} number={number} />
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <p className={styles.empty}>No features match “{query}”.</p>
+      )}
+    </section>
   );
 }
