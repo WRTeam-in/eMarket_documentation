@@ -61,42 +61,48 @@ Required APIs:
 - Enable billing for the project
 
 Required APIs:
-1. Directions API
-2. Distance Matrix API
+
+**Browser key (Map API key)**, used by the admin panel in the browser:
+1. Maps JavaScript API
+2. Places API (legacy), needed for the address search box 
 3. Geocoding API
-4. Geolocation API
-5. Maps JavaScript API
-6. Places API
-7. Places API (New)
+
+**Server key (Place API key)**, used by the Laravel backend:
+1. Places API (New)
+2. Geocoding API
+3. Routes API
 
 **Key Generation & Restriction:**
 - Create **two API Keys** from Google Cloud Console → "Create Credentials" → API Key.
+- Each key gets only the APIs it uses. Do not put the same list on both keys. Fewer APIs on a key means less damage if the key leaks.
+
+**Map provider**
+- Store Settings has a Map provider option: Google Maps (paid) or OpenStreetMap (free). Choosing OpenStreetMap removes the need for the Google browser maps.
+
+**Not Google Maps**
+
+Do not enable these on a Maps key:
+- Gemini AI (`generativelanguage.googleapis.com`) is used for text generation and has its own key.
+- Firebase Cloud Messaging (push notifications) is configured separately in Firebase.
+- The Firebase and Cloud Logging APIs listed in Section 1 belong to the Firebase project, not to a Maps-only key.
 
 ### 2.1 Place API Key
 - Restrict by:
   - **IP Address**: `XXX.XXX.XXX.XXX` (Server IP)
-- Enable Libraries:
-  - Directions API
-  - Distance Matrix API
-  - Geocoding API
-  - Geolocation API
-  - Maps JavaScript API
-  - Places API
+- API restrictions:
   - Places API (New)
+  - Geocoding API
+  - Routes API
 
 ![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-place-suggestion.webp)
 
 ### 2.2 Map API Key
 - Restrict by:
   - **Domain**: `admin.example.com` and subdomains
-- Enable Libraries:
-  - Directions API
-  - Distance Matrix API
-  - Geocoding API
-  - Geolocation API
+- API restrictions:
   - Maps JavaScript API
-  - Places API
-  - Places API (New)
+  - Places API (legacy)
+  - Geocoding API
 
 ![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-map-render.webp)
 
@@ -224,6 +230,7 @@ const autocomplete = new google.maps.places.Autocomplete(
     - **For Places API**: set limit to 225 requests/day.
     - **For other APIs (Maps, Distance, etc.)**: set limit to 1000, if not setting based on actual usage.
     - **Do not exceed 1000 for any API unless necessary.**
+    - The Routes API is called for every delivery distance and ETA calculation, so a very low daily quota can block orders on busy days. Set it based on real usage.
 
 ### **Alert Setup**
 - Go to **Google Cloud Console → Billing → Budgets & alerts**.
