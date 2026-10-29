@@ -157,6 +157,7 @@ const sidebars = {
         "detailed-documentation/delivery",
         "detailed-documentation/seller-delivery-boys",
         "detailed-documentation/seller-custom-fields",
+        "detailed-documentation/point-of-sale",
         "detailed-documentation/promotions",
         "detailed-documentation/abandoned-carts",
         "detailed-documentation/customer-finance",

@@ -6,6 +6,16 @@ sidebar_position: 1
 
 This page lists all released versions of the eMarket platform with release dates and key changes. For the Flutter, Kotlin, AGP, Gradle and JDK versions each release needs, see the [Version Compatibility Table](./version-compatibility.md).
 
+## Version 4.0.3 - 29 October 2026
+
+- <span class="label label-major">IMPORTANT</span> If you are using a version older than 4.0.2, before clicking Update, upload and extract the provided vendor folder (vendor.zip) in your project root and replace the existing vendor folder.
+- <span class="label label-updated">UPDATED</span> PHP upgraded to version 8.5 (Backend)
+- <span class="label label-updated">UPDATED</span> Vue upgraded to version 2.7 (Admin Panel)
+- <span class="label label-improved">IMPROVED</span> Server-side pagination applied to all APIs
+- <span class="label label-improved">IMPROVED</span> Per page dropdown added to pages that used the old pagination
+- <span class="label label-fixed">FIXED</span> Risky public route security issue
+- <span class="label label-fixed">FIXED</span> UI issues
+
 ## Version 4.0.2 - 22 October 2026
 
 - <span class="label label-major">IMPORTANT</span> Before updating, put the site in maintenance mode if possible and take a full backup of your files and database.
