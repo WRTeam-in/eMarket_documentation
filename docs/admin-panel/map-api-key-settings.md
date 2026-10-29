@@ -60,53 +60,39 @@ Required APIs:
 - Create a new project or select existing one
 - Enable billing for the project
 
-Required APIs:
+**Required APIs**
 
-**Browser key (Map API key)**, used by the admin panel in the browser:
+Map API key (browser):
 1. Maps JavaScript API
-2. Places API (legacy), needed for the address search box 
-3. Geocoding API
-
-**Server key (Place API key)**, used by the Laravel backend:
-1. Places API (New)
 2. Geocoding API
-3. Routes API
 
-**Key Generation & Restriction:**
-- Create **two API Keys** from Google Cloud Console → "Create Credentials" → API Key.
-- Each key gets only the APIs it uses. Do not put the same list on both keys. Fewer APIs on a key means less damage if the key leaks.
-
-**Map provider**
-- Store Settings has a Map provider option: Google Maps (paid) or OpenStreetMap (free). Choosing OpenStreetMap removes the need for the Google browser maps.
-
-**Not Google Maps**
-
-Do not enable these on a Maps key:
-- Gemini AI (`generativelanguage.googleapis.com`) is used for text generation and has its own key.
-- Firebase Cloud Messaging (push notifications) is configured separately in Firebase.
-- The Firebase and Cloud Logging APIs listed in Section 1 belong to the Firebase project, not to a Maps-only key.
+Place API key (server):
+1. Places API (New): address autocomplete and place details
+2. Geocoding API
+3. Routes API: delivery distance and ETA
 
 ### 2.1 Place API Key
+- Used by the Laravel backend only (server key).
 - Restrict by:
   - **IP Address**: `XXX.XXX.XXX.XXX` (Server IP)
 - API restrictions:
-  - Places API (New)
+  - Places API (New): address autocomplete and place details
   - Geocoding API
-  - Routes API
+  - Routes API: delivery distance and ETA
 
-![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-place-suggestion.webp)
+![Panel API Key Restriction Screenshot](/img/admin-panel/map-key-penal-place-suggestion.webp)
 
 ### 2.2 Map API Key
+- Used by the browser (map rendering and delivery zone drawing).
 - Restrict by:
-  - **Domain**: `admin.example.com` and subdomains
+  - **HTTP referrer**: `admin.example.com` and subdomains
 - API restrictions:
   - Maps JavaScript API
-  - Places API (legacy)
   - Geocoding API
 
-![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-map-render.webp)
+![Panel API Key Restriction Screenshot](/img/admin-panel/map-key-penal-map-render.webp)
 
-![Penal API Key Restriction Screenshot](/img/admin-panel/map-key-penal-setting.webp)
+![Panel API Key Restriction Screenshot](/img/admin-panel/map-key-penal-setting.webp)
 
 ### Testing Configuration
 
@@ -149,13 +135,20 @@ const deliveryZone = new google.maps.Circle({
 
 **Address Autocomplete**
 
-```javascript
-// Example autocomplete implementation
-const autocomplete = new google.maps.places.Autocomplete(
-  document.getElementById("address-input"),
-  { types: ["address"] }
-);
+The address search box calls the server, which uses Places API (New) with the Place API key.
+
 ```
+GET /map/places_autocomplete?input=...&source=web
+GET /map/places_details?place_id=...&source=web
+```
+
+Params:
+- `input`: search text (minimum 2 characters)
+- `source`: `app` or `web`
+- `language` (optional): 2 letters
+- `types` (optional)
+- `components` (optional): e.g. `country:in|country:us`
+- `sessiontoken` (optional)
 
 ### Best Practices
 
@@ -227,7 +220,7 @@ const autocomplete = new google.maps.places.Autocomplete(
   - Requests per day
 - Recommended quota limits:
     - **Maps JavaScript API**: 1000 requests/day  
-    - **For Places API**: set limit to 225 requests/day.
+    - **For Places API (New)**: set limit to 225 requests/day. This quota applies to the autocomplete and details calls.
     - **For other APIs (Maps, Distance, etc.)**: set limit to 1000, if not setting based on actual usage.
     - **Do not exceed 1000 for any API unless necessary.**
     - The Routes API is called for every delivery distance and ETA calculation, so a very low daily quota can block orders on busy days. Set it based on real usage.
@@ -240,7 +233,7 @@ const autocomplete = new google.maps.places.Autocomplete(
   - **90% usage**
 - Email alerts to the dev & admin team.
 
-- **�� Set up Budget and Quota Notifications**
+- **🔔 Set up Budget and Quota Notifications**
     - [Budget & Alert Setup Guide](https://drive.google.com/file/d/1bbDnAUpHPuF5xhkGuAe6FBrO8nwoKRNb/view?usp=sharing)
     - [Quota Setup Guide](https://drive.google.com/file/d/1_1zJSNMRnBfrXXYoCm9S4AMqmyTECV6E/view?usp=sharing)
 
@@ -253,4 +246,4 @@ const autocomplete = new google.maps.places.Autocomplete(
 
 ---
 
-**�� NOTE:** Always restrict your API keys to avoid unauthorized usage and unexpected billing.
+**⚠️ NOTE:** Always restrict your API keys to avoid unauthorized usage and unexpected billing.
