@@ -33,10 +33,14 @@ Store Settings groups configuration into tabs on left:
 - **App Name** — store/app display name
 - **Support Number** — customer support phone number
 - **Support Email** — customer support email address
-- **Logo** — store logo image upload
+- **Logo** — store logo image upload, shown in the panel and apps in light mode
+- **Dark Logo** — separate logo upload used in dark mode. Use a light-coloured logo so it stays visible on a dark background
+- **Invoice Logo** — separate logo upload used on invoices
 - **Fssai Lic Image** — FSSAI license image upload
 - **Panel Login Background Image** — background image shown on admin login screen
 - **Copyright Details** — footer copyright text
+
+![Store Setting - Logos & Images](/img/admin-panel/store-logos-images.webp)
 
 Click **Update** to save changes.
 
@@ -119,6 +123,11 @@ Click **Update** to save.
 
 ## Third Party API Credentials Tab
 
+![Third Party API Credentials - Map Provider](/img/admin-panel/third-party-map-provider.webp)
+
+- **Map Provider** — choose which map the panel and apps use:
+  - **Google Maps (Paid)** — uses Google Maps. Requires a Google Maps API key and Google Cloud billing, and usage is charged by Google.
+  - **OpenStreetMap (Free)** — uses OpenStreetMap. Free to use and needs no Google Maps key for the maps.
 - **Place Api Key**
 - **Map Api Key**
 - **Gemini Key**
@@ -140,6 +149,9 @@ Click **Update** to save.
 - **Email Login (Enable/Disable)**
 - **Phone Auth Password (Enable/Disable)**
 - **Custom SMS Gateway OTP based (Enable/Disable)**
+- **Demo Mode (Enable/Disable)** — when on, the apps pre-fill the default login credentials. Keep it off on live.
+
+![Login Setting - Demo Mode](/img/admin-panel/login-demo-mode.webp)
 
 Click **Update** to save.
 
