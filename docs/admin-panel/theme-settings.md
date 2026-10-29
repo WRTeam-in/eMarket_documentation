@@ -6,9 +6,9 @@ sidebar_position: 10
 
 Customize the platform's color scheme from here. Navigate to **Modules → Theme Settings**.
 
-These colors apply to the **website** and the **customer app** — both download the palette from the server, so changing your brand color here does not require rebuilding or resubmitting the app.
+These colors apply to the **website** and the **customer app**. Both download the palette from the server, so changing your brand color here does not require rebuilding or resubmitting the app. The admin panel can also use these colors, depending on the **Admin panel colours** option below.
 
-The admin panel's own interface and the partner app are not affected by these settings.
+The partner app is not affected by these settings.
 
 ![Theme Settings](/img/admin-panel/theme-settings.webp)
 
@@ -41,6 +41,15 @@ The Success/Error/Warning/Info section only appears when the currently selected 
 
 Each status color has its own hex input, shade preview, **Reset to Default**, and **Save** button — configure independently.
 
+## Admin Panel Colours
+
+The **Admin panel colours** card at the top of the page controls which colours the admin panel itself uses. The question shown is: *Use each module's theme colours in the admin panel? Applies to every module.*
+
+- **Yes, module colours**: the admin panel uses the theme colours of the module you have selected in the header module switcher. The panel colours change when you switch module.
+- **No, own colours**: the admin panel keeps its own default colours and does not follow the module colours.
+
+Click **Save** in the card to apply your choice. The option applies to every module.
+
 ## Configuration Steps
 
 1. Log in to admin panel
@@ -53,7 +62,8 @@ Each status color has its own hex input, shade preview, **Reset to Default**, an
 ## Important Notes
 
 - Changes apply to the website and customer app after save
-- The admin panel interface and the partner app keep their own colors and are not changed here
+- The admin panel follows the module colours only when **Admin panel colours** is set to **Yes, module colours**
+- The partner app keeps its own colors and is not changed here
 - The customer app picks up the new palette on next launch; it caches the last palette so it still renders correctly offline
 - Primary and Neutral colors are per-module; Status colors are global and shown/edited only on the default module, but apply across all modules
 - You enter one Primary and one Neutral color per module; the system generates the full shade range from each

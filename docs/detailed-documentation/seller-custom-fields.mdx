@@ -1,0 +1,78 @@
+---
+sidebar_position: 15
+title: Seller Custom Fields
+description: Guide to the Custom Fields page in the seller panel - create your own product and delivery boy fields, field types, required and active options.
+---
+
+# Seller Custom Fields
+
+Custom Fields let sellers add their own extra input fields. In the seller panel, open **Custom Fields** from the menu.
+
+:::note Global fields are being deprecated
+The panel shows a notice that global attributes and custom fields-product are being deprecated in an upcoming update. Sellers will need to create their own attributes and custom fields-product. Replace any global custom field currently used on your products with your own.
+:::
+
+---
+
+## 1. Custom Fields Page
+
+![Seller Custom Fields](/img/detailed-documentation/seller-custom-fields.webp)
+
+The page has two tabs:
+
+- **Products**: extra fields for your products.
+- **Delivery Boys**: extra fields for your delivery boys.
+
+### Page Controls
+
+- **Search**: find a field by name.
+- **Refresh**: reload the list.
+- **Add Field**: create a new custom field.
+- **Per page**: choose how many fields to show on each page.
+
+### Key Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **ID** | Custom field ID. |
+| **Field Name** | Name of the field. |
+| **Field Type** | Type of input, for example Text or Dropdown. |
+| **Required** | Shows **Yes** or **No**. |
+| **Owner** | **Global** for fields created by the admin. Your own fields are shown as yours. |
+| **Status** | Toggle to turn the field on or off. |
+| **Actions** | Global fields show **Managed by admin** and cannot be changed by the seller. |
+
+---
+
+## 2. Adding a Custom Field
+
+![Add Field](/img/detailed-documentation/seller-custom-fields-add.webp)
+
+1. Open the **Products** or **Delivery Boys** tab.
+2. Click **Add Field**.
+3. Pick a language tab (English, Arabic, Chinese, French, Indonesian, Portuguese, Spanish (Castilian), Turkish, Urdu) and enter the **Field Name**.
+   - **Translate Empty Fields**: fills only the blank language tabs.
+   - **Translate & Overwrite**: translates and replaces values already entered.
+4. Select the **Field Type**.
+5. Tick **Required** if the field must be filled in.
+6. Keep **Active** ticked to turn the field on.
+7. Click **Save**. Click **Cancel** to close the form without saving.
+
+### Field Types
+
+![Field Types](/img/detailed-documentation/seller-custom-fields-types.webp)
+
+| Type | Use it for |
+|------|------------|
+| **Text** | Short text, for example a license number. |
+| **Number** | Numeric values. |
+| **Dropdown** | A list of options the user picks from. Add the options when you select this type. |
+| **File** | A file upload, for example a certificate. |
+| **Textarea** | Longer text. |
+| **Date** | A date value. |
+
+---
+
+## 3. Related Guides
+
+For the admin side of custom fields, see [Custom Fields Management](./customer-finance.mdx#7-custom-fields-management-custom_fieldsseller).
