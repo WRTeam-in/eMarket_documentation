@@ -6,6 +6,26 @@ sidebar_position: 1
 
 This page lists all released versions of the eMarket platform with release dates and key changes. For the Flutter, Kotlin, AGP, Gradle and JDK versions each release needs, see the [Version Compatibility Table](./version-compatibility.md).
 
+## Version 4.0.3 - 3 November 2026
+
+- <span class="label label-added">ADDED</span> Food item customisation directly from Quick View (Website)
+- <span class="label label-updated">UPDATED</span> Laravel upgraded to version 13 (Admin Panel)
+- <span class="label label-updated">UPDATED</span> Vue upgraded to version 3 and Vue Router to version 5.4.0 (Admin Panel)
+- <span class="label label-updated">UPDATED</span> Front-end build system migrated from Laravel Mix to Vite (Admin Panel)
+- <span class="label label-updated">UPDATED</span> Flutter upgraded to version 3.47.8 (Customer App, Partner App)
+- <span class="label label-updated">UPDATED</span> Kotlin upgraded to version 2.4.0 and Android Gradle Plugin to version 9.1.0 (Partner App)
+- <span class="label label-updated">UPDATED</span> Major dependencies upgraded, including Bootstrap 5.3, jQuery 4.0.0, Font Awesome 7.3.1, Firebase 13, ApexCharts 8.5.0, and DataTables 3.1.4 (Admin Panel)
+- <span class="label label-improved">IMPROVED</span> Faster product browsing with instant Quick View and customisation access (Website)
+- <span class="label label-improved">IMPROVED</span> Guest shopping experience with cart access without mandatory login (Customer App)
+- <span class="label label-improved">IMPROVED</span> Razorpay payment verification for orders, wallet top-ups, and subscriptions (Customer App)
+- <span class="label label-improved">IMPROVED</span> Android app performance through release build optimisation (Customer App, Partner App)
+- <span class="label label-improved">IMPROVED</span> Server-side pagination across all APIs, loading one page at a time to improve performance and reduce memory usage on large datasets (Backend)
+- <span class="label label-improved">IMPROVED</span> Added "Per Page" dropdown to remaining paginated listing pages, allowing users to choose the number of rows displayed (Admin Panel)
+- <span class="label label-fixed">FIXED</span> Product display and cart issues when switching between modules (Website)
+- <span class="label label-fixed">FIXED</span> Checkout delivery and pickup options not updating correctly after cart changes (Customer App)
+- <span class="label label-fixed">FIXED</span> UI issues across Admin, Seller, and Delivery Boy panels (Admin Panel)
+- <span class="label label-fixed">SECURITY</span> Strengthened route protection across the system (Backend)
+
 ## Version 4.0.2 - 22 October 2026
 
 - <span class="label label-major">IMPORTANT</span> Before updating, put the site in maintenance mode if possible and take a full backup of your files and database.
