@@ -2,7 +2,7 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
-const RELEASE = { version: "4.0.2", date: "22 Oct 2026" };
+const RELEASE = { version: "4.0.3", date: "22 Oct 2026" };
 
 const ITEMS = [
   { emoji: "📍", title: "Live Delivery Tracking", text: "Customers watch the delivery boy move on the map in real time, along the road route." },

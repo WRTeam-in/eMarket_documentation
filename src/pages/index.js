@@ -28,7 +28,7 @@ function HomepageHeader() {
       <div className="container">
         <Link to="/docs/changelog/version-history" className={styles.releasePill}>
           <span className={styles.dot} aria-hidden="true" />
-          v4.0.2 is out — see what's new
+          v4.0.3 is out — see what's new
         </Link>
         <Heading as="h1" className={styles.title}>
           {siteConfig.title}

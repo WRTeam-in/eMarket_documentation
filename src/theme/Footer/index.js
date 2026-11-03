@@ -145,7 +145,7 @@ export default function Footer() {
             </Link>
             <Link to="/docs/changelog/version-history" className={styles.releasePill}>
               <span className={styles.pulse} aria-hidden="true" />
-              v4.0.2 is out · See what's new
+              v4.0.3 is out · See what's new
             </Link>
             <p className={styles.brandText}>
               Multi-vendor, multi-module commerce for Grocery, Pharmacy, Food, and eCommerce, with
