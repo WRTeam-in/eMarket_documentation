@@ -66,12 +66,6 @@ Verity of options available for payments, just follow the below steps to configu
 4. Paste all Paystack Credentials here. (System -> Payment Methods)
    ![Paystack](/img/admin-panel/paystack.webp)
 
-## Paytm
-
-1. Go to [https://dashboard.paytm.com/](https://dashboard.paytm.com/) and sign in with your Paytm account either with credentials or with QR code
-   ![Paytm Login](/img/admin-panel/paytm-login.webp)
-2. Active account if not active
-
 ## DPO 
 1. Go to DPO Pay Portal [https://dpogroup.com/] and sign in with your DPO Pay merchant account.
 2. After login, open your merchant dashboard.
