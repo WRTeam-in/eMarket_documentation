@@ -7,19 +7,17 @@ sidebar_position: 12
 here payment gateways list.
 
 - Cash on Delivery (COD)
+- Stripe
 - PayPal
-- PayUmoney
 - Razorpay
 - Paystack
-- Flutterwave
-- Stripe
-- SSLCommerz (ssl_commerce)
-- Direct Bank Transfer (manual, not a gateway API)
 - Midtrans
-- PhonePe (phonepay)
-- Cashfree
+- PhonePe
 - PayTabs
+- Cashfree
 - DPO
+- Bank Transfer
+- Wallet
 
 here payment method details.
 
