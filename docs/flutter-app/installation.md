@@ -12,11 +12,11 @@ Follow that guide first, then return here for the eMarket-specific versions and 
 
 ## Required Versions
 
-The common guide installs the latest Flutter and JDK. eMarket **4.0.2** is built and tested against these specific versions:
+The common guide installs the latest Flutter and JDK. eMarket **4.0.3** is built and tested against these specific versions:
 
 | Component | Version |
 | --------- | ------- |
-| Flutter | 3.47.2 |
+| Flutter | 3.47.8 |
 | JDK | 25 |
 | Kotlin | 2.4.0 |
 | AGP | 9.1.0 |
